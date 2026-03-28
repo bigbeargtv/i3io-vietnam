@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I3IO - Kem đánh răng Y khoa từ Orion Biologics. Công nghệ Selcopintide® tái tạo dentin tự nhiên.">
+    <meta name="keywords" content="kem đánh răng, chăm sóc răng, kỹ thuật sinh học, I3IO, Orion">
+    <title>I3IO - Kem Đánh Răng Y Khoa | Orion Biologics</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #333333;
+            --primary-red: #E31E24;
+            --accent-gold: #D4AF77;
+            --accent-orange: #FF6B35;
+            --accent-pink: #E94B8C;
+            --accent-teal: #16A39C;
+            --text-dark: #2c3e50;
+            --text-light: #555555;
+            --bg-light: #f8f9fa;
+            --border-light: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        a {
+            color: var(--primary-red);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--text-dark);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span:first-child {
+            color: var(--primary-dark);
+        }
+
+        .logo-i3 {
+            color: var(--primary-dark);
+            font-size: 1.6rem;
+        }
+
+        .logo-i3 sup {
+            color: var(--primary-red);
+            font-size: 0.9rem;
+            font-weight: 800;
+        }
+
+        .logo-orion {
+            font-size: 0.65rem;
+            color: var(--text-light);
+            font-weight: 400;
+            letter-spacing: 1px;
+            line-height: 1;
+            margin-top: 0.3rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-red);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(227, 30, 36, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 60px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f0f0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(227, 30, 36, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1400px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .hero-text h1 .highlight {
+            color: var(--primary-red);
+        }
+
+        .hero-tagline {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--primary-red);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(227, 30, 36, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-red);
+            border: 2px solid var(--primary-red);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-red);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-visual {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-tube {
+            width: 120px;
+            height: 200px;
+            background: linear-gradient(135deg, #E31E24 0%, #C41A1E 50%, #8B1418 100%);
+            border-radius: 10px 10px 50% 50%;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .product-tube::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 30px;
+            background: linear-gradient(135deg, #D4AF77 0%, #A68D5B 100%);
+            border-radius: 50% 50% 0 0;
+            box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-tube::after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 8px;
+            background: #888888;
+            border-radius: 50%;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        /* Why Choose I3IO */
+        .why-choose {
+            background: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-red);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Technology Section */
+        .technology {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #2a2a2a 100%);
+            color: var(--white);
+        }
+
+        .technology .section-title {
+            color: var(--white);
+        }
+
+        .technology .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .tech-content h3 {
+            color: var(--primary-red);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-point {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tech-point:last-child {
+            border-bottom: none;
+        }
+
+        .tech-point h4 {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-point p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+
+        .selcopintide-visual {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .selcopintide-visual h4 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .peptide-formula {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--primary-red);
+            margin: 1rem 0;
+            line-height: 1.8;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        /* Products Section */
+        .products {
+            background: var(--bg-light);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--primary-red);
+        }
+
+        .product-card.gum { border-top-color: var(--accent-pink); }
+        .product-card.whitening { border-top-color: var(--accent-teal); }
+        .product-card.kids { border-top-color: #FF9800; }
+        .product-card.sensitive { border-top-color: var(--accent-orange); }
+        .product-card.brush { border-top-color: var(--accent-gold); }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(135deg, #f0f0f0 0%, #ffffff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent);
+            top: -50%;
+            right: -50%;
+        }
+
+        .product-tube-small {
+            width: 80px;
+            height: 140px;
+            border-radius: 8px 8px 35% 35%;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .product-card.sensitive .product-tube-small {
+            background: linear-gradient(135deg, var(--accent-orange) 0%, #FF5722 100%);
+        }
+
+        .product-card.gum .product-tube-small {
+            background: linear-gradient(135deg, var(--accent-pink) 0%, #E91E8C 100%);
+        }
+
+        .product-card.whitening .product-tube-small {
+            background: linear-gradient(135deg, var(--accent-teal) 0%, #0D9986 100%);
+        }
+
+        .product-card.kids .product-tube-small {
+            background: linear-gradient(135deg, #FF9800 0%, #FFB74D 100%);
+        }
+
+        .product-card.brush .product-tube-small {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #B8860B 100%);
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        .product-claim {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-features li {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .product-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-red);
+            font-weight: bold;
+        }
+
+        .product-details {
+            font-size: 0.85rem;
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 8px;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-details strong {
+            color: var(--primary-dark);
+        }
+
+        .product-card-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-small {
+            flex: 1;
+            padding: 0.7rem 1rem;
+            font-size: 0.9rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-detail {
+            background: var(--bg-light);
+            color: var(--primary-red);
+            border: 2px solid var(--primary-red);
+        }
+
+        .btn-detail:hover {
+            background: var(--primary-red);
+            color: var(--white);
+        }
+
+        .btn-cart {
+            background: var(--primary-red);
+            color: var(--white);
+        }
+
+        .btn-cart:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(227, 30, 36, 0.3);
+        }
+
+        /* Comparison Section */
+        .comparison {
+            background: var(--white);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .comparison-table thead {
+            background: var(--primary-dark);
+            color: var(--white);
+        }
+
+        .comparison-table th {
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .comparison-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .comparison-table tbody tr:hover {
+            background: var(--bg-light);
+        }
+
+        .comparison-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check {
+            color: #27AE60;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .x {
+            color: #E74C3C;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .i3io-highlight {
+            background: rgba(227, 30, 36, 0.1);
+            font-weight: 600;
+            color: var(--primary-red);
+        }
+
+        /* Certifications Section */
+        .certifications {
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--white) 100%);
+        }
+
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 2px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            border-color: var(--primary-red);
+            box-shadow: 0 10px 30px rgba(227, 30, 36, 0.2);
+        }
+
+        .cert-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cert-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Order Section */
+        .order {
+            background: var(--white);
+        }
+
+        .order-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .order-form-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid var(--border-light);
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-red);
+            box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-red);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkout-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(227, 30, 36, 0.3);
+        }
+
+        .checkout-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .cart-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+        }
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cart-item {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 1rem;
+            align-items: center;
+            border-left: 4px solid var(--primary-red);
+        }
+
+        .cart-item-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--primary-dark);
+        }
+
+        .cart-item-price {
+            font-size: 1.2rem;
+            color: var(--primary-red);
+            font-weight: 700;
+        }
+
+        .quantity-control {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--border-light);
+            background: var(--white);
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        .quantity-btn:hover {
+            background: var(--primary-red);
+            color: var(--white);
+            border-color: var(--primary-red);
+        }
+
+        .remove-btn {
+            background: transparent;
+            color: #E74C3C;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .remove-btn:hover {
+            background: #E74C3C;
+            color: var(--white);
+        }
+
+        .cart-summary {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            border: 2px solid var(--border-light);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .summary-row.total {
+            border-top: 2px solid var(--border-light);
+            padding-top: 1rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-red);
+        }
+
+        .product-quantity-input {
+            width: 70px;
+            padding: 0.5rem;
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .product-quantity-input:focus {
+            outline: none;
+            border-color: var(--primary-red);
+        }
+
+        .success-message {
+            display: none;
+            background: #27AE60;
+            color: var(--white);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-red);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            border-color: var(--primary-red);
+            background: var(--primary-red);
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Floating Contact Button */
+        .floating-contact {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            gap: 1rem;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .contact-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            color: var(--white);
+        }
+
+        .contact-btn.whatsapp {
+            background: #25D366;
+        }
+
+        .contact-btn.whatsapp:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .contact-btn.zalo {
+            background: #0084FF;
+        }
+
+        .contact-btn.zalo:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 25px rgba(0, 132, 255, 0.4);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                gap: 0.5rem;
+                font-size: 0.85rem;
+            }
+
+            nav a {
+                display: none;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .order-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cart-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero::before {
+                width: 300px;
+                height: 300px;
+            }
+
+            .floating-contact {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .contact-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Smooth Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <div style="display: flex; flex-direction: column; gap: 0;">
+                    <div style="display: flex; gap: 0.3rem; align-items: center;">
+                        <span class="logo-i3">I<sup>3</sup>IO</span>
+                    </div>
+                    <div class="logo-orion">BY ORION</div>
+                </div>
+            </div>
+            <nav>
+                <a href="#why">Tại Sao Chọn I3IO</a>
+                <a href="#technology">Công Nghệ</a>
+                <a href="#products">Sản Phẩm</a>
+                <a href="#comparison">So Sánh</a>
+                <a href="#order">Đặt Hàng</a>
+                <a href="#order" class="nav-cta">ĐẶT HÀNG NGAY</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Kem Đánh Răng <span class="highlight">Y Khoa</span> Cho Sử Dụng Hàng Ngày</h1>
+                <p class="hero-tagline">Từ Chăm Sóc Đến Chữa Trị</p>
+                <p class="hero-description">
+                    I3IO là kem đánh răng đột phá từ Orion Biologics với công nghệ Selcopintide® - peptide đầu tiên thế giới tái tạo dentin tự nhiên. Không chỉ làm giảm đau nhạy, mà I3IO chữa trị từ gốc.
+                </p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'})">
+                        ĐẶT HÀNG NGAY
+                    </button>
+                    <button class="btn btn-secondary" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
+                        XEM SẢN PHẨM
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="product-visual">
+                    <div class="product-tube">
+                        <div class="product-label">I³IO</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose I3IO Section -->
+    <section class="why-choose" id="why">
+        <h2 class="section-title">Vì Sao Chọn I3IO?</h2>
+        <p class="section-subtitle">Khác biệt rõ ràng so với các thương hiệu khác</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚕️</div>
+                <h3>Phương Pháp Y Khoa</h3>
+                <p>Được phát triển bởi các chuyên gia hàng đầu thế giới, I3IO sử dụng công nghệ peptide tiên tiến nhất hiện nay.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔬</div>
+                <h3>Công Nghệ Selcopintide®</h3>
+                <p>Peptide độc quyền tái tạo dentin tự nhiên - giải pháp gốc thay vì chỉ che phủ triệu chứng.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3>Ba Bước - Ba Lợi Ích</h3>
+                <p>Phòng ngừa, giảm nhẹ và chữa trị - không cần sử dụng nhiều sản phẩm khác nhau.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3>Được Công Nhận Quốc Tế</h3>
+                <p>Giành giải K-Hero Project, ADA Forsyth Dentech Award, được các giáo sư hàng đầu thế giới ủng hộ.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology" id="technology">
+        <h2 class="section-title">Công Nghệ Đột Phá</h2>
+        <p class="section-subtitle">Selcopintide® - Thế Hệ Mới Của Chăm Sóc Răng</p>
+
+        <div class="tech-grid">
+            <div class="tech-content">
+                <h3>Từ Chăm Sóc Đến Chữa Trị</h3>
+                <p style="margin-bottom: 2rem; line-height: 1.8;">
+                    Các kem đánh răng thông thường chỉ che phủ triệu chứng - một cách tiếp cận "dán băng". I3IO khác biệt hoàn toàn. Chúng tôi chữa trị từ gốc bằng cách tái tạo dentin tự nhiên.
+                </p>
+
+                <div class="tech-point">
+                    <h4>🛡️ Tái Tạo Dentin</h4>
+                    <p>Selcopintide® kích thích cơ thể tái tạo dentin mới, phục hồi bảo vệ tự nhiên của răng.</p>
+                </div>
+
+                <div class="tech-point">
+                    <h4>🌿 Thảo Dược Được Sử Dụng Trong Y Khoa</h4>
+                    <p>Chiết xuất từ Centella Asiatica, Chamomile, Scutellaria, Magnolia - những loại thảo dược được sử dụng trong y khoa cổ truyền Đông Á trong hàng ngàn năm.</p>
+                </div>
+
+                <div class="tech-point">
+                    <h4>📊 Kết Quả Được Chứng Minh</h4>
+                    <p>Giảm đau nhạy 24.6% (so với tiêu chuẩn phê duyệt 15% và 16.5% của các đối thủ). Được xác minh bởi các phòng thí nghiệm hàng đầu thế giới.</p>
+                </div>
+            </div>
+
+            <div class="selcopintide-visual">
+                <h4>Selcopintide® Peptide</h4>
+                <p style="font-size: 0.95rem; margin-bottom: 1rem; color: rgba(255, 255, 255, 0.8);">Một peptide độc quyền được thiết kế đặc biệt</p>
+                <div class="peptide-formula">
+                    [Peptide Tái Tạo Dentin]<br>
+                    ↓<br>
+                    Kích Hoạt Tế Bào Odontoblast<br>
+                    ↓<br>
+                    Tái Tạo Dentin Mới<br>
+                    ↓<br>
+                    Hạn Chế Đau Nhạy (Lâu Dài)
+                </div>
+                <p style="font-size: 0.9rem; color: var(--accent-gold); margin-top: 1rem; font-weight: 600;">Khác Biệt Hoàn Toàn So Với Sensodyne & Các Sản Phẩm Khác</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <h2 class="section-title">Sản Phẩm I3IO</h2>
+        <p class="section-subtitle">Một Dòng Sản Phẩm Hoàn Chỉnh Cho Mọi Nhu Cầu</p>
+
+        <div class="products-grid">
+            <!-- Sensitive Care -->
+            <div class="product-card sensitive">
+                <div class="product-image">
+                    <div class="product-tube-small"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Chăm Sóc Nhạy Cảm</div>
+                    <p class="product-claim">Tái Tạo Dentin - Loại Bỏ Đau Nhạy</p>
+                    <ul class="product-features">
+                        <li>Selcopintide® tái tạo dentin</li>
+                        <li>Giảm đau 24.6%</li>
+                        <li>Chamomile, Centella</li>
+                        <li>21 thành phần Y khoa</li>
+                    </ul>
+                    <div class="product-details">
+                        <strong>Dành cho:</strong> Những ai có răng nhạy cảm<br>
+                        <strong>Lợi ích:</strong> Giảm đau lâu dài, chữa trị từ gốc
+                    </div>
+                    <div class="product-card-actions">
+                        <button class="btn-small btn-detail" onclick="showProductDetail('sensitive')">Chi Tiết</button>
+                        <button class="btn-small btn-cart" onclick="addToCart('Sensitive Care', 95000, 'sensitive')">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gum Care -->
+            <div class="product-card gum">
+                <div class="product-image">
+                    <div class="product-tube-small"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Chăm Sóc Nướu</div>
+                    <p class="product-claim">Chống Viêm - Tái Tạo Nướu</p>
+                    <ul class="product-features">
+                        <li>Tác dụng trực tiếp ba chiều</li>
+                        <li>Chống viêm mạnh</li>
+                        <li>Chamomile, Centella, Enoxolone</li>
+                        <li>22 thành phần Y khoa</li>
+                    </ul>
+                    <div class="product-details">
+                        <strong>Dành cho:</strong> Người chảy máu chân răng, viêm nướu<br>
+                        <strong>Lợi ích:</strong> Tái tạo nướu, chống viêm, chữa trị
+                    </div>
+                    <div class="product-card-actions">
+                        <button class="btn-small btn-detail" onclick="showProductDetail('gum')">Chi Tiết</button>
+                        <button class="btn-small btn-cart" onclick="addToCart('Gum Care', 95000, 'gum')">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Whitening -->
+            <div class="product-card whitening">
+                <div class="product-image">
+                    <div class="product-tube-small"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Làm Trắng Hàng Ngày</div>
+                    <p class="product-claim">Quy Trình 3 Bước - An Toàn Hàng Ngày</p>
+                    <ul class="product-features">
+                        <li>Loại bỏ vết bẩn - Đánh bóng - Ngăn lại</li>
+                        <li>SHMP, HAP, Sodium Baking Soda</li>
+                        <li>Không làm mòn men răng</li>
+                        <li>An toàn cho sử dụng lâu dài</li>
+                    </ul>
+                    <div class="product-details">
+                        <strong>Dành cho:</strong> Muốn răng trắng sáng tự nhiên<br>
+                        <strong>Lợi ích:</strong> Trắng, bóng, bảo vệ lâu dài
+                    </div>
+                    <div class="product-card-actions">
+                        <button class="btn-small btn-detail" onclick="showProductDetail('whitening')">Chi Tiết</button>
+                        <button class="btn-small btn-cart" onclick="addToCart('Whitening', 95000, 'whitening')">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kids -->
+            <div class="product-card kids">
+                <div class="product-image">
+                    <div class="product-tube-small"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Kem Đánh Răng Trẻ Em</div>
+                    <p class="product-claim">Nguyên Liệu Thiên Nhiên - Thơm Ngon</p>
+                    <ul class="product-features">
+                        <li>Không chứa SLS hóa chất</li>
+                        <li>Không có chất tô màu</li>
+                        <li>Fluor cao để bảo vệ</li>
+                        <li>Tuổi 4-9: Vanilla Dâu & Socola Chuối</li>
+                    </ul>
+                    <div class="product-details">
+                        <strong>Dành cho:</strong> Trẻ em từ 4-9 tuổi<br>
+                        <strong>Lợi ích:</strong> Bảo vệ toàn diện, an toàn, hương vị ngon
+                    </div>
+                    <div class="product-card-actions">
+                        <button class="btn-small btn-detail" onclick="showProductDetail('kids')">Chi Tiết</button>
+                        <button class="btn-small btn-cart" onclick="addToCart('Kids Care', 85000, 'kids')">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Toothbrush -->
+            <div class="product-card brush">
+                <div class="product-image">
+                    <div class="product-tube-small"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Bàn Chải I3IO</div>
+                    <p class="product-claim">Thiết Kế Theo Khoa Học - 3 Biến Thể</p>
+                    <ul class="product-features">
+                        <li>Bàn chải lông mềm độc quyền</li>
+                        <li>Thiết kế ergonomic</li>
+                        <li>3 biến thể: Bình thường, Mềm, Cứng</li>
+                        <li>Tương thích hoàn hảo với kem I3IO</li>
+                    </ul>
+                    <div class="product-details">
+                        <strong>Dành cho:</strong> Mọi người sử dụng kem I3IO<br>
+                        <strong>Lợi ích:</strong> Vệ sinh tối ưu, thiết kế hiện đại
+                    </div>
+                    <div class="product-card-actions">
+                        <button class="btn-small btn-detail" onclick="showProductDetail('brush')">Chi Tiết</button>
+                        <button class="btn-small btn-cart" onclick="addToCart('Toothbrush I3IO', 75000, 'brush')">Thêm Vào Giỏ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison" id="comparison">
+        <h2 class="section-title">So Sánh Vượt Trội</h2>
+        <p class="section-subtitle">I3IO vs Các Thương Hiệu Hàng Đầu Thế Giới</p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Tính Năng</th>
+                    <th class="i3io-highlight">I3IO</th>
+                    <th>Sensodyne</th>
+                    <th>Parodontax</th>
+                    <th>Colgate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Tái Tạo Dentin</strong></td>
+                    <td class="i3io-highlight"><span class="check">✓</span></td>
+                    <td><span class="x">✗</span></td>
+                    <td><span class="x">✗</span></td>
+                    <td><span class="x">✗</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Giảm Đau Nhạy</strong></td>
+                    <td class="i3io-highlight">24.6%</td>
+                    <td>16.5%</td>
+                    <td>18%</td>
+                    <td>15%</td>
+                </tr>
+                <tr>
+                    <td><strong>Công Nghệ Peptide</strong></td>
+                    <td class="i3io-highlight"><span class="check">✓ Selcopintide®</span></td>
+                    <td><span class="x">✗</span></td>
+                    <td><span class="x">✗</span></td>
+                    <td><span class="x">✗</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Chống Viêm Nướu</strong></td>
+                    <td class="i3io-highlight"><span class="check">✓ Trực Tiếp</span></td>
+                    <td><span class="x">✗</span></td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="check">✓</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Thảo Dược Y Khoa</strong></td>
+                    <td class="i3io-highlight"><span class="check">✓ 5+ loại</span></td>
+                    <td><span class="x">✗</span></td>
+                    <td><span class="check">✓ 3 loại</span></td>
+                    <td><span class="x">✗</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Làm Trắng An Toàn</strong></td>
+                    <td class="i3io-highlight"><span class="check">✓ Quy Trình 3 Bước</span></td>
+                    <td><span class="x">✗</span></td>
+                    <td><span class="x">✗</span></td>
+                    <td><span class="check">✓</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Được Sử Dụng Lâu Dài</strong></td>
+                    <td class="i3io-highlight"><span class="check">✓ Y Khoa</span></td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="check">✓</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Giải Thưởng Quốc Tế</strong></td>
+                    <td class="i3io-highlight"><span class="check">✓ K-Hero, ADA</span></td>
+                    <td><span class="x">✗</span></td>
+                    <td><span class="x">✗</span></td>
+                    <td><span class="check">✓</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications">
+        <h2 class="section-title">Chứng Nhận & Giải Thưởng</h2>
+        <p class="section-subtitle">Công Nhận Từ Các Tổ Chức Y Khoa Hàng Đầu Thế Giới</p>
+
+        <div class="certs-grid">
+            <div class="cert-card">
+                <div class="cert-icon">🏆</div>
+                <h3>K-Hero Project Winner</h3>
+                <p>Giành giải từ Bộ Khoa Học và Công Nghệ Hàn Quốc cho sự đổi mới trong sinh công nghệ y tế.</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">🎖️</div>
+                <h3>ADA Forsyth Dentech 2025</h3>
+                <p>Giải thưởng "Best Innovation" từ Hiệp hội Nha Khoa Quốc Tế cho công nghệ Selcopintide®.</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">👨‍🔬</div>
+                <h3>Được GS. Hubert Newman Ủng Hộ</h3>
+                <p>Được giáo sư hàng đầu thế giới về nha khoa tại Đại học London (UCL) ủng hộ và nhận chứng thực.</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">🏥</div>
+                <h3>Thử Nghiệm Lâm Sàng Việt Nam</h3>
+                <p>Được thử nghiệm và xác minh tại Đại học Quốc Gia Hà Nội với các kết quả tích cực.</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">🔬</div>
+                <h3>Công Thức Y Khoa</h3>
+                <p>Được phát triển dựa trên 20+ năm nghiên cứu và phát triển trong sinh công nghệ.</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">🇰🇷</div>
+                <h3>Từ Orion Biologics</h3>
+                <p>Từ công ty con của Tập đoàn Orion - một trong những công ty dược lớn nhất Hàn Quốc.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section class="order" id="order">
+        <h2 class="section-title">Đặt Hàng Ngay</h2>
+        <p class="section-subtitle">Sẵn Sàng Giao Hàng Toàn Thành Phố Hà Nội & TP Hồ Chí Minh</p>
+
+        <div class="order-container">
+            <!-- Order Form -->
+            <div class="order-form-section">
+                <h3>Thông Tin Giao Hàng</h3>
+
+                <div id="successMessage" class="success-message"></div>
+
+                <div class="form-group">
+                    <label for="name">Họ Và Tên *</label>
+                    <input type="text" id="name" placeholder="Nhập họ và tên" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Số Điện Thoại *</label>
+                    <input type="tel" id="phone" placeholder="0912 345 678" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Địa Chỉ Giao Hàng *</label>
+                    <textarea id="address" placeholder="Nhập địa chỉ chi tiết" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Ghi Chú</label>
+                    <textarea id="notes" placeholder="Ghi chú thêm (tùy chọn)"></textarea>
+                </div>
+
+                <button class="checkout-btn" onclick="submitOrder()">HOÀN TẤT ĐẶT HÀNG</button>
+            </div>
+
+            <!-- Cart Summary -->
+            <div class="cart-section">
+                <h3>Giỏ Hàng Của Bạn</h3>
+
+                <div id="cartContainer">
+                    <div class="cart-empty">
+                        <p>Giỏ hàng trống. Chọn sản phẩm ở trên để bắt đầu!</p>
+                    </div>
+                </div>
+
+                <div id="cartSummary" style="display: none;">
+                    <div class="cart-summary">
+                        <div class="summary-row">
+                            <span>Tạm Tính:</span>
+                            <span id="subtotalPrice">0₫</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Phí Giao Hàng:</span>
+                            <span id="shippingPrice">0₫</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Tổng Cộng:</span>
+                            <span id="totalPrice">0₫</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Về I3IO</h4>
+                <ul>
+                    <li><a href="#why">Tại Sao Chọn I3IO</a></li>
+                    <li><a href="#technology">Công Nghệ Selcopintide®</a></li>
+                    <li><a href="#products">Sản Phẩm</a></li>
+                    <li><a href="#comparison">So Sánh</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Hỗ Trợ Khách Hàng</h4>
+                <ul>
+                    <li><a href="tel:+84905000000">Gọi: +84 (0) 905 000 000</a></li>
+                    <li><a href="mailto:support@i3io.vn">Email: support@i3io.vn</a></li>
+                    <li><a href="#">Chính Sách Bảo Hành</a></li>
+                    <li><a href="#">Hướng Dẫn Sử Dụng</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Kết Nối Với Chúng Tôi</h4>
+                <p style="margin-bottom: 1rem; font-size: 0.9rem;">Theo dõi I3IO trên mạng xã hội để cập nhật tin tức mới nhất.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com" title="Facebook">f</a>
+                    <a href="https://instagram.com" title="Instagram">📷</a>
+                    <a href="https://tiktok.com" title="TikTok">♪</a>
+                    <a href="https://youtube.com" title="YouTube">▶</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Orion Biologics</h4>
+                <p style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.7);">
+                    I3IO là một sản phẩm từ Orion Biologics, công ty con của Tập đoàn Orion - một trong những công ty dược lớn nhất Hàn Quốc.
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 I3IO by Orion Biologics. All Rights Reserved. | <a href="#" style="color: rgba(255, 255, 255, 0.6);">Chính Sách Riêng Tư</a> | <a href="#" style="color: rgba(255, 255, 255, 0.6);">Điều Khoản Sử Dụng</a></p>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Buttons -->
+    <div class="floating-contact">
+        <button class="contact-btn whatsapp" onclick="window.open('https://wa.me/84905000000', '_blank')" title="WhatsApp">💬</button>
+        <button class="contact-btn zalo" onclick="window.open('https://zalo.me/84905000000', '_blank')" title="Zalo">Z</button>
+    </div>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "I3IO by Orion Biologics",
+        "url": "https://i3io.vn",
+        "logo": "https://i3io.vn/logo.png",
+        "description": "Kem đánh răng Y khoa từ Orion Biologics với công nghệ Selcopintide® tái tạo dentin",
+        "sameAs": [
+            "https://facebook.com/i3io.vn",
+            "https://instagram.com/i3io.vn"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Service",
+            "telephone": "+84-905-000-000",
+            "email": "support@i3io.vn"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "I3IO Toothpaste",
+        "description": "Kem đánh răng Y khoa với công nghệ Selcopintide® tái tạo dentin",
+        "brand": {
+            "@type": "Brand",
+            "name": "Orion Biologics"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "250"
+        }
+    }
+    </script>
+
+    <!-- Cart Management Script -->
+    <script>
+        // In-memory cart storage
+        let cart = [];
+        const SHIPPING_COST = 30000; // 30,000 VND for delivery
+
+        function addToCart(productName, price, productType) {
+            // Check if product already exists in cart
+            const existingItem = cart.find(item => item.name === productName);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: productName,
+                    price: price,
+                    quantity: 1,
+                    type: productType
+                });
+            }
+
+            updateCart();
+            showNotification('Đã thêm ' + productName + ' vào giỏ hàng!');
+        }
+
+        function removeFromCart(productName) {
+            cart = cart.filter(item => item.name !== productName);
+            updateCart();
+        }
+
+        function updateQuantity(productName, newQuantity) {
+            if (newQuantity < 1) {
+                removeFromCart(productName);
+                return;
+            }
+
+            const item = cart.find(item => item.name === productName);
+            if (item) {
+                item.quantity = newQuantity;
+                updateCart();
+            }
+        }
+
+        function updateCart() {
+            const cartContainer = document.getElementById('cartContainer');
+            const cartSummary = document.getElementById('cartSummary');
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<div class="cart-empty"><p>Giỏ hàng trống. Chọn sản phẩm ở trên để bắt đầu!</p></div>';
+                cartSummary.style.display = 'none';
+                return;
+            }
+
+            let cartHTML = '<div class="cart-items">';
+            let subtotal = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+
+                cartHTML += `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <div class="cart-item-price">${item.price.toLocaleString('vi-VN')}₫ / cái</div>
+                        </div>
+                        <div class="quantity-control">
+                            <button class="quantity-btn" onclick="updateQuantity('${item.name}', ${item.quantity - 1})">−</button>
+                            <input type="number" class="product-quantity-input" value="${item.quantity}" min="1" max="99" onchange="updateQuantity('${item.name}', parseInt(this.value))">
+                            <button class="quantity-btn" onclick="updateQuantity('${item.name}', ${item.quantity + 1})">+</button>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="color: var(--primary-red); font-weight: 700; margin-bottom: 0.5rem;">${itemTotal.toLocaleString('vi-VN')}₫</div>
+                            <button class="remove-btn" onclick="removeFromCart('${item.name}')">Xóa</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartHTML += '</div>';
+            cartContainer.innerHTML = cartHTML;
+
+            // Update summary
+            const total = subtotal + SHIPPING_COST;
+            document.getElementById('subtotalPrice').textContent = subtotal.toLocaleString('vi-VN') + '₫';
+            document.getElementById('shippingPrice').textContent = SHIPPING_COST.toLocaleString('vi-VN') + '₫';
+            document.getElementById('totalPrice').textContent = total.toLocaleString('vi-VN') + '₫';
+
+            cartSummary.style.display = 'block';
+        }
+
+        function submitOrder() {
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const notes = document.getElementById('notes').value.trim();
+
+            // Validation
+            if (!name) {
+                alert('Vui lòng nhập họ và tên');
+                document.getElementById('name').focus();
+                return;
+            }
+
+            if (!phone) {
+                alert('Vui lòng nhập số điện thoại');
+                document.getElementById('phone').focus();
+                return;
+            }
+
+            if (!address) {
+                alert('Vui lòng nhập địa chỉ giao hàng');
+                document.getElementById('address').focus();
+                return;
+            }
+
+            if (cart.length === 0) {
+                alert('Vui lòng chọn ít nhất một sản phẩm');
+                return;
+            }
+
+            // Calculate total
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const total = subtotal + SHIPPING_COST;
+
+            // Build order details
+            let orderDetails = 'THÔNG TIN ĐẶT HÀNG I3IO\n\n';
+            orderDetails += '=== KHÁCH HÀNG ===\n';
+            orderDetails += `Tên: ${name}\n`;
+            orderDetails += `Điện thoại: ${phone}\n`;
+            if (email) orderDetails += `Email: ${email}\n`;
+            orderDetails += `Địa chỉ: ${address}\n`;
+            if (notes) orderDetails += `Ghi chú: ${notes}\n`;
+
+            orderDetails += '\n=== SẢN PHẨM ===\n';
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                orderDetails += `${index + 1}. ${item.name}\n`;
+                orderDetails += `   Giá: ${item.price.toLocaleString('vi-VN')}₫ × ${item.quantity} = ${itemTotal.toLocaleString('vi-VN')}₫\n`;
+            });
+
+            orderDetails += '\n=== THANH TOÁN ===\n';
+            orderDetails += `Tạm tính: ${subtotal.toLocaleString('vi-VN')}₫\n`;
+            orderDetails += `Phí giao hàng: ${SHIPPING_COST.toLocaleString('vi-VN')}₫\n`;
+            orderDetails += `TỔNG CỘNG: ${total.toLocaleString('vi-VN')}₫\n`;
+
+            // Send via WhatsApp
+            const whatsappMessage = encodeURIComponent(orderDetails);
+            window.open(`https://wa.me/84905000000?text=${whatsappMessage}`, '_blank');
+
+            // Show success message
+            showOrderSuccess();
+
+            // Reset form and cart after brief delay
+            setTimeout(() => {
+                clearForm();
+            }, 500);
+        }
+
+        function showOrderSuccess() {
+            const successMsg = document.getElementById('successMessage');
+            successMsg.textContent = '✓ Đơn hàng của bạn đã được gửi! Chúng tôi sẽ liên hệ lại trong vòng 2 giờ.';
+            successMsg.classList.add('show');
+
+            setTimeout(() => {
+                successMsg.classList.remove('show');
+            }, 5000);
+        }
+
+        function clearForm() {
+            document.getElementById('name').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('address').value = '';
+            document.getElementById('notes').value = '';
+            cart = [];
+            updateCart();
+        }
+
+        function showNotification(message) {
+            // Create temporary notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: #27AE60;
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        function showProductDetail(productType) {
+            const details = {
+                sensitive: {
+                    name: 'Chăm Sóc Nhạy Cảm',
+                    description: 'Dùng cho những ai có răng nhạy cảm. Selcopintide® tái tạo dentin, giảm đau lâu dài thay vì che phủ triệu chứng.'
+                },
+                gum: {
+                    name: 'Chăm Sóc Nướu',
+                    description: 'Tác dụng trực tiếp ba chiều: chống viêm + cải thiện nướu + tái tạo nướu. Dành cho người chảy máu chân răng.'
+                },
+                whitening: {
+                    name: 'Làm Trắng Hàng Ngày',
+                    description: 'Quy trình 3 bước: loại bỏ vết bẩn, đánh bóng, và ngăn chặn tái tạo. An toàn cho sử dụng lâu dài mà không làm mòn men răng.'
+                },
+                kids: {
+                    name: 'Kem Đánh Răng Trẻ Em',
+                    description: 'Không SLS, không chất tô màu, fluor cao, hương vị ngon (Vanilla Dâu & Socola Chuối). Dành cho trẻ em 4-9 tuổi.'
+                },
+                brush: {
+                    name: 'Bàn Chải I3IO',
+                    description: 'Thiết kế ergonomic với lông chải mềm độc quyền. 3 biến thể: Bình thường, Mềm, Cứng. Tương thích hoàn hảo với kem I3IO.'
+                }
+            };
+
+            const product = details[productType];
+            alert(`${product.name}\n\n${product.description}`);
+        }
+
+        // Initialize cart display on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCart();
+        });
+
+        // Add smooth scroll behavior for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Add fade-in animation to sections on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
