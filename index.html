@@ -7,7 +7,7 @@
     <meta name="keywords" content="kem đánh răng, chăm sóc răng, kỹ thuật sinh học, I3IO, Orion">
     <title>I3IO - Kem Đánh Răng Y Khoa | Orion Biologics</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">h
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -2075,8 +2075,8 @@
 
         // Add fade-in animation to sections on scroll
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.05,
+            rootMargin: '0px 0px 0px 0px'
         };
 
         const observer = new IntersectionObserver(function(entries) {
@@ -2089,7 +2089,7 @@
         }, observerOptions);
 
         // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
+        document.querySelectorAll('section:not(.hero)').forEach(section => {
             section.style.opacity = '0';
             section.style.transform = 'translateY(20px)';
             section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
