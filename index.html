@@ -288,52 +288,83 @@
         }
 
         .product-tube {
-            width: 120px;
-            height: 200px;
-            background: linear-gradient(135deg, #E31E24 0%, #C41A1E 50%, #8B1418 100%);
-            border-radius: 10px 10px 50% 50%;
+            width: 160px;
+            height: 260px;
+            background: linear-gradient(180deg, #C41A1E 0%, #E31E24 30%, #E31E24 70%, #B01820 100%);
+            border-radius: 20px 20px 40px 40px;
             position: relative;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: -8px 0 20px rgba(0,0,0,0.15), 8px 0 20px rgba(0,0,0,0.1), 0 20px 40px rgba(227,30,36,0.3);
             animation: float 3s ease-in-out infinite;
+            overflow: hidden;
         }
 
         .product-tube::before {
             content: '';
             position: absolute;
-            top: 0;
+            top: -20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 30px;
-            background: linear-gradient(135deg, #D4AF77 0%, #A68D5B 100%);
-            border-radius: 50% 50% 0 0;
-            box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.2);
+            width: 50px;
+            height: 40px;
+            background: linear-gradient(180deg, #C0C0C0 0%, #E8E8E8 40%, #A0A0A0 100%);
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
         }
 
         .product-tube::after {
             content: '';
             position: absolute;
-            top: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90px;
-            height: 8px;
-            background: #888888;
-            border-radius: 50%;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+            top: 0;
+            left: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+            border-radius: 20px 0 0 40px;
         }
 
         .product-label {
             position: absolute;
-            top: 50%;
+            top: 45%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
             color: var(--white);
-            font-weight: bold;
-            font-size: 0.8rem;
+            z-index: 2;
+        }
+
+        .product-label .brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            line-height: 1;
+        }
+
+        .product-label .brand-sub {
+            font-size: 0.55rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-top: 4px;
+            font-weight: 300;
+        }
+
+        .product-label .brand-line {
+            width: 60px;
+            height: 1px;
+            background: rgba(255,255,255,0.5);
+            margin: 8px auto;
+        }
+
+        .product-label .brand-type {
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            background: rgba(255,255,255,0.15);
+            padding: 3px 10px;
+            border-radius: 10px;
         }
 
         @keyframes float {
@@ -533,32 +564,86 @@
         }
 
         .product-tube-small {
-            width: 80px;
-            height: 140px;
-            border-radius: 8px 8px 35% 35%;
+            width: 90px;
+            height: 155px;
+            border-radius: 14px 14px 28px 28px;
             position: relative;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
             z-index: 1;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .product-tube-small::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 28px;
+            height: 22px;
+            background: linear-gradient(180deg, #C0C0C0, #E0E0E0, #999);
+            border-radius: 5px 5px 0 0;
+            z-index: 3;
+        }
+
+        .product-tube-small::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 35%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0.25) 0%, transparent 100%);
+            border-radius: 14px 0 0 28px;
+        }
+
+        .product-tube-small .tube-label {
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            z-index: 2;
+            line-height: 1;
+        }
+
+        .product-tube-small .tube-type {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.45rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+            z-index: 2;
+            margin-top: 4px;
         }
 
         .product-card.sensitive .product-tube-small {
-            background: linear-gradient(135deg, var(--accent-orange) 0%, #FF5722 100%);
+            background: linear-gradient(180deg, #FF7043 0%, #FF5722 30%, #FF5722 70%, #E64A19 100%);
+            box-shadow: 0 10px 25px rgba(255,87,34,0.35);
         }
 
         .product-card.gum .product-tube-small {
-            background: linear-gradient(135deg, var(--accent-pink) 0%, #E91E8C 100%);
+            background: linear-gradient(180deg, #F06292 0%, #E91E8C 30%, #E91E8C 70%, #C2185B 100%);
+            box-shadow: 0 10px 25px rgba(233,30,140,0.35);
         }
 
         .product-card.whitening .product-tube-small {
-            background: linear-gradient(135deg, var(--accent-teal) 0%, #0D9986 100%);
+            background: linear-gradient(180deg, #26C6DA 0%, #16A39C 30%, #16A39C 70%, #00897B 100%);
+            box-shadow: 0 10px 25px rgba(22,163,156,0.35);
         }
 
         .product-card.kids .product-tube-small {
-            background: linear-gradient(135deg, #FF9800 0%, #FFB74D 100%);
+            background: linear-gradient(180deg, #FFB74D 0%, #FF9800 30%, #FF9800 70%, #F57C00 100%);
+            box-shadow: 0 10px 25px rgba(255,152,0,0.35);
         }
 
         .product-card.brush .product-tube-small {
-            background: linear-gradient(135deg, var(--accent-gold) 0%, #B8860B 100%);
+            background: linear-gradient(180deg, #D4AF77 0%, #B8860B 30%, #B8860B 70%, #8B6914 100%);
+            box-shadow: 0 10px 25px rgba(184,134,11,0.35);
         }
 
         .product-info {
@@ -1251,11 +1336,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <div class="product-visual">
-                    <div class="product-tube">
-                        <div class="product-label">I³IO</div>
-                    </div>
-                </div>
+                <img src="images/hero_all.jpg" alt="I3IO Products - Sensitive, Gum Care, Whitening" class="hero-product-img">
             </div>
         </div>
     </section>
@@ -1343,7 +1424,7 @@
             <!-- Sensitive Care -->
             <div class="product-card sensitive">
                 <div class="product-image">
-                    <div class="product-tube-small"></div>
+                    <img src="images/sensitive.jpg" alt="I3IO Sensitive Care" class="product-real-img">
                 </div>
                 <div class="product-info">
                     <div class="product-name">Chăm Sóc Nhạy Cảm</div>
@@ -1368,7 +1449,7 @@
             <!-- Gum Care -->
             <div class="product-card gum">
                 <div class="product-image">
-                    <div class="product-tube-small"></div>
+                    <img src="images/gumcare.jpg" alt="I3IO Gum Care" class="product-real-img">
                 </div>
                 <div class="product-info">
                     <div class="product-name">Chăm Sóc Nướu</div>
@@ -1393,7 +1474,7 @@
             <!-- Whitening -->
             <div class="product-card whitening">
                 <div class="product-image">
-                    <div class="product-tube-small"></div>
+                    <img src="images/whitening.jpg" alt="I3IO Whitening" class="product-real-img">
                 </div>
                 <div class="product-info">
                     <div class="product-name">Làm Trắng Hàng Ngày</div>
@@ -1418,7 +1499,7 @@
             <!-- Kids -->
             <div class="product-card kids">
                 <div class="product-image">
-                    <div class="product-tube-small"></div>
+                    <img src="images/kids_vanilla.jpg" alt="I3IO Kids Care" class="product-real-img product-real-img-tall">
                 </div>
                 <div class="product-info">
                     <div class="product-name">Kem Đánh Răng Trẻ Em</div>
@@ -1443,7 +1524,7 @@
             <!-- Toothbrush -->
             <div class="product-card brush">
                 <div class="product-image">
-                    <div class="product-tube-small"></div>
+                    <img src="images/toothbrush.jpg" alt="I3IO Toothbrush" class="product-real-img product-real-img-tall">
                 </div>
                 <div class="product-info">
                     <div class="product-name">Bàn Chải I3IO</div>
