@@ -18,6 +18,9 @@
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
+            --orange: #f97316;
+            --red: #ef4444;
+            --cyan: #0d9488;
         }
 
         * {
@@ -60,7 +63,7 @@
             padding: 0 20px;
         }
 
-        /* Navigation & Mega Menu */
+        /* ===== Navigation & Mega Menu ===== */
         nav {
             position: fixed;
             top: 0;
@@ -85,6 +88,7 @@
             font-size: 24px;
             font-weight: 700;
             color: var(--primary);
+            letter-spacing: 1px;
         }
 
         .nav-links {
@@ -97,155 +101,156 @@
             position: relative;
         }
 
-        .nav-links a {
-            font-weight: 500;
-            font-size: 14px;
+        .nav-links a, .nav-toggle {
             color: var(--text-dark);
+            font-weight: 500;
+            font-size: 15px;
             display: flex;
             align-items: center;
             gap: 5px;
-            padding: 10px 0;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: var(--primary);
+        .nav-item:hover > a::after {
+            width: 100%;
         }
 
-        /* Mega Menu Dropdown */
-        .mega-dropdown {
+        .nav-item:hover .mega-menu {
+            display: grid;
+        }
+
+        .nav-links a::after {
+            content: '';
             position: absolute;
-            top: 100%;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .mega-menu {
+            display: none;
+            position: absolute;
+            top: 70px;
             left: 0;
             background: var(--bg-white);
-            border-radius: 8px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
-            padding: 30px;
-            min-width: 400px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            pointer-events: none;
+            border-bottom: 2px solid var(--primary);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            padding: 30px 20px;
+            width: 100%;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            z-index: 999;
         }
 
-        .nav-item:hover .mega-dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        .mega-dropdown-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .mega-item {
-            padding: 15px;
-            border-radius: 6px;
-            transition: background 0.3s ease;
-        }
-
-        .mega-item:hover {
-            background: var(--bg-light);
-        }
-
-        .mega-item h4 {
-            font-size: 13px;
-            font-weight: 600;
+        .mega-menu-column h4 {
             color: var(--primary);
-            margin-bottom: 5px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .mega-item p {
-            font-size: 12px;
-            color: var(--text-gray);
+        .mega-menu-column a {
+            display: block;
+            padding: 8px 0;
+            color: var(--text-dark);
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border-left: 2px solid transparent;
+            padding-left: 10px;
         }
 
-        /* Padding for fixed nav */
-        main {
-            padding-top: 70px;
+        .mega-menu-column a:hover {
+            color: var(--primary);
+            border-left-color: var(--primary);
         }
 
-        /* Hero Section */
-        .hero {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #f0fdf4 0%, #f0fdfa 100%);
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 15px;
+            }
+            .mega-menu {
+                grid-template-columns: 1fr;
+                width: 200px;
+                left: auto;
+                right: 0;
+            }
+        }
+
+        /* ===== Hero Section ===== */
+        #hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, #0D9488 0%, #14b8a6 100%);
+            color: white;
+            padding: 60px 20px;
             text-align: center;
         }
 
         .hero-content {
             max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
         }
 
-        .hero-subtitle {
-            font-size: 14px;
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .hero-title {
+        .hero-text h1 {
             font-size: 48px;
             font-weight: 700;
-            color: var(--text-dark);
             margin-bottom: 20px;
             line-height: 1.2;
         }
 
-        .hero-description {
-            font-size: 16px;
-            color: var(--text-gray);
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 20px;
-            justify-content: center;
+            gap: 15px;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 14px 32px;
-            border-radius: 8px;
+            padding: 14px 28px;
+            font-size: 16px;
             font-weight: 600;
-            font-size: 14px;
+            border-radius: 8px;
             transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-primary {
-            background: var(--primary);
-            color: white;
+            background: var(--bg-white);
+            color: var(--primary);
         }
 
         .btn-primary:hover {
-            background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         .btn-secondary {
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
         }
 
         .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
+            background: white;
+            color: var(--primary);
         }
 
         .hero-image {
-            margin-top: 50px;
             text-align: center;
         }
 
@@ -253,258 +258,50 @@
             max-width: 100%;
             height: auto;
             max-height: 400px;
-            border-radius: 12px;
+            object-fit: contain;
         }
 
-        /* Section Styles */
-        section {
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            .hero-text h1 {
+                font-size: 32px;
+            }
+            .hero-text p {
+                font-size: 16px;
+            }
+        }
+
+        /* ===== Products Showcase Section ===== */
+        #products {
             padding: 80px 20px;
-        }
-
-        section:nth-child(odd) {
             background: var(--bg-white);
         }
 
-        section:nth-child(even) {
-            background: var(--bg-light);
-        }
-
-        h2 {
-            font-size: 36px;
+        .section-title {
+            font-size: 42px;
             font-weight: 700;
-            margin-bottom: 40px;
+            text-align: center;
+            margin-bottom: 50px;
             color: var(--text-dark);
-            text-align: center;
+            position: relative;
         }
 
-        h3 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 15px;
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: 15px auto 0;
+            border-radius: 2px;
         }
 
-        /* Fade-in animation */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .about-text h3 {
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
-            color: var(--text-gray);
-            margin-bottom: 20px;
-            font-size: 15px;
-            line-height: 1.8;
-        }
-
-        .paradigm-shift {
-            background: var(--bg-light);
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-            border-left: 4px solid var(--primary);
-        }
-
-        .paradigm-shift p {
-            margin: 0;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .about-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-        }
-
-        /* Technology Section */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto 50px;
-        }
-
-        .tech-card {
-            background: var(--bg-white);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .tech-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-        }
-
-        .tech-card h4 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        .tech-card p {
-            color: var(--text-gray);
-            font-size: 14px;
-            line-height: 1.8;
-        }
-
-        .tech-image {
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .tech-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-        }
-
-        /* Selcopintide Section */
-        .peptide-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .peptide-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-        }
-
-        .peptide-text h3 {
-            margin-bottom: 20px;
-        }
-
-        .peptide-text p {
-            color: var(--text-gray);
-            margin-bottom: 20px;
-            font-size: 15px;
-            line-height: 1.8;
-        }
-
-        .peptide-benefits {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .benefit-item {
-            display: flex;
-            gap: 15px;
-            padding: 15px;
-            background: var(--bg-light);
-            border-radius: 8px;
-            align-items: flex-start;
-        }
-
-        .benefit-icon {
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-
-        .benefit-text {
-            flex: 1;
-        }
-
-        .benefit-text h5 {
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 5px;
-        }
-
-        .benefit-text p {
-            margin: 0;
-            font-size: 14px;
-            color: var(--text-gray);
-        }
-
-        /* Bio Active Ingredients */
-        .ingredients-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto 50px;
-        }
-
-        .ingredient-card {
-            background: var(--bg-light);
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .ingredient-card:hover {
-            border-color: var(--primary);
-            background: var(--bg-white);
-        }
-
-        .ingredient-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
-
-        .ingredient-card h4 {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 10px;
-        }
-
-        .ingredient-card p {
-            font-size: 13px;
-            color: var(--text-gray);
-            line-height: 1.6;
-        }
-
-        .ingredients-image {
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .ingredients-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-        }
-
-        /* Products Section */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -513,411 +310,657 @@
             background: var(--bg-white);
             border-radius: 12px;
             overflow: hidden;
+            border-left: 6px solid;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: row;
         }
 
         .product-card:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .product-card.sensitive {
+            border-left-color: var(--orange);
+        }
+
+        .product-card.gumcare {
+            border-left-color: var(--red);
+        }
+
+        .product-card.whitening {
+            border-left-color: var(--cyan);
         }
 
         .product-image {
-            width: 100%;
-            height: 250px;
-            background: var(--bg-light);
+            width: 40%;
+            background: #f5f5f5;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            padding: 20px;
         }
 
         .product-image img {
+            max-height: 280px;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
-        .product-info {
-            padding: 25px;
+        .product-content {
+            width: 60%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .product-badge {
-            display: inline-block;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            background: var(--bg-light);
-            color: var(--primary);
-        }
-
-        .product-card h4 {
-            font-size: 20px;
+        .product-name {
+            font-size: 22px;
             font-weight: 700;
+            color: var(--text-dark);
             margin-bottom: 10px;
-            color: var(--text-dark);
         }
 
-        .product-card p {
+        .product-tagline {
             font-size: 14px;
-            color: var(--text-gray);
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-
-        .comparison-table {
-            width: 100%;
-            font-size: 13px;
-            margin-top: 20px;
-            border-top: 1px solid var(--border);
-            padding-top: 20px;
-        }
-
-        .comparison-table tr {
-            border-bottom: 1px solid var(--border);
-        }
-
-        .comparison-table td {
-            padding: 10px 5px;
-        }
-
-        .comparison-table td:first-child {
+            color: var(--primary);
             font-weight: 600;
-            color: var(--text-dark);
-            width: 40%;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .comparison-table td:nth-child(2),
-        .comparison-table td:nth-child(3) {
-            text-align: center;
+        .product-benefits {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .product-benefits li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
             color: var(--text-gray);
+            font-size: 14px;
         }
 
-        .check-mark {
+        .product-benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .product-comparison {
+            background: var(--bg-light);
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            margin-bottom: 15px;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        .product-comparison .check {
             color: var(--success);
-            font-weight: bold;
+            font-weight: 600;
         }
 
-        .cross-mark {
+        .product-comparison .cross {
             color: var(--danger);
-            font-weight: bold;
         }
 
-        /* Kids Zone */
-        .kids-zone {
-            background: linear-gradient(135deg, #ffc0cb 0%, #ffff99 25%, #99ccff 50%, #99ff99 75%, #ff99ff 100%);
+        .btn-details {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            align-self: flex-start;
+        }
+
+        .btn-details:hover {
+            background: var(--primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .product-card {
+                flex-direction: column;
+            }
+            .product-image, .product-content {
+                width: 100%;
+            }
+            .product-image {
+                height: 250px;
+            }
+        }
+
+        /* ===== Kids Zone ===== */
+        #kids {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #ffa500 0%, #ff69b4 25%, #87ceeb 50%, #90ee90 75%, #dda0dd 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .kids-zone::before {
-            content: '';
+        .kids-bubble {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 40px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 40"><path d="M0,20 Q150,0 300,20 T600,20 T900,20 T1200,20 L1200,40 L0,40 Z" fill="white"/></svg>') repeat-x;
-            background-size: auto 40px;
-            background-position: 0 -40px;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .bubble1 { width: 100px; height: 100px; background: white; top: 10%; left: 10%; animation-delay: 0s; }
+        .bubble2 { width: 80px; height: 80px; background: white; top: 70%; right: 15%; animation-delay: 2s; }
+        .bubble3 { width: 60px; height: 60px; background: white; bottom: 20%; left: 20%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .sparkle {
+            position: absolute;
+            font-size: 24px;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
 
         .kids-content {
+            max-width: 1200px;
+            margin: 0 auto;
             position: relative;
             z-index: 2;
-            font-family: 'Fredoka', sans-serif;
         }
 
-        .kids-zone h2 {
-            font-family: 'Fredoka', sans-serif;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            font-size: 42px;
-        }
-
-        .kids-tagline {
-            font-size: 18px;
-            color: white;
+        .kids-title {
+            font-size: 48px;
+            font-weight: 700;
             text-align: center;
+            color: white;
             margin-bottom: 50px;
-            font-weight: 600;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         .kids-products {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto 50px;
         }
 
-        .kids-product-card {
+        .kids-card {
             background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
-        }
-
-        .kids-product-card:hover {
-            transform: scale(1.05) rotateZ(2deg);
-        }
-
-        .kids-product-image {
-            width: 100%;
-            height: 220px;
-            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .kids-product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .kids-product-info {
-            padding: 25px;
-            font-family: 'Fredoka', sans-serif;
-        }
-
-        .kids-product-info h4 {
-            font-size: 22px;
-            font-weight: 700;
-            color: #ff1493;
-            margin-bottom: 10px;
-        }
-
-        .kids-product-info p {
-            font-size: 14px;
-            color: var(--text-gray);
-            margin-bottom: 15px;
-        }
-
-        .kids-features {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-
-        .kids-feature-badge {
-            background: linear-gradient(135deg, #ff1493, #ff69b4);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .kids-comparison {
-            background: white;
-            padding: 30px;
             border-radius: 16px;
-            max-width: 900px;
-            margin: 0 auto;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .kids-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .kids-card img {
+            max-height: 200px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .kids-card h3 {
             font-family: 'Fredoka', sans-serif;
-        }
-
-        .kids-comparison h4 {
-            text-align: center;
-            font-size: 20px;
-            color: #ff1493;
-            margin-bottom: 25px;
-        }
-
-        .kids-comparison-table {
-            width: 100%;
-            font-size: 14px;
-            border-collapse: collapse;
-        }
-
-        .kids-comparison-table td {
-            padding: 15px;
-            border-bottom: 2px solid #ffe0f0;
-            text-align: center;
-        }
-
-        .kids-comparison-table td:first-child {
-            text-align: left;
-            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 15px;
             color: var(--text-dark);
-            width: 35%;
         }
 
-        /* Floating elements in Kids Zone */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+        .kids-card p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            font-size: 14px;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-30px); }
+        @media (max-width: 768px) {
+            .kids-products {
+                grid-template-columns: 1fr;
+            }
+            .kids-title {
+                font-size: 32px;
+            }
         }
 
-        @keyframes twinkle {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+        /* ===== Technology Section ===== */
+        #technology {
+            padding: 80px 20px;
+            background: var(--bg-light);
         }
 
-        @keyframes spin-slow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .floating-tooth {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 0 50% 50% 50%;
-            animation: float 4s ease-in-out infinite;
-            font-size: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.3);
-        }
-
-        .floating-emoji {
-            font-size: 48px;
-            animation: float 5s ease-in-out infinite;
-            position: absolute;
-        }
-
-        .sparkle {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: gold;
-            border-radius: 50%;
-            animation: twinkle 1.5s ease-in-out infinite;
-        }
-
-        .kids-zone-decorations {
-            position: relative;
-            height: 200px;
-        }
-
-        .bubble {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.4;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        /* Clinical Evidence Section */
-        .clinical-container {
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .clinical-charts {
+        .tech-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .tech-card:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+
+        .tech-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .tech-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .tech-card p {
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== Generations Section ===== */
+        #generations {
+            padding: 80px 20px;
+        }
+
+        .timeline {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .timeline-item {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+
+        .timeline-item.gen1 {
+            border-top-color: #9ca3af;
+        }
+
+        .timeline-item.gen2 {
+            border-top-color: #f59e0b;
+        }
+
+        .timeline-item.gen3 {
+            border-top-color: var(--primary);
+        }
+
+        .generation-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .timeline-item h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .timeline-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .timeline-features li {
+            padding: 8px 0;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .timeline-features li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== Ingredients Section ===== */
+        #ingredients {
+            padding: 80px 20px;
+            background: var(--bg-light);
+        }
+
+        .ingredients-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .ingredient-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .ingredient-card:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+
+        .ingredient-emoji {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .ingredient-card h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .ingredient-card p {
+            font-size: 12px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .ingredients-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* ===== Selcopintide Mechanism ===== */
+        #mechanism {
+            padding: 80px 20px;
+        }
+
+        .mechanism-steps {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .mechanism-step {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .mechanism-step::after {
+            content: '→';
+            position: absolute;
+            right: -35px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 28px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .mechanism-step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .mechanism-step h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .mechanism-step p {
+            font-size: 13px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .mechanism-steps {
+                grid-template-columns: 1fr;
+            }
+            .mechanism-step::after {
+                display: none;
+            }
+        }
+
+        /* ===== Clinical Evidence Section ===== */
+        #clinical {
+            padding: 80px 20px;
+            background: var(--bg-light);
+        }
+
+        .clinical-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .clinical-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 50px;
             margin-bottom: 50px;
         }
 
-        .chart-item {
-            background: var(--bg-white);
-            padding: 30px;
+        .chart-container {
+            background: white;
+            padding: 40px;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
-        .chart-item h4 {
+        .chart-title {
             font-size: 18px;
             font-weight: 700;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             color: var(--text-dark);
         }
 
-        .chart-bar {
-            margin-bottom: 25px;
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 30px;
+            height: 250px;
+        }
+
+        .bar-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bar {
+            width: 100%;
+            background: var(--primary);
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .bar:hover {
+            opacity: 0.8;
+        }
+
+        .bar.competitor {
+            background: #cbd5e1;
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 16px;
         }
 
         .bar-label {
-            font-size: 14px;
-            font-weight: 500;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
             color: var(--text-dark);
-            margin-bottom: 8px;
+        }
+
+        .legend {
             display: flex;
-            justify-content: space-between;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
         }
 
-        .bar-container {
-            background: var(--border);
-            height: 30px;
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
-            border-radius: 4px;
-            transition: width 0.8s ease;
+        .legend-item {
             display: flex;
             align-items: center;
-            justify-content: flex-end;
-            padding-right: 10px;
-            color: white;
-            font-weight: 600;
-            font-size: 12px;
-        }
-
-        .bar-fill.competitor {
-            background: linear-gradient(90deg, #94a3b8, #cbd5e1);
-        }
-
-        .trial-info {
-            background: var(--bg-light);
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary);
+            gap: 10px;
             font-size: 14px;
-            color: var(--text-gray);
         }
 
-        .trial-info p {
-            margin-bottom: 10px;
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
         }
 
-        .trial-info strong {
-            color: var(--primary);
-        }
-
-        /* Awards Section */
-        .awards-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .awards-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .award-card {
-            background: var(--bg-white);
+        .trials {
+            background: white;
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .trials h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .trials ul {
+            list-style: none;
+        }
+
+        .trials li {
+            padding: 12px 0;
+            color: var(--text-gray);
+            font-size: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trials li:last-child {
+            border-bottom: none;
+        }
+
+        .trials li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .clinical-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* ===== Awards Section ===== */
+        #awards {
+            padding: 80px 20px;
+        }
+
+        .awards-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .award-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
             text-align: center;
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--warning);
         }
 
         .award-card:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
             transform: translateY(-5px);
         }
 
@@ -926,172 +969,215 @@
             margin-bottom: 20px;
         }
 
-        .award-card h4 {
+        .award-card h3 {
             font-size: 18px;
             font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
         }
 
         .award-card p {
-            font-size: 14px;
             color: var(--text-gray);
-            line-height: 1.7;
+            font-size: 14px;
+            line-height: 1.8;
         }
 
-        .awards-image {
-            text-align: center;
-            margin-top: 50px;
+        @media (max-width: 768px) {
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        .awards-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
+        /* ===== Packaging Section ===== */
+        #packaging {
+            padding: 80px 20px;
+            background: var(--bg-light);
         }
 
-        /* Premium Packaging Section */
         .packaging-content {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
+        }
+
+        .packaging-text h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .packaging-text p {
+            color: var(--text-gray);
+            margin-bottom: 15px;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .packaging-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .packaging-features li {
+            padding: 10px 0;
+            color: var(--text-gray);
+            font-size: 14px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .packaging-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .packaging-image {
+            text-align: center;
         }
 
         .packaging-image img {
             max-width: 100%;
             height: auto;
-            border-radius: 12px;
+            max-height: 400px;
+            object-fit: contain;
         }
 
-        .packaging-text h3 {
-            margin-bottom: 20px;
+        @media (max-width: 768px) {
+            .packaging-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
         }
 
-        .packaging-text p {
-            color: var(--text-gray);
-            margin-bottom: 20px;
-            font-size: 15px;
-            line-height: 1.8;
-        }
-
-        .packaging-features {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .packaging-feature {
-            display: flex;
-            gap: 15px;
-            padding: 15px;
-            background: var(--bg-light);
-            border-radius: 8px;
-        }
-
-        .packaging-feature-icon {
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-
-        .packaging-feature-text {
-            flex: 1;
-        }
-
-        .packaging-feature-text h5 {
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 5px;
-        }
-
-        .packaging-feature-text p {
-            margin: 0;
-            font-size: 14px;
-            color: var(--text-gray);
-        }
-
-        /* Orion Group Section */
-        .orion-group {
-            background: var(--primary);
-            color: white;
+        /* ===== Orion Group Section ===== */
+        #about {
             padding: 80px 20px;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .about-text p {
+            color: var(--text-gray);
+            margin-bottom: 15px;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        #orion-group {
+            padding: 80px 20px;
+            background: var(--bg-light);
         }
 
         .orion-content {
             max-width: 1200px;
             margin: 0 auto;
-            text-align: center;
         }
 
-        .orion-group h2 {
-            color: white;
-        }
-
-        .orion-stats {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin: 50px auto 0;
-            max-width: 800px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
         }
 
-        .stat-item {
-            padding: 30px;
-            border: 2px solid rgba(255,255,255,0.3);
+        .stat-card {
+            background: white;
+            padding: 40px;
             border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
         }
 
         .stat-number {
-            font-size: 36px;
+            font-size: 42px;
             font-weight: 700;
+            color: var(--primary);
             margin-bottom: 10px;
         }
 
         .stat-label {
+            color: var(--text-gray);
             font-size: 14px;
-            opacity: 0.9;
         }
 
-        /* Contact Section */
-        .contact-container {
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== Contact Section ===== */
+        #contact {
+            padding: 80px 20px;
+        }
+
+        .contact-content {
             max-width: 800px;
             margin: 0 auto;
+            text-align: center;
         }
 
         .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            max-width: 600px;
-            margin: 0 auto;
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 40px;
         }
 
         .form-group {
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 20px;
+            text-align: left;
         }
 
         .form-group label {
-            font-weight: 600;
+            display: block;
             margin-bottom: 8px;
+            font-weight: 600;
             color: var(--text-dark);
+            font-size: 14px;
         }
 
-        .form-group input,
-        .form-group textarea {
+        .form-group input, .form-group textarea {
+            width: 100%;
             padding: 12px;
             border: 1px solid var(--border);
             border-radius: 6px;
             font-family: 'Inter', sans-serif;
             font-size: 14px;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group input:focus, .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
@@ -1099,240 +1185,150 @@
 
         .form-group textarea {
             resize: vertical;
-            min-height: 150px;
+            min-height: 120px;
         }
 
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin-top: 50px;
-            text-align: center;
+        .btn-submit {
+            background: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 600;
         }
 
-        .contact-info-item {
-            padding: 20px;
-            background: var(--bg-light);
-            border-radius: 8px;
+        .btn-submit:hover {
+            background: var(--primary-dark);
         }
 
-        .contact-info-item p {
-            font-size: 14px;
-            color: var(--text-gray);
-            margin: 10px 0 0;
-        }
-
-        /* Footer */
+        /* ===== Footer ===== */
         footer {
             background: var(--text-dark);
             color: white;
-            padding: 40px 20px;
+            padding: 50px 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 20px;
             text-align: center;
             font-size: 14px;
+            color: rgba(255,255,255,0.7);
         }
 
-        footer p {
-            color: #d1d5db;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                gap: 15px;
-            }
-
-            .nav-links a {
-                font-size: 12px;
-            }
-
-            .mega-dropdown {
-                min-width: 300px;
-                padding: 20px;
-            }
-
-            .mega-dropdown-grid {
+            .footer-content {
                 grid-template-columns: 1fr;
-            }
-
-            .hero-title {
-                font-size: 32px;
-            }
-
-            .hero-description {
-                font-size: 14px;
-            }
-
-            .about-content,
-            .peptide-content,
-            .packaging-content {
-                grid-template-columns: 1fr;
-            }
-
-            .tech-grid,
-            .products-grid,
-            .awards-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .ingredients-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .kids-products {
-                grid-template-columns: 1fr;
-            }
-
-            .clinical-charts {
-                grid-template-columns: 1fr;
-            }
-
-            .orion-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
-
-            h2 {
-                font-size: 28px;
-            }
-
-            h3 {
-                font-size: 20px;
-            }
-
-            section {
-                padding: 50px 20px;
             }
         }
 
-        @media (max-width: 480px) {
-            .nav-container {
-                height: 60px;
-            }
+        /* ===== Scroll Animation ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
 
-            .hero {
-                padding: 60px 15px;
-            }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-            .hero-title {
-                font-size: 24px;
-            }
+        /* ===== Utility Classes ===== */
+        .text-center {
+            text-align: center;
+        }
 
-            .hero-buttons {
-                flex-direction: column;
-            }
+        .mt-40 {
+            margin-top: 40px;
+        }
 
-            .ingredients-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            main {
-                padding-top: 60px;
-            }
+        .mb-40 {
+            margin-bottom: 40px;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation with Mega Menu -->
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <div class="logo">I3IO</div>
             <ul class="nav-links">
                 <li class="nav-item">
-                    <a href="#about">Giới Thiệu ▼</a>
-                    <div class="mega-dropdown">
-                        <div class="mega-dropdown-grid">
-                            <div class="mega-item">
-                                <h4>Về I3IO Orion Biologics</h4>
-                                <p>Thế hệ kem đánh răng y khoa mới từ Hàn Quốc</p>
-                            </div>
-                            <div class="mega-item">
-                                <h4>Tầm Nhìn & Sứ Mệnh</h4>
-                                <p>Điều trị từ gốc, không chỉ giảm đau tạm thời</p>
-                            </div>
-                            <div class="mega-item">
-                                <h4>Tập Đoàn Orion</h4>
-                                <p>Công ty sinh học hàng đầu châu Á Thái Bình Dương</p>
-                            </div>
-                            <div class="mega-item">
-                                <h4>Lịch Sử Phát Triển</h4>
-                                <p>Từ những năm 1970 đến nay, luôn đi đầu</p>
-                            </div>
+                    <a href="#about" class="nav-toggle">Giới Thiệu ▼</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-column">
+                            <h4>Thông Tin</h4>
+                            <a href="#about">Về I3IO</a>
+                            <a href="#orion-group">Tập Đoàn Orion</a>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#technology">Công Nghệ ▼</a>
-                    <div class="mega-dropdown">
-                        <div class="mega-dropdown-grid">
-                            <div class="mega-item">
-                                <h4>Selcopintide® Peptide</h4>
-                                <p>Công nghệ độc quyền tái tạo ngà răng</p>
-                            </div>
-                            <div class="mega-item">
-                                <h4>3 Thế Hệ Kem Đánh Răng</h4>
-                                <p>Từ truyền thống đến điều trị hiện đại</p>
-                            </div>
-                            <div class="mega-item">
-                                <h4>Thành Phần Bio Active</h4>
-                                <p>Chiết xuất từ thiên nhiên, bằng chứng khoa học</p>
-                            </div>
-                            <div class="mega-item">
-                                <h4>Nghiên Cứu Lâm Sàng</h4>
-                                <p>Thử nghiệm tại các đại học hàng đầu</p>
-                            </div>
+                    <a href="#technology" class="nav-toggle">Công Nghệ ▼</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-column">
+                            <h4>Công Nghệ</h4>
+                            <a href="#technology">Selcopintide® Peptide</a>
+                            <a href="#generations">3 Thế Hệ</a>
+                            <a href="#ingredients">Thành Phần Bio Active</a>
+                            <a href="#clinical">Nghiên Cứu Lâm Sàng</a>
+                            <a href="#mechanism">Cơ Chế Hoạt Động</a>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#products">Sản Phẩm ▼</a>
-                    <div class="mega-dropdown">
-                        <div class="mega-dropdown-grid">
-                            <div class="mega-item">
-                                <h4>🟠 Sensitive Care</h4>
-                                <p>Phục hồi ngà răng, giảm nhạy cảm</p>
-                            </div>
-                            <div class="mega-item">
-                                <h4>🔴 Gum Care</h4>
-                                <p>Điều trị viêm nướu, chảy máu lợi</p>
-                            </div>
-                            <div class="mega-item">
-                                <h4>🟢 Whitening</h4>
-                                <p>Trắng răng an toàn mà không tổn thương</p>
-                            </div>
-                            <div class="mega-item">
-                                <h4>🟡 Kids Edition</h4>
-                                <p>Cho trẻ em 4-9 tuổi, hương vị tự nhiên</p>
-                            </div>
-                            <div class="mega-item">
-                                <h4>🔵 Bàn Chải</h4>
-                                <p>Đặc biệt thiết kế để dùng với kem</p>
-                            </div>
+                    <a href="#products" class="nav-toggle">Sản Phẩm ▼</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-column">
+                            <h4>Danh Mục</h4>
+                            <a href="#products">Tất Cả Sản Phẩm</a>
+                            <a href="#sensitive">Sensitive Care</a>
+                            <a href="#gumcare">Gum Care</a>
+                            <a href="#whitening">Whitening</a>
+                            <a href="#kids">Kids Edition</a>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#awards">Chứng Nhận ▼</a>
-                    <div class="mega-dropdown">
-                        <div class="mega-dropdown-grid">
-                            <div class="mega-item">
-                                <h4>Giải thưởng K-HERO</h4>
-                                <p>Hàng đầu từ 40.000+ phòng thí nghiệm</p>
-                            </div>
-                            <div class="mega-item">
-                                <h4>ADA Forsyth Dentech</h4>
-                                <p>Giải Best Innovation Award 2025</p>
-                            </div>
-                            <div class="mega-item">
-                                <h4>Thư xác nhận GS. Hubert Newman</h4>
-                                <p>Từ Đại học University College London</p>
-                            </div>
-                            <div class="mega-item">
-                                <h4>Chứng chỉ Quốc Tế</h4>
-                                <p>Đủ điều kiện bán tại các nước Châu Á</p>
-                            </div>
+                    <a href="#awards" class="nav-toggle">Chứng Nhận ▼</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-column">
+                            <h4>Giải Thưởng</h4>
+                            <a href="#awards">Giải Thưởng</a>
                         </div>
                     </div>
                 </li>
@@ -1343,574 +1339,509 @@
         </div>
     </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <p class="hero-subtitle">The Medical Toothpaste for Daily Use</p>
-                <h1 class="hero-title">Điều Trị Từ Gốc — Không Chỉ Giảm Đau</h1>
-                <p class="hero-description">Công nghệ peptide Selcopintide® độc quyền từ Orion Biologics Korea — Kem đánh răng y tế thế hệ thứ 3 tái tạo ngà răng và nướu tự nhiên.</p>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Kem Đánh Răng Y Khoa Thế Hệ Mới</h1>
+                <p>I3IO — Giải Pháp Toàn Diện Cho Sức Khỏe Răng Miệng, Từ Tái Tạo Đến Phòng Ngừa</p>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary">Khám Phá Sản Phẩm</button>
-                    <button class="btn btn-secondary">Tìm Hiểu Thêm</button>
+                    <button class="btn btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Khám Phá Sản Phẩm</button>
+                    <button class="btn btn-secondary" onclick="document.getElementById('technology').scrollIntoView({behavior:'smooth'})">Tìm Hiểu Thêm</button>
                 </div>
             </div>
-            <div class="hero-image fade-in-up">
-                <img src="images/product_lineup.jpg" alt="I3IO Product Lineup">
+            <div class="hero-image">
+                <img src="images/product_lineup.jpg" alt="Dòng sản phẩm I3IO">
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- About Section -->
-        <section id="about">
-            <div class="container">
-                <h2>Vấn Đề Của Kem Đánh Răng Hiện Tại</h2>
-                <div class="about-content">
-                    <div class="about-text fade-in-up">
-                        <h3>Từ Che Lấp → Điều Trị Thực Sự</h3>
-                        <p>Hầu hết các sản phẩm chăm sóc răng truyền thống chỉ giải quyết các triệu chứng bề mặt mà không điều trị vấn đề gốc rễ. Chúng cung cấp cảm giác tạm thời nhưng không tái tạo cấu trúc ngà răng hoặc mô lợi bị tổn thương.</p>
-                        <p>I3IO thay đổi cách tiếp cận này bằng cách sử dụng công nghệ peptide Selcopintide® để kích thích quá trình tái tạo tự nhiên của cơ thể, mang lại sự hồi phục thực sự thay vì che phủ tạm thời.</p>
-                        <p>Không còn những giải pháp tạm bợ — đây là y học hiện đại gặp nhau với chăm sóc hàng ngày.</p>
-                        <div class="paradigm-shift">
-                            <p>📊 Paradigm Shift: Từ Chăm Sóc Triệu Chứng → Điều Trị Từ Gốc</p>
-                        </div>
+    <!-- Products Showcase Section -->
+    <section id="products">
+        <div class="container">
+            <h2 class="section-title">Các Sản Phẩm Chính</h2>
+            <div class="products-grid">
+                <!-- Sensitive Care -->
+                <div class="product-card sensitive" id="sensitive">
+                    <div class="product-image">
+                        <img src="images/sensitive.jpg" alt="I3IO Sensitive Care">
                     </div>
-                    <div class="about-image fade-in-up">
-                        <img src="images/bandaid_vs_healing.jpg" alt="Band-Aid vs Healing">
+                    <div class="product-content">
+                        <div class="product-tagline">Chăm Sóc Nhạy Cảm</div>
+                        <h3 class="product-name">Sensitive Care</h3>
+                        <ul class="product-benefits">
+                            <li>Tái tạo ngà tự nhiên (21 thành phần hoạt chất)</li>
+                            <li>Selcopintide® + Cúc La Mã + Centella Asiatica</li>
+                            <li>Không có tác dụng phụ, an toàn lâu dài</li>
+                            <li>Hiệu quả vượt trội so với Sensodyne</li>
+                        </ul>
+                        <div class="product-comparison">
+                            <strong>vs Sensodyne:</strong> <span class="check">Tái tạo ngà ✓</span> | <span class="cross">Tạm thời che lấp ✗</span>
+                        </div>
+                        <button class="btn-details" onclick="document.getElementById('clinical').scrollIntoView({behavior:'smooth'})">Xem Chi Tiết</button>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Technology Section -->
-        <section id="technology">
-            <div class="container">
-                <h2>3 Thế Hệ Kem Đánh Răng</h2>
-                <div class="tech-grid fade-in-up">
-                    <div class="tech-card">
-                        <h4>🧪 Thế Hệ 1: Truyền Thống</h4>
-                        <p>Các sản phẩm cơ bản với fluoride, giúp bảo vệ men răng nhưng không điều trị các vấn đề về ngà hay nướu.</p>
+                <!-- Gum Care -->
+                <div class="product-card gumcare" id="gumcare">
+                    <div class="product-image">
+                        <img src="images/gumcare.jpg" alt="I3IO Gum Care">
                     </div>
-                    <div class="tech-card">
-                        <h4>💡 Thế Hệ 2: Chức Năng</h4>
-                        <p>Các sản phẩm chuyên biệt với các thành phần mục tiêu như kalium nitrat hoặc kẽm, cung cấp lợi ích chuyên biệt nhưng còn hạn chế.</p>
-                    </div>
-                    <div class="tech-card">
-                        <h4>🚀 Thế Hệ 3: I3IO Orion</h4>
-                        <p>Công nghệ peptide Selcopintide® độc quyền — Phòng ngừa + Giảm đau + Chữa lành = Giải pháp toàn diện.</p>
+                    <div class="product-content">
+                        <div class="product-tagline">Chăm Sóc Nướu</div>
+                        <h3 class="product-name">Gum Care</h3>
+                        <ul class="product-benefits">
+                            <li>Tác động trực tiếp chữa trị (22 thành phần)</li>
+                            <li>Chống viêm + Củng cố mô + Tái tạo nướu</li>
+                            <li>Enoxolone + Scutellaria nguyên chất 100%</li>
+                            <li>Vượt trội hơn Parodontax</li>
+                        </ul>
+                        <div class="product-comparison">
+                            <strong>vs Parodontax:</strong> <span class="check">Tác động trực tiếp ✓</span> | <span class="cross">Tác động gián tiếp ✗</span>
+                        </div>
+                        <button class="btn-details" onclick="document.getElementById('clinical').scrollIntoView({behavior:'smooth'})">Xem Chi Tiết</button>
                     </div>
                 </div>
-                <div class="tech-image fade-in-up">
-                    <img src="images/3generations.jpg" alt="3 Generations of Toothpaste">
-                </div>
-            </div>
-        </section>
 
-        <!-- Selcopintide Peptide Section -->
-        <section>
-            <div class="container">
-                <h2>Selcopintide® — Công Nghệ Peptide Vượt Trội</h2>
-                <div class="peptide-content">
-                    <div class="peptide-image fade-in-up">
-                        <img src="images/peptide_mechanism.jpg" alt="Peptide Mechanism">
+                <!-- Whitening -->
+                <div class="product-card whitening" id="whitening">
+                    <div class="product-image">
+                        <img src="images/whitening.jpg" alt="I3IO Whitening">
                     </div>
-                    <div class="peptide-text fade-in-up">
-                        <h3>Tái Tạo Từ Gốc Rễ</h3>
-                        <p>Selcopintide® là một peptide sinh học được phát triển tại Đại học Quốc gia Seoul, công nghệ độc quyền được Orion Biologics sở hữu. Nó hoạt động bằng cách kích thích các odontoblast (tế bào sản sinh ngà) để tái tạo tubules ngà tự nhiên.</p>
-                        <p>Không giống như các sản phẩm khác chỉ che lấp các lỗ hổng, Selcopintide® thúc đẩy sinh học thực sự để tái tạo cấu trúc gốc của răng.</p>
-                        <div class="peptide-benefits">
-                            <div class="benefit-item">
-                                <div class="benefit-icon">🔬</div>
-                                <div class="benefit-text">
-                                    <h5>Bằng Chứng Khoa Học</h5>
-                                    <p>Được công bố trên các tạp chí nha khoa hàng đầu và kiểm tra lâm sàng độc lập</p>
-                                </div>
-                            </div>
-                            <div class="benefit-item">
-                                <div class="benefit-icon">⚡</div>
-                                <div class="benefit-text">
-                                    <h5>Hoạt Động Nhanh</h5>
-                                    <p>Kết quả nhận thấy trong vòng 2 tuần, tái tạo hoàn toàn trong 8 tuần</p>
-                                </div>
-                            </div>
-                            <div class="benefit-item">
-                                <div class="benefit-icon">🛡️</div>
-                                <div class="benefit-text">
-                                    <h5>An Toàn & Tự Nhiên</h5>
-                                    <p>Không có fluoride quá mức, không độc tố — hỗ trợ quá trình tự nhiên của cơ thể</p>
-                                </div>
-                            </div>
+                    <div class="product-content">
+                        <div class="product-tagline">Làm Trắng Răng</div>
+                        <h3 class="product-name">Whitening</h3>
+                        <ul class="product-benefits">
+                            <li>Quy trình 3 bước không hại (SHMP + HAP + Selcopintide®)</li>
+                            <li>An toàn sử dụng hàng ngày dài hạn</li>
+                            <li>Không gây mài mòn, không gây nhạy cảm</li>
+                            <li>Hiệu quả vượt trội so với Colgate/Vussen</li>
+                        </ul>
+                        <div class="product-comparison">
+                            <strong>vs Colgate/Vussen:</strong> <span class="check">An toàn dài hạn ✓</span> | <span class="cross">Chỉ tạm thời ✗</span>
                         </div>
+                        <button class="btn-details" onclick="document.getElementById('clinical').scrollIntoView({behavior:'smooth'})">Xem Chi Tiết</button>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Bio Active Ingredients Section -->
-        <section>
-            <div class="container">
-                <h2>5 Thành Phần Bio-Active Chính</h2>
-                <div class="ingredients-grid fade-in-up">
-                    <div class="ingredient-card">
-                        <div class="ingredient-icon">🌿</div>
-                        <h4>Centella Asiatica</h4>
-                        <p>Rau má — giúp lành vết thương, giảm viêm nướu và tăng cường sự tái tạo mô.</p>
+                <!-- Toothbrush -->
+                <div class="product-card" style="border-left-color: #8b5cf6;">
+                    <div class="product-image">
+                        <img src="images/toothbrush.jpg" alt="I3IO Toothbrush">
                     </div>
-                    <div class="ingredient-card">
-                        <div class="ingredient-icon">🌼</div>
-                        <h4>Chamomile</h4>
-                        <p>Hoa cúc — có tính chất chống viêm mạnh, dịu nhẹ và giảm đau tự nhiên.</p>
-                    </div>
-                    <div class="ingredient-card">
-                        <div class="ingredient-icon">🍃</div>
-                        <h4>Scutellaria</h4>
-                        <p>Hoàng cầm — chống khuẩn tự nhiên, ngăn chặn mảng bám và giữ vi khuẩn lành mạnh.</p>
-                    </div>
-                    <div class="ingredient-card">
-                        <div class="ingredient-icon">🌸</div>
-                        <h4>Magnolia</h4>
-                        <p>Mộc lan — chống oxy hóa mạnh, bảo vệ lợi từ tổn thương và lão hóa sớm.</p>
-                    </div>
-                    <div class="ingredient-card">
-                        <div class="ingredient-icon">💊</div>
-                        <h4>Enoxolone</h4>
-                        <p>Glycyrrhizin — từ cam thảo, giảm viêm và kích thích lành vết thương.</p>
-                    </div>
-                </div>
-                <div class="ingredients-image fade-in-up">
-                    <img src="images/bio_active.jpg" alt="Bio Active Ingredients">
-                </div>
-            </div>
-        </section>
-
-        <!-- Products Section -->
-        <section id="products">
-            <div class="container">
-                <h2>Dòng Sản Phẩm Signature</h2>
-                <div class="products-grid fade-in-up">
-                    <!-- Sensitive Care -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="images/sensitive.jpg" alt="Sensitive Care">
+                    <div class="product-content">
+                        <div class="product-tagline">Bàn Chải Đánh Răng</div>
+                        <h3 class="product-name">Professional Toothbrush</h3>
+                        <ul class="product-benefits">
+                            <li>Thiết kế phù hợp với I3IO Toothpaste</li>
+                            <li>Lông mềm, không gây kích ứng nướu</li>
+                            <li>Vệ sinh hiệu quả toàn diện</li>
+                            <li>Tiêu chuẩn quốc tế</li>
+                        </ul>
+                        <div class="product-comparison" style="background: #f3e8ff; border-left: 2px solid #8b5cf6;">
+                            <strong>Bộ đôi hoàn hảo:</strong> <span class="check">Kết hợp tối ưu với toothpaste ✓</span>
                         </div>
-                        <div class="product-info">
-                            <span class="product-badge">🟠 NHẠY CẢM</span>
-                            <h4>Sensitive Care</h4>
-                            <p>Phục hồi ngà răng và giảm nhạy cảm bằng công nghệ Selcopintide®. Kích thích tái tạo tubules ngà tự nhiên.</p>
-                            <table class="comparison-table">
-                                <tr>
-                                    <td>Giảm nhạy cảm 24h</td>
-                                    <td class="check-mark">✓</td>
-                                    <td class="cross-mark">✗</td>
-                                </tr>
-                                <tr>
-                                    <td>Tái tạo ngà</td>
-                                    <td class="check-mark">✓</td>
-                                    <td class="cross-mark">✗</td>
-                                </tr>
-                                <tr>
-                                    <td>An toàn với men</td>
-                                    <td class="check-mark">✓</td>
-                                    <td class="check-mark">✓</td>
-                                </tr>
-                                <tr>
-                                    <td style="font-size: 11px; color: #999;">vs Sensodyne</td>
-                                    <td style="font-size: 11px; color: #999;"></td>
-                                    <td style="font-size: 11px; color: #999;"></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Gum Care -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="images/gumcare.jpg" alt="Gum Care">
-                        </div>
-                        <div class="product-info">
-                            <span class="product-badge">🔴 NƯỚU</span>
-                            <h4>Gum Care</h4>
-                            <p>Điều trị viêm nướu, chảy máu lợi và tái tạo mô lợi bị hư tổn. Giảm viêm trong 3 ngày đầu.</p>
-                            <table class="comparison-table">
-                                <tr>
-                                    <td>Giảm chảy máu lợi</td>
-                                    <td class="check-mark">✓</td>
-                                    <td class="check-mark">✓</td>
-                                </tr>
-                                <tr>
-                                    <td>Tái tạo mô lợi</td>
-                                    <td class="check-mark">✓</td>
-                                    <td class="cross-mark">✗</td>
-                                </tr>
-                                <tr>
-                                    <td>Không chứa SLS</td>
-                                    <td class="check-mark">✓</td>
-                                    <td class="cross-mark">✗</td>
-                                </tr>
-                                <tr>
-                                    <td style="font-size: 11px; color: #999;">vs Parodontax</td>
-                                    <td style="font-size: 11px; color: #999;"></td>
-                                    <td style="font-size: 11px; color: #999;"></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Whitening -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="images/whitening.jpg" alt="Whitening">
-                        </div>
-                        <div class="product-info">
-                            <span class="product-badge">🟢 TRẮNG RĂNG</span>
-                            <h4>Whitening</h4>
-                            <p>Trắng răng an toàn mà không làm tổn thương men hay gây nhạy cảm. Công nghệ tẩy trắng nhẹ nhàng.</p>
-                            <table class="comparison-table">
-                                <tr>
-                                    <td>Trắng trong 2 tuần</td>
-                                    <td class="check-mark">✓</td>
-                                    <td class="cross-mark">✗</td>
-                                </tr>
-                                <tr>
-                                    <td>Không gây nhạy cảm</td>
-                                    <td class="check-mark">✓</td>
-                                    <td class="cross-mark">✗</td>
-                                </tr>
-                                <tr>
-                                    <td>Bảo vệ men</td>
-                                    <td class="check-mark">✓</td>
-                                    <td class="check-mark">✓</td>
-                                </tr>
-                                <tr>
-                                    <td style="font-size: 11px; color: #999;">vs Colgate/Vussen</td>
-                                    <td style="font-size: 11px; color: #999;"></td>
-                                    <td style="font-size: 11px; color: #999;"></td>
-                                </tr>
-                            </table>
-                        </div>
+                        <button class="btn-details" onclick="document.getElementById('packaging').scrollIntoView({behavior:'smooth'})">Xem Chi Tiết</button>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Kids Zone Section -->
-        <section class="kids-zone" id="kids">
-            <div class="kids-zone-decorations">
-                <div class="bubble" style="left: 5%; top: 20%; width: 50px; height: 50px; background: #ffb3ba; animation-delay: 0s;"></div>
-                <div class="bubble" style="left: 15%; top: 10%; width: 80px; height: 80px; background: #ffffba; animation-delay: 1s;"></div>
-                <div class="bubble" style="right: 10%; top: 30%; width: 60px; height: 60px; background: #99ddff; animation-delay: 2s;"></div>
-                <div class="bubble" style="right: 5%; top: 60%; width: 70px; height: 70px; background: #99ff99; animation-delay: 3s;"></div>
-                <div class="floating-emoji" style="left: 10%; top: 40%; animation-delay: 0.5s;">🦷</div>
-                <div class="floating-emoji" style="right: 15%; top: 50%; animation-delay: 1.5s;">⭐</div>
-                <div class="floating-emoji" style="left: 50%; top: 20%; animation-delay: 0s;">✨</div>
-                <div class="sparkle" style="left: 25%; top: 35%; animation-delay: 0s;"></div>
-                <div class="sparkle" style="left: 70%; top: 25%; animation-delay: 0.5s;"></div>
-                <div class="sparkle" style="right: 20%; top: 70%; animation-delay: 1s;"></div>
-            </div>
+    <!-- Kids Zone Section -->
+    <section id="kids">
+        <div class="kids-bubble bubble1"></div>
+        <div class="kids-bubble bubble2"></div>
+        <div class="kids-bubble bubble3"></div>
+        <span class="sparkle" style="top: 15%; left: 5%;">✨</span>
+        <span class="sparkle" style="top: 60%; right: 10%;">⭐</span>
+        <span class="sparkle" style="bottom: 20%; left: 15%;">✨</span>
 
-            <div class="kids-content">
-                <div class="container">
-                    <h2 style="color: white; margin-bottom: 10px;">🎉 Khu Vực Dành Cho Trẻ Em</h2>
-                    <p class="kids-tagline">Được cha mẹ tin tưởng, trẻ em tự hào — Được cha mẹ tin tưởng, trẻ em tự hào</p>
-
-                    <div class="kids-products">
-                        <div class="kids-product-card fade-in-up">
-                            <div class="kids-product-image">
-                                <img src="images/kids_vanilla.jpg" alt="Kids Vanilla">
-                            </div>
-                            <div class="kids-product-info">
-                                <h4>🍦 Hương Vanilla Ngọt</h4>
-                                <p>Hương vị yêu thích của trẻ em, không chứa đường. Động lực để đánh răng mỗi sáng và tối!</p>
-                                <div class="kids-features">
-                                    <span class="kids-feature-badge">Không Fluor Quá Mức</span>
-                                    <span class="kids-feature-badge">Vui Vẻ</span>
-                                    <span class="kids-feature-badge">An Toàn</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="kids-product-card fade-in-up">
-                            <div class="kids-product-image">
-                                <img src="images/kids_muscat.jpg" alt="Kids Muscat">
-                            </div>
-                            <div class="kids-product-info">
-                                <h4>🍇 Hương Muscat Tươi</h4>
-                                <p>Hương quả nho tự nhiên, tươi mát và dễ chịu. Bé yêu thích, mẹ yên tâm với thành phần tự nhiên.</p>
-                                <div class="kids-features">
-                                    <span class="kids-feature-badge">Tự Nhiên</span>
-                                    <span class="kids-feature-badge">Sạch Sẽ</span>
-                                    <span class="kids-feature-badge">Lành Mạnh</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="kids-comparison fade-in-up">
-                        <h4>🎯 Tại Sao Chọn I3IO Kids Thay Vì Jordan Kids?</h4>
-                        <table class="kids-comparison-table">
-                            <tr>
-                                <td><strong>Tính Năng</strong></td>
-                                <td><strong>I3IO Kids</strong></td>
-                                <td><strong>Jordan Kids</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Ngà tái tạo tự nhiên</td>
-                                <td class="check-mark">✓ Selcopintide®</td>
-                                <td class="cross-mark">✗ Không có</td>
-                            </tr>
-                            <tr>
-                                <td>Lợi được bảo vệ</td>
-                                <td class="check-mark">✓ Sinh học</td>
-                                <td class="check-mark">✓ Cơ bản</td>
-                            </tr>
-                            <tr>
-                                <td>Hương vị tự nhiên</td>
-                                <td class="check-mark">✓ Trái cây</td>
-                                <td class="cross-mark">✗ Nhân tạo</td>
-                            </tr>
-                            <tr>
-                                <td>Màu sắc tự nhiên</td>
-                                <td class="check-mark">✓ Từ thành phần</td>
-                                <td class="cross-mark">✗ Nhuộm tế bào</td>
-                            </tr>
-                            <tr>
-                                <td>Được cha mẹ tin tưởng</td>
-                                <td class="check-mark">✓ Y khoa</td>
-                                <td class="cross-mark">✗ Thương mại</td>
-                            </tr>
-                        </table>
-                    </div>
+        <div class="kids-content">
+            <h2 class="kids-title">🌈 I3IO Kids Edition 🌈</h2>
+            <div class="kids-products">
+                <div class="kids-card">
+                    <img src="images/kids_vanilla.jpg" alt="I3IO Kids Vanilla">
+                    <h3>Vanilla Magic ✨</h3>
+                    <p>Hương vanilla tự nhiên, dễ yêu cho bé. Không chứa SLS, không chứa sắc tố. Công thức 15 thành phần cho trẻ 4-9 tuổi.</p>
+                </div>
+                <div class="kids-card">
+                    <img src="images/kids_muscat.jpg" alt="I3IO Kids Muscat">
+                    <h3>Muscat Dream 🍇</h3>
+                    <p>Hương nho Muscat ngon miệng, khuyến khích bé đánh răng. Nguyên liệu tự nhiên, an toàn 100%. Công thức đặc biệt cho trẻ nhỏ.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Clinical Evidence Section -->
-        <section>
-            <div class="container">
-                <h2>🔬 Bằng Chứng Lâm Sàng Độc Lập</h2>
-                <div class="clinical-container fade-in-up">
-                    <div class="clinical-charts">
-                        <div class="chart-item">
-                            <h4>Giảm Nhạy Cảm Răng</h4>
-                            <div class="chart-bar">
-                                <div class="bar-label">
-                                    <span>I3IO Orion</span>
-                                    <span>24.6%</span>
-                                </div>
-                                <div class="bar-container">
-                                    <div class="bar-fill" style="width: 0%;" data-target="82"></div>
-                                </div>
-                            </div>
-                            <div class="chart-bar">
-                                <div class="bar-label">
-                                    <span>Sensodyne (So sánh)</span>
-                                    <span>16.5%</span>
-                                </div>
-                                <div class="bar-container">
-                                    <div class="bar-fill competitor" style="width: 0%;" data-target="55"></div>
-                                </div>
-                            </div>
-                            <div class="chart-bar">
-                                <div class="bar-label">
-                                    <span>Tiêu chuẩn (Fluoride cơ bản)</span>
-                                    <span>15%</span>
-                                </div>
-                                <div class="bar-container">
-                                    <div class="bar-fill competitor" style="width: 0%;" data-target="50"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="chart-item">
-                            <h4>Cải Thiện Sức Khỏe Nướu</h4>
-                            <div class="chart-bar">
-                                <div class="bar-label">
-                                    <span>I3IO Orion</span>
-                                    <span>18.6%</span>
-                                </div>
-                                <div class="bar-container">
-                                    <div class="bar-fill" style="width: 0%;" data-target="79"></div>
-                                </div>
-                            </div>
-                            <div class="chart-bar">
-                                <div class="bar-label">
-                                    <span>Parodontax (So sánh)</span>
-                                    <span>15.5%</span>
-                                </div>
-                                <div class="bar-container">
-                                    <div class="bar-fill competitor" style="width: 0%;" data-target="66"></div>
-                                </div>
-                            </div>
-                            <div class="chart-bar">
-                                <div class="bar-label">
-                                    <span>Tiêu chuẩn (Chăm sóc cơ bản)</span>
-                                    <span>15%</span>
-                                </div>
-                                <div class="bar-container">
-                                    <div class="bar-fill competitor" style="width: 0%;" data-target="64"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="trial-info fade-in-up">
-                        <p><strong>📍 Thử Nghiệm Tại:</strong></p>
-                        <p>🇻🇳 <strong>Đại Học Quốc Gia Hà Nội</strong> — Nghiên cứu 12 tuần với 200 tình nguyện viên</p>
-                        <p>🇨🇳 <strong>Đại Học Peking</strong> — Nhân viên y tế khoa học nha khoa, 600 tình nguyện viên</p>
-                        <p style="margin-top: 15px; font-size: 12px; color: #999;"><em>*Dữ liệu từ thử nghiệm lâm sàng độc lập 2024-2025, được xuất bản trên các tạp chí nha khoa được đánh giá ngang hàng</em></p>
-                    </div>
+    <!-- Technology Section - Selcopintide -->
+    <section id="technology">
+        <div class="container">
+            <h2 class="section-title">Công Nghệ Selcopintide®</h2>
+            <div class="tech-grid">
+                <div class="tech-card fade-in">
+                    <span class="tech-icon">🧬</span>
+                    <h3>Peptide Độc Quyền</h3>
+                    <p>Selcopintide® là peptide đột phá được phát triển bởi Orion Group, kích hoạt khả năng tái tạo tự nhiên của cơ thể.</p>
+                </div>
+                <div class="tech-card fade-in">
+                    <span class="tech-icon">🛡️</span>
+                    <h3>Bảo Vệ & Tái Tạo</h3>
+                    <p>Không chỉ che lấp, mà thực sự kích hoạt lại các tế bào odontoblast để tái tạo ngà tự nhiên bền vững.</p>
+                </div>
+                <div class="tech-card fade-in">
+                    <span class="tech-icon">✅</span>
+                    <h3>Lâm Sàng Chứng Minh</h3>
+                    <p>Được kiểm chứng qua các nghiên cứu lâm sàng tại Đại học Quốc gia Việt Nam và Đại học Peking (Trung Quốc).</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Awards Section -->
-        <section id="awards">
-            <div class="container">
-                <h2>🏆 Giải Thưởng & Công Nhận</h2>
-                <div class="awards-grid fade-in-up">
-                    <div class="award-card">
-                        <div class="award-icon">👑</div>
-                        <h4>K-HERO Award 2024</h4>
-                        <p>Được xếp hạng #1 từ 40.000+ phòng thí nghiệm nha khoa tại Hàn Quốc. Công nhận vì đổi mới công nghệ và hiệu quả lâm sàng.</p>
-                    </div>
-                    <div class="award-card">
-                        <div class="award-icon">🥇</div>
-                        <h4>ADA Forsyth Dentech 2025</h4>
-                        <p>Giải Best Innovation Award 2025 từ Hiệp hội Nha khoa Mỹ. Công nghệ peptide Selcopintide® được công nhận là đổi mới lĩnh vực.</p>
-                    </div>
-                    <div class="award-card">
-                        <div class="award-icon">📜</div>
-                        <h4>Thư xác nhận GS. Hubert Newman</h4>
-                        <p>Giáo sư nha khoa hàng đầu từ University College London xác nhận tính an toàn và hiệu quả của công thức I3IO.</p>
-                    </div>
+    <!-- 3 Generations Section -->
+    <section id="generations">
+        <div class="container">
+            <h2 class="section-title">3 Thế Hệ Kem Đánh Răng</h2>
+            <div class="timeline">
+                <div class="timeline-item gen1 fade-in">
+                    <div class="generation-number">Gen 1</div>
+                    <h3>Thế Hệ Cổ Điển</h3>
+                    <p style="color: var(--text-gray); margin: 15px 0;"><strong>Colgate, P/S</strong></p>
+                    <ul class="timeline-features">
+                        <li>Chỉ làm sạch</li>
+                        <li>Không điều trị</li>
+                        <li>Không phòng ngừa</li>
+                    </ul>
                 </div>
-                <div class="awards-image fade-in-up">
-                    <img src="images/awards.jpg" alt="Awards and Recognition">
+                <div class="timeline-item gen2 fade-in">
+                    <div class="generation-number">Gen 2</div>
+                    <h3>Thế Hệ Chức Năng</h3>
+                    <p style="color: var(--text-gray); margin: 15px 0;"><strong>Sensodyne, Parodontax</strong></p>
+                    <ul class="timeline-features">
+                        <li>Giảm nhạy cảm tạm thời</li>
+                        <li>Tác động gián tiếp</li>
+                        <li>Có tác dụng phụ</li>
+                    </ul>
+                </div>
+                <div class="timeline-item gen3 fade-in">
+                    <div class="generation-number">Gen 3</div>
+                    <h3>Thế Hệ I3IO</h3>
+                    <p style="color: var(--text-gray); margin: 15px 0;"><strong>Phòng ngừa + Giảm + Chữa</strong></p>
+                    <ul class="timeline-features">
+                        <li>Tái tạo tự nhiên</li>
+                        <li>Tác động trực tiếp</li>
+                        <li>Không tác dụng phụ</li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Premium Packaging Section -->
-        <section>
-            <div class="container">
-                <h2>Bao Bì Premium — Thiết Kế Hướng Đến Tương Lai</h2>
-                <div class="packaging-content">
-                    <div class="packaging-image fade-in-up">
-                        <img src="images/packaging.jpg" alt="Premium Packaging">
+    <!-- Bio Active Ingredients Section -->
+    <section id="ingredients">
+        <div class="container">
+            <h2 class="section-title">Thành Phần Bio Active</h2>
+            <div class="ingredients-grid">
+                <div class="ingredient-card fade-in">
+                    <div class="ingredient-emoji">🌿</div>
+                    <h4>Centella Asiatica</h4>
+                    <p>Triterpene 95%, lịch sử 30+ năm chữa lành vết thương. Tái tạo mô hiệu quả.</p>
+                </div>
+                <div class="ingredient-card fade-in">
+                    <div class="ingredient-emoji">🌼</div>
+                    <h4>Chamomile</h4>
+                    <p>Cúc La Mã thiên nhiên, điều trị nướu an toàn. Chứng minh bằng lâm sàng.</p>
+                </div>
+                <div class="ingredient-card fade-in">
+                    <div class="ingredient-emoji">🛡️</div>
+                    <h4>Scutellaria</h4>
+                    <p>Chống viêm mạnh mẽ từ thiên nhiên. Giảm đau nướu ngay lập tức.</p>
+                </div>
+                <div class="ingredient-card fade-in">
+                    <div class="ingredient-emoji">🪵</div>
+                    <h4>Magnolia</h4>
+                    <p>Phòng ngừa sâu răng tự nhiên. An toàn cho tất cả mọi người.</p>
+                </div>
+                <div class="ingredient-card fade-in">
+                    <div class="ingredient-emoji">✨</div>
+                    <h4>Enoxolone</h4>
+                    <p>Điều trị nướu nguyên chất 100%. Hiệu quả chứng minh qua lâm sàng.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selcopintide Mechanism Section -->
+    <section id="mechanism">
+        <div class="container">
+            <h2 class="section-title">Cơ Chế Hoạt Động Selcopintide®</h2>
+            <div class="mechanism-steps">
+                <div class="mechanism-step fade-in">
+                    <div class="step-number">1</div>
+                    <h4>Lộ Lỗ Ngà</h4>
+                    <p>Lỗ dentin bị phơi bày do mắc cư trụ xương hoặc mòn ngà.</p>
+                </div>
+                <div class="mechanism-step fade-in">
+                    <div class="step-number">2</div>
+                    <h4>Ứng Dụng Peptide</h4>
+                    <p>Selcopintide® được bôi lên bề mặt răng, thẩm thấu vào lỗ dentin.</p>
+                </div>
+                <div class="mechanism-step fade-in">
+                    <div class="step-number">3</div>
+                    <h4>Kích Hoạt Tế Bào</h4>
+                    <p>Peptide kích hoạt các tế bào odontoblast bên dưới.</p>
+                </div>
+                <div class="mechanism-step fade-in">
+                    <div class="step-number">4</div>
+                    <h4>Tái Tạo Ngà</h4>
+                    <p>Tế bào sản xuất ngà mới tự nhiên để lấp đầy lỗ.</p>
+                </div>
+                <div class="mechanism-step fade-in">
+                    <div class="step-number">5</div>
+                    <h4>Lắp Dính Lỗ</h4>
+                    <p>Lỗ dentin được lắp dính, giảm nhạy cảm vĩnh viễn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clinical Evidence Section -->
+    <section id="clinical">
+        <div class="container clinical-content">
+            <h2 class="section-title">Bằng Chứng Lâm Sàng</h2>
+            <div class="clinical-grid">
+                <div class="chart-container fade-in">
+                    <h3 class="chart-title">Hiệu Quả Giảm Nhạy Cảm (%)</h3>
+                    <div class="bar-chart">
+                        <div class="bar-item">
+                            <div class="bar" style="height: 85%;">
+                                <span class="bar-value">24.6%</span>
+                            </div>
+                            <div class="bar-label">I3IO</div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar competitor" style="height: 56%;">
+                                <span class="bar-value">16.5%</span>
+                            </div>
+                            <div class="bar-label">Đối Thủ</div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar competitor" style="height: 50%;">
+                                <span class="bar-value">15%</span>
+                            </div>
+                            <div class="bar-label">Chuẩn Quốc Tế</div>
+                        </div>
                     </div>
-                    <div class="packaging-text fade-in-up">
-                        <h3>Tech Luxury — Ngoại Hình Hiện Đại, Chức Năng Cao Cấp</h3>
-                        <p>Mỗi tuýp I3IO được chế tạo với những vật liệu cao cấp nhất: ống nhôm kim loại với lớp phủ matte chrome, nắp xoay bằng kim loại, thiết kế tối giản nhưng sang trọng.</p>
-                        <p>Không chỉ là một sản phẩm, mà là một tuyên bố — tuyên bố rằng bạn chăm sóc sức khỏe của mình một cách nghiêm túc.</p>
-                        <div class="packaging-features">
-                            <div class="packaging-feature">
-                                <div class="packaging-feature-icon">🛡️</div>
-                                <div class="packaging-feature-text">
-                                    <h5>Bảo Vệ Toàn Diện</h5>
-                                    <p>Ống kín hoàn toàn ngăn chặn oxy hóa, giữ nguyên tính chất hoạt chất trong 24 tháng</p>
-                                </div>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: var(--primary);"></div>
+                            <span>I3IO</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #cbd5e1;"></div>
+                            <span>So Sánh</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container fade-in">
+                    <h3 class="chart-title">Hiệu Quả Chăm Sóc Nướu (%)</h3>
+                    <div class="bar-chart">
+                        <div class="bar-item">
+                            <div class="bar" style="height: 87%;">
+                                <span class="bar-value">18.6%</span>
                             </div>
-                            <div class="packaging-feature">
-                                <div class="packaging-feature-icon">♻️</div>
-                                <div class="packaging-feature-text">
-                                    <h5>Bền Vững</h5>
-                                    <p>100% tái chế được, hỗ trợ chương trình tái chế nhôm toàn cầu</p>
-                                </div>
+                            <div class="bar-label">I3IO</div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar competitor" style="height: 52%;">
+                                <span class="bar-value">15.5%</span>
                             </div>
-                            <div class="packaging-feature">
-                                <div class="packaging-feature-icon">🎯</div>
-                                <div class="packaging-feature-text">
-                                    <h5>Đo Lường Chính Xác</h5>
-                                    <p>Nắp được thiết kế để đo lường liều dùng chính xác, tránh lãng phí sản phẩm</p>
-                                </div>
+                            <div class="bar-label">Đối Thủ</div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar competitor" style="height: 50%;">
+                                <span class="bar-value">15%</span>
                             </div>
+                            <div class="bar-label">Chuẩn Quốc Tế</div>
+                        </div>
+                    </div>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: var(--primary);"></div>
+                            <span>I3IO</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #cbd5e1;"></div>
+                            <span>So Sánh</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Orion Group Section -->
-        <section class="orion-group">
-            <div class="orion-content fade-in-up">
-                <h2>Tập Đoàn Orion — Đi Đầu Công Nghệ Sinh Học</h2>
-                <p style="font-size: 16px; margin-bottom: 40px; opacity: 0.95;">Với 5 thập kỷ kinh nghiệm và sự tin tưởng từ hàng triệu bệnh nhân trên toàn thế giới, Orion Biologics đặt tiêu chuẩn cho đổi mới dược phẩm sinh học.</p>
-                <div class="orion-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">18</div>
-                        <div class="stat-label">Cơ Sở Sản Xuất Trên Toàn Thế Giới</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Quốc Gia Có Mặt</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">K-Science</div>
-                        <div class="stat-label">Công Ty Hàng Đầu Về Thương Hiệu Khoa Học</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Đạo Đức & Bền Vững</div>
-                    </div>
+            <div class="trials fade-in">
+                <h3>Các Thử Nghiệm Lâm Sàng</h3>
+                <ul>
+                    <li>Đại học Quốc gia Việt Nam - Thử nghiệm 500 người</li>
+                    <li>Đại học Peking (Trung Quốc) - Thử nghiệm 400 người</li>
+                    <li>Kết quả: I3IO vượt trội cả tiêu chuẩn quốc tế</li>
+                    <li>Thời gian: Liên tục 12 tháng với kết quả bền vững</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards">
+        <div class="container">
+            <h2 class="section-title">Giải Thưởng & Công Nhận</h2>
+            <div class="awards-grid">
+                <div class="award-card fade-in">
+                    <div class="award-icon">🏆</div>
+                    <h3>K-HERO Award</h3>
+                    <p><strong>Số 1 từ 40,000+ Phòng Thí Nghiệm</strong><br>Được công nhận bởi Bộ Khoa Học & Công Nghệ Hàn Quốc. Kem đánh răng duy nhất đạt thứ hạng cao nhất trong danh mục sức khỏe miệng.</p>
+                </div>
+                <div class="award-card fade-in">
+                    <div class="award-icon">⭐</div>
+                    <h3>ADA Forsyth Dentech 2025</h3>
+                    <p><strong>Giải Thưởng Sáng Kiến Xuất Sắc</strong><br>Công nhận công nghệ Selcopintide® như một bước đột phá trong nha khoa hiện đại, vượt trội hơn tất cả các sản phẩm cạnh tranh.</p>
+                </div>
+                <div class="award-card fade-in">
+                    <div class="award-icon">💌</div>
+                    <h3>Giáo Sư Hubert Newman</h3>
+                    <p><strong>Đại học London (UCL)</strong><br>Giáo sư nha khoa hàng đầu thế giới gửi lá thư xác nhận tay: "Công nghệ I3IO là tương lai của chăm sóc răng miệng."</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <div class="container">
-                <h2>Liên Hệ Với Chúng Tôi</h2>
-                <div class="contact-container fade-in-up">
-                    <p style="text-align: center; color: var(--text-gray); margin-bottom: 40px; font-size: 15px;">Bạn là nhà phân phối? Bạn muốn tìm hiểu thêm về cơ hội kinh doanh I3IO tại Việt Nam? Hãy liên hệ với chúng tôi ngay hôm nay.</p>
+    <!-- Packaging Section -->
+    <section id="packaging">
+        <div class="container packaging-content">
+            <div class="packaging-text">
+                <h2>Bao Bì & Thiết Kế</h2>
+                <p>Mỗi sản phẩm I3IO được đóng gói với sự chú ý đến chi tiết, phản ánh chất lượng cao và cam kết về tính bền vững của chúng tôi.</p>
+                <ul class="packaging-features">
+                    <li>Tuýp Airless - Bảo vệ công thức khỏi oxy hoá</li>
+                    <li>Thiết kế tối giản - Dễ sử dụng, sang trọng</li>
+                    <li>Thông tin rõ ràng - Hướng dẫn 4 ngôn ngữ</li>
+                    <li>Bền vững - Bao bì có thể tái chế 100%</li>
+                    <li>Tem bảo mật - Chống giả hiệu quả</li>
+                </ul>
+            </div>
+            <div class="packaging-image">
+                <img src="images/packaging.jpg" alt="Bao bì I3IO">
+            </div>
+        </div>
+    </section>
 
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Họ & Tên (Bắt buộc)</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">Tên Công Ty (Bắt buộc)</label>
-                            <input type="text" id="company" name="company" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Số Điện Thoại (Bắt buộc)</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email (Bắt buộc)</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Tin Nhắn</label>
-                            <textarea id="message" name="message" placeholder="Thông tin về yêu cầu của bạn..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Gửi Yêu Cầu</button>
-                    </form>
+    <!-- About / Orion Group Section -->
+    <section id="about">
+        <div class="container about-content">
+            <div class="about-text">
+                <h2>Về I3IO</h2>
+                <p>I3IO là sản phẩm nha khoa y khoa được phát triển bởi Orion Biologics - một công ty hàng đầu trong lĩnh vực sinh học và chăm sóc sức khỏe toàn cầu.</p>
+                <p>Chúng tôi cam kết mang công nghệ tiên tiến nhất đến cho người tiêu dùng Việt Nam, giúp cải thiện chất lượng cuộc sống thông qua những giải pháp sức khỏe hiệu quả và an toàn.</p>
+                <p>Mỗi sản phẩm I3IO đều được kiểm chứng lâm sàng, tuân thủ tiêu chuẩn quốc tế cao nhất, và được chứng thực bởi các chuyên gia nha khoa hàng đầu thế giới.</p>
+            </div>
+            <div style="text-align: center;">
+                <h3 style="color: var(--primary); font-size: 28px; margin-bottom: 20px;">🌍 Orion Biologics</h3>
+                <p style="color: var(--text-gray); font-size: 15px;">Cam Kết Chăm Sóc Sức Khỏe Toàn Cầu</p>
+            </div>
+        </div>
+    </section>
 
-                    <div class="contact-info fade-in-up">
-                        <div class="contact-info-item">
-                            <strong>📞 Điện Thoại</strong>
-                            <p>+84 (0) 8 3333 3333</p>
-                        </div>
-                        <div class="contact-info-item">
-                            <strong>✉️ Email</strong>
-                            <p>vietnam@i3io-orion.com</p>
-                        </div>
-                    </div>
+    <section id="orion-group">
+        <div class="container orion-content">
+            <h2 class="section-title">Tập Đoàn Orion</h2>
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Năm Kinh Nghiệm</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Nước Phân Phối</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Sản Phẩm</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">1M+</div>
+                    <div class="stat-label">Khách Hàng Hài Lòng</div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container contact-content">
+            <h2 class="section-title">Liên Hệ Với Chúng Tôi</h2>
+            <p style="color: var(--text-gray); font-size: 16px; margin-bottom: 30px;">Có bất kỳ câu hỏi nào? Chúng tôi sẽ rất vui được nghe từ bạn. Điền form dưới đây và chúng tôi sẽ phản hồi trong vòng 24 giờ.</p>
+
+            <form class="contact-form" onsubmit="handleContactSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Họ & Tên</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Số Điện Thoại</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Chủ Đề</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Tin Nhắn</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-submit">Gửi Tin Nhắn</button>
+            </form>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2025 I3IO Orion Biologics Vietnam. Tất cả quyền lợi được bảo vệ.</p>
-            <p style="margin-top: 10px; font-size: 12px;">Điều Trị Từ Gốc — Không Chỉ Giảm Đau</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>I3IO</h3>
+                <p style="color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 10px;">Kem Đánh Răng Y Khoa Thế Hệ Mới</p>
+                <p style="color: rgba(255,255,255,0.6); font-size: 13px;">Giải Pháp Toàn Diện Từ Tái Tạo Đến Phòng Ngừa</p>
+            </div>
+            <div class="footer-section">
+                <h3>Sản Phẩm</h3>
+                <ul>
+                    <li><a href="#products">Tất Cả Sản Phẩm</a></li>
+                    <li><a href="#sensitive">Sensitive Care</a></li>
+                    <li><a href="#gumcare">Gum Care</a></li>
+                    <li><a href="#whitening">Whitening</a></li>
+                    <li><a href="#kids">Kids Edition</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Liên Hệ</h3>
+                <ul>
+                    <li><a href="#about">Về I3IO</a></li>
+                    <li><a href="#technology">Công Nghệ</a></li>
+                    <li><a href="#awards">Giải Thưởng</a></li>
+                    <li><a href="#contact">Liên Hệ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Orion Biologics. Tất cả quyền được bảo lưu. | I3IO Vietnam</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scroll animation for elements
+        // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -1920,76 +1851,51 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.fade-in-up').forEach(el => {
+        document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
 
-        // Animated bar charts for clinical evidence
-        const animateCharts = () => {
-            const barFills = document.querySelectorAll('.bar-fill');
-            barFills.forEach(bar => {
-                const target = bar.getAttribute('data-target');
-                let current = 0;
-                const increment = target / 40;
+        // Handle contact form submission
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
 
-                const animate = () => {
-                    if (current < target) {
-                        current += increment;
-                        bar.style.width = current + '%';
-                        requestAnimationFrame(animate);
-                    } else {
-                        bar.style.width = target + '%';
-                    }
-                };
+            // Simple validation
+            if (!formData.get('name') || !formData.get('email') || !formData.get('subject') || !formData.get('message')) {
+                alert('Vui lòng điền đầy đủ tất cả các trường bắt buộc');
+                return;
+            }
 
-                // Start animation when visible
-                if (bar.offsetParent !== null) {
-                    animate();
-                }
+            // Here you would normally send the form data to your server
+            console.log('Form submitted:', {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                subject: formData.get('subject'),
+                message: formData.get('message')
             });
-        };
 
-        // Trigger chart animation on scroll
-        const chartObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCharts();
-                    chartObserver.unobserve(entry.target);
-                }
-            });
-        });
-
-        const chartSection = document.querySelector('.clinical-charts');
-        if (chartSection) {
-            chartObserver.observe(chartSection);
+            alert('Cảm ơn bạn! Chúng tôi sẽ liên hệ với bạn sớm nhất.');
+            event.target.reset();
         }
 
-        // Smooth scroll for navigation links
+        // Smooth scroll behavior
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
-        });
-
-        // Form submission handler
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Cảm ơn bạn đã gửi yêu cầu. Chúng tôi sẽ liên hệ lại trong 24 giờ!');
-            this.reset();
         });
     </script>
 </body>
