@@ -63,127 +63,217 @@
             padding: 0 20px;
         }
 
-        /* ===== Navigation & Mega Menu ===== */
+        /* ===== Navigation ===== */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: var(--bg-white);
-            border-bottom: 1px solid var(--border);
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
             z-index: 1000;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 70px;
+            height: 64px;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
             color: var(--primary);
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
+        .logo span { color: var(--text-dark); font-weight: 400; font-size: 12px; letter-spacing: 0; margin-left: 8px; }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1002;
+        }
+        .hamburger span {
+            width: 24px; height: 2px; background: var(--text-dark);
+            transition: all 0.3s ease; border-radius: 2px;
+        }
+        .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* Desktop Nav */
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 0;
             list-style: none;
+            align-items: center;
         }
 
-        .nav-item {
-            position: relative;
-        }
+        .nav-item { position: relative; }
 
-        .nav-links a, .nav-toggle {
+        .nav-item > a {
             color: var(--text-dark);
             font-weight: 500;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            position: relative;
+            font-size: 14px;
+            padding: 20px 16px;
+            display: block;
+            transition: color 0.2s ease;
         }
 
-        .nav-item:hover > a::after {
-            width: 100%;
+        .nav-item > a:hover { color: var(--primary); }
+
+        /* Dropdown */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            min-width: 240px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+            padding: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
         }
 
-        .nav-item:hover .mega-menu {
-            display: grid;
-        }
-
-        .nav-links a::after {
+        .dropdown::before {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px; height: 16px;
+            background: white;
+            border-radius: 3px;
+            transform: translateX(-50%) rotate(45deg);
+            box-shadow: -2px -2px 4px rgba(0,0,0,0.04);
         }
 
-        .mega-menu {
-            display: none;
-            position: absolute;
-            top: 70px;
-            left: 0;
-            background: var(--bg-white);
-            border-bottom: 2px solid var(--primary);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            padding: 30px 20px;
-            width: 100%;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            z-index: 999;
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
         }
 
-        .mega-menu-column h4 {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 15px;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .mega-menu-column a {
-            display: block;
-            padding: 8px 0;
+        .dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: 8px;
             color: var(--text-dark);
-            font-size: 14px;
-            transition: all 0.3s ease;
-            border-left: 2px solid transparent;
-            padding-left: 10px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.15s ease;
+            line-height: 1.4;
         }
 
-        .mega-menu-column a:hover {
+        .dropdown a:hover {
+            background: var(--bg-light);
             color: var(--primary);
-            border-left-color: var(--primary);
         }
 
+        .dropdown a .dd-icon {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 15px;
+            flex-shrink: 0;
+            background: var(--bg-light);
+        }
+
+        .dropdown a:hover .dd-icon { background: #ccfbf1; }
+
+        .dropdown a .dd-text { display: flex; flex-direction: column; }
+        .dropdown a .dd-label { font-weight: 600; font-size: 13px; }
+        .dropdown a .dd-desc { font-size: 11px; color: var(--text-gray); font-weight: 400; }
+
+        .dropdown .dd-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 4px 8px;
+        }
+
+        /* Mobile Nav */
         @media (max-width: 768px) {
+            .hamburger { display: flex; }
+
             .nav-links {
-                gap: 15px;
+                position: fixed;
+                top: 0; right: -100%;
+                width: 85%; max-width: 360px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 80px 24px 24px;
+                gap: 0;
+                box-shadow: -8px 0 24px rgba(0,0,0,0.15);
+                transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+                overflow-y: auto;
+                align-items: stretch;
             }
-            .mega-menu {
-                grid-template-columns: 1fr;
-                width: 200px;
-                left: auto;
-                right: 0;
+
+            .nav-links.open { right: 0; }
+
+            .nav-item > a {
+                padding: 14px 0;
+                font-size: 15px;
+                border-bottom: 1px solid var(--border);
             }
+
+            .dropdown {
+                position: static;
+                transform: none;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 0 0 8px 16px;
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                display: none;
+                min-width: auto;
+            }
+
+            .dropdown::before { display: none; }
+
+            .nav-item.mobile-open .dropdown { display: block; }
+
+            .dropdown a {
+                padding: 8px 0;
+                font-size: 14px;
+            }
+
+            .dropdown a .dd-icon { width: 28px; height: 28px; font-size: 13px; }
+
+            .mobile-overlay {
+                display: none;
+                position: fixed;
+                top: 0; left: 0;
+                width: 100%; height: 100%;
+                background: rgba(0,0,0,0.4);
+                z-index: 999;
+            }
+
+            .mobile-overlay.active { display: block; }
         }
 
         /* ===== Hero Section ===== */
         #hero {
-            margin-top: 70px;
+            margin-top: 64px;
             background: linear-gradient(135deg, #0D9488 0%, #14b8a6 100%);
             color: white;
             padding: 60px 20px;
@@ -1285,55 +1375,94 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">I3IO</div>
+            <div class="logo">I3IO <span>by Orion Biologics</span></div>
+
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <span></span><span></span><span></span>
+            </div>
+            <div class="mobile-overlay" onclick="toggleMobileMenu()"></div>
+
             <ul class="nav-links">
                 <li class="nav-item">
-                    <a href="#about" class="nav-toggle">Giới Thiệu ▼</a>
-                    <div class="mega-menu">
-                        <div class="mega-menu-column">
-                            <h4>Thông Tin</h4>
-                            <a href="#about">Về I3IO</a>
-                            <a href="#orion-group">Tập Đoàn Orion</a>
-                        </div>
+                    <a href="#about" onclick="toggleDropdown(event, this)">Giới Thiệu</a>
+                    <div class="dropdown">
+                        <a href="#about" onclick="navTo(event,'about')">
+                            <div class="dd-icon">🏢</div>
+                            <div class="dd-text"><span class="dd-label">Về I3IO</span><span class="dd-desc">Kem đánh răng y khoa từ Hàn Quốc</span></div>
+                        </a>
+                        <a href="#orion-group" onclick="navTo(event,'orion-group')">
+                            <div class="dd-icon">🌏</div>
+                            <div class="dd-text"><span class="dd-label">Tập Đoàn Orion</span><span class="dd-desc">18 nhà máy, 50+ quốc gia</span></div>
+                        </a>
+                        <a href="#packaging" onclick="navTo(event,'packaging')">
+                            <div class="dd-icon">✨</div>
+                            <div class="dd-text"><span class="dd-label">Bao Bì Premium</span><span class="dd-desc">Thiết kế cao cấp Tech Luxury</span></div>
+                        </a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#technology" class="nav-toggle">Công Nghệ ▼</a>
-                    <div class="mega-menu">
-                        <div class="mega-menu-column">
-                            <h4>Công Nghệ</h4>
-                            <a href="#technology">Selcopintide® Peptide</a>
-                            <a href="#generations">3 Thế Hệ</a>
-                            <a href="#ingredients">Thành Phần Bio Active</a>
-                            <a href="#clinical">Nghiên Cứu Lâm Sàng</a>
-                            <a href="#mechanism">Cơ Chế Hoạt Động</a>
-                        </div>
+                    <a href="#technology" onclick="toggleDropdown(event, this)">Công Nghệ</a>
+                    <div class="dropdown">
+                        <a href="#technology" onclick="navTo(event,'technology')">
+                            <div class="dd-icon">🧬</div>
+                            <div class="dd-text"><span class="dd-label">Selcopintide® Peptide</span><span class="dd-desc">Công nghệ tái tạo ngà răng</span></div>
+                        </a>
+                        <a href="#generations" onclick="navTo(event,'generations')">
+                            <div class="dd-icon">📊</div>
+                            <div class="dd-text"><span class="dd-label">3 Thế Hệ Kem Đánh Răng</span><span class="dd-desc">Từ truyền thống đến điều trị</span></div>
+                        </a>
+                        <div class="dd-divider"></div>
+                        <a href="#ingredients" onclick="navTo(event,'ingredients')">
+                            <div class="dd-icon">🌿</div>
+                            <div class="dd-text"><span class="dd-label">Thành Phần Bio Active</span><span class="dd-desc">5 chiết xuất dược phẩm</span></div>
+                        </a>
+                        <a href="#mechanism" onclick="navTo(event,'mechanism')">
+                            <div class="dd-icon">🔬</div>
+                            <div class="dd-text"><span class="dd-label">Cơ Chế Hoạt Động</span><span class="dd-desc">Quy trình tái tạo 5 bước</span></div>
+                        </a>
+                        <a href="#clinical" onclick="navTo(event,'clinical')">
+                            <div class="dd-icon">📋</div>
+                            <div class="dd-text"><span class="dd-label">Nghiên Cứu Lâm Sàng</span><span class="dd-desc">Thử nghiệm tại ĐH hàng đầu</span></div>
+                        </a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#products" class="nav-toggle">Sản Phẩm ▼</a>
-                    <div class="mega-menu">
-                        <div class="mega-menu-column">
-                            <h4>Danh Mục</h4>
-                            <a href="#products">Tất Cả Sản Phẩm</a>
-                            <a href="#sensitive">Sensitive Care</a>
-                            <a href="#gumcare">Gum Care</a>
-                            <a href="#whitening">Whitening</a>
-                            <a href="#kids">Kids Edition</a>
-                        </div>
+                    <a href="#products" onclick="toggleDropdown(event, this)">Sản Phẩm</a>
+                    <div class="dropdown">
+                        <a href="#sensitive" onclick="navTo(event,'sensitive')">
+                            <div class="dd-icon" style="background:#fff7ed">🟠</div>
+                            <div class="dd-text"><span class="dd-label">Sensitive Care</span><span class="dd-desc">Phục hồi ngà răng</span></div>
+                        </a>
+                        <a href="#gumcare" onclick="navTo(event,'gumcare')">
+                            <div class="dd-icon" style="background:#fef2f2">🔴</div>
+                            <div class="dd-text"><span class="dd-label">Gum Care</span><span class="dd-desc">Điều trị viêm nướu</span></div>
+                        </a>
+                        <a href="#whitening" onclick="navTo(event,'whitening')">
+                            <div class="dd-icon" style="background:#f0fdfa">🟢</div>
+                            <div class="dd-text"><span class="dd-label">Whitening</span><span class="dd-desc">Trắng răng an toàn</span></div>
+                        </a>
+                        <div class="dd-divider"></div>
+                        <a href="#kids" onclick="navTo(event,'kids')">
+                            <div class="dd-icon" style="background:#fdf2f8">🧒</div>
+                            <div class="dd-text"><span class="dd-label">Kids Edition</span><span class="dd-desc">Cho trẻ 4-9 tuổi</span></div>
+                        </a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#awards" class="nav-toggle">Chứng Nhận ▼</a>
-                    <div class="mega-menu">
-                        <div class="mega-menu-column">
-                            <h4>Giải Thưởng</h4>
-                            <a href="#awards">Giải Thưởng</a>
-                        </div>
+                    <a href="#awards" onclick="toggleDropdown(event, this)">Chứng Nhận</a>
+                    <div class="dropdown">
+                        <a href="#awards" onclick="navTo(event,'awards')">
+                            <div class="dd-icon">🏆</div>
+                            <div class="dd-text"><span class="dd-label">K-HERO & ADA Award</span><span class="dd-desc">Giải thưởng quốc tế</span></div>
+                        </a>
+                        <a href="#clinical" onclick="navTo(event,'clinical')">
+                            <div class="dd-icon">🔬</div>
+                            <div class="dd-text"><span class="dd-label">Bằng Chứng Lâm Sàng</span><span class="dd-desc">Kết quả thử nghiệm</span></div>
+                        </a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#contact">Liên Hệ</a>
+                    <a href="#contact" onclick="navTo(event,'contact')" style="color:var(--primary);font-weight:600;">Liên Hệ</a>
                 </li>
             </ul>
         </div>
@@ -1841,12 +1970,52 @@
     </footer>
 
     <script>
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+        // ===== Mobile Menu =====
+        function toggleMobileMenu() {
+            const nav = document.querySelector('.nav-links');
+            const hamburger = document.querySelector('.hamburger');
+            const overlay = document.querySelector('.mobile-overlay');
+            nav.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+        }
 
+        // Mobile dropdown toggle
+        function toggleDropdown(e, el) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                el.closest('.nav-item').classList.toggle('mobile-open');
+            }
+        }
+
+        // Navigate to section (works on both desktop & mobile)
+        function navTo(e, id) {
+            e.preventDefault();
+            e.stopPropagation();
+            const target = document.getElementById(id);
+            if (target) {
+                // Close mobile menu if open
+                const nav = document.querySelector('.nav-links');
+                if (nav.classList.contains('open')) {
+                    toggleMobileMenu();
+                }
+                setTimeout(() => {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+
+        // Close dropdown when clicking outside on desktop
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-item')) {
+                document.querySelectorAll('.nav-item.mobile-open').forEach(item => {
+                    item.classList.remove('mobile-open');
+                });
+            }
+        });
+
+        // ===== Intersection Observer =====
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1854,47 +2023,25 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Handle contact form submission
+        // ===== Contact Form =====
         function handleContactSubmit(event) {
             event.preventDefault();
-            const formData = new FormData(event.target);
-
-            // Simple validation
-            if (!formData.get('name') || !formData.get('email') || !formData.get('subject') || !formData.get('message')) {
-                alert('Vui lòng điền đầy đủ tất cả các trường bắt buộc');
-                return;
-            }
-
-            // Here you would normally send the form data to your server
-            console.log('Form submitted:', {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                subject: formData.get('subject'),
-                message: formData.get('message')
-            });
-
             alert('Cảm ơn bạn! Chúng tôi sẽ liên hệ với bạn sớm nhất.');
             event.target.reset();
         }
 
-        // Smooth scroll behavior
+        // ===== Smooth Scroll for all anchor links =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
+                // Only handle if not already handled by navTo
+                if (this.getAttribute('onclick')) return;
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                const t = document.querySelector(this.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
     </script>
