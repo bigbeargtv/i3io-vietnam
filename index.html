@@ -3,1203 +3,735 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I3IO by Orion Biologics - Premium Toothpaste Korea</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>I3IO by Orion Biologics — Kem Đánh Răng Y Tế Cao Cấp Hàn Quốc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0a0a0a;
-            color: #ffffff;
+            background: #ffffff;
+            color: #1a1a1a;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* HEADER & NAVIGATION */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(212, 175, 119, 0.2);
+        /* === COLORS === */
+        :root {
+            --teal: #0D9488;
+            --teal-dark: #0B7A70;
+            --teal-light: #E6F7F5;
+            --teal-bg: #F0FAFA;
+            --bg-light: #F7F9FC;
+            --text: #1a1a1a;
+            --text-secondary: #555;
+            --text-muted: #888;
+            --border: #E5E7EB;
         }
 
+        /* === HEADER === */
+        header {
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1000;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+        }
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
-            max-width: 1400px;
+            padding: 1rem 5%;
+            max-width: 1300px;
             margin: 0 auto;
-            width: 100%;
         }
-
         .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            color: #D4AF77;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--teal);
+            letter-spacing: 1px;
         }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
+        .logo span { color: var(--text-muted); font-weight: 400; font-size: 0.8rem; margin-left: 0.5rem; letter-spacing: 0; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
         nav a {
-            color: #ffffff;
+            color: var(--text);
             text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            transition: color 0.3s ease;
-            border-bottom: 2px solid transparent;
-            padding-bottom: 0.5rem;
-        }
-
-        nav a:hover {
-            color: #D4AF77;
-            border-bottom-color: #D4AF77;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            width: 100%;
-            height: 100vh;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5%;
-            margin-top: 0;
-            position: relative;
-            overflow: hidden;
-            opacity: 1 !important;
-            transform: none !important;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: url('images/hero_all.jpg') center/cover no-repeat;
-            opacity: 0.8;
-            z-index: 1;
-        }
-
-        .hero-content {
-            flex: 1;
-            z-index: 2;
-            max-width: 600px;
-            animation: fadeInLeft 1s ease-out;
-        }
-
-        .hero-content h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4.5rem;
-            font-weight: 600;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-        }
-
-        .hero-content .tagline {
-            font-size: 1.3rem;
-            color: #D4AF77;
-            margin-bottom: 1rem;
+            font-size: 0.88rem;
             font-weight: 500;
-            letter-spacing: 1px;
+            transition: color 0.2s;
         }
+        nav a:hover { color: var(--teal); }
 
-        .hero-content .description {
-            font-size: 1.1rem;
-            color: #cccccc;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background-color: #D4AF77;
-            color: #0a0a0a;
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            border: 2px solid #D4AF77;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            background-color: transparent;
-            color: #D4AF77;
-        }
-
-        @keyframes fadeInLeft {
-            from { opacity: 0; transform: translateX(-30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        /* SECTIONS */
-        section {
-            padding: 6rem 5%;
-            max-width: 1400px;
+        /* === HERO === */
+        .hero {
+            padding: 8rem 5% 4rem;
+            max-width: 1300px;
             margin: 0 auto;
-        }
-
-        section h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 3rem;
-            text-align: center;
-            letter-spacing: 1px;
-        }
-
-        .section-divider {
-            width: 80px;
-            height: 2px;
-            background: #D4AF77;
-            margin: 0 auto 3rem;
-        }
-
-        /* ABOUT SECTION */
-        .about { background: #0a0a0a; }
-
-        .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 3rem;
             align-items: center;
         }
-
-        .about-text h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #D4AF77;
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--text);
         }
-
-        .about-text p {
+        .hero-text h1 em {
+            color: var(--teal);
+            font-style: normal;
+        }
+        .hero-text .tagline {
+            font-size: 1.1rem;
+            color: var(--teal);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        .hero-text p {
             font-size: 1rem;
-            color: #cccccc;
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
-            line-height: 1.9;
+            line-height: 1.7;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--teal);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover { background: var(--teal-dark); }
+        .btn-outline {
+            background: transparent;
+            color: var(--teal);
+            border: 2px solid var(--teal);
+            margin-left: 1rem;
+        }
+        .btn-outline:hover { background: var(--teal); color: #fff; }
+        .hero-img {
+            text-align: center;
+        }
+        .hero-img img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 12px;
         }
 
-        .about-stats {
+        /* === SECTIONS === */
+        section {
+            padding: 4rem 5%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .section-full {
+            max-width: 100%;
+            padding: 4rem 5%;
+        }
+        .section-grey { background: var(--bg-light); }
+        .section-teal { background: var(--teal-bg); }
+        section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            text-align: center;
+        }
+        .section-sub {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2.5rem;
+        }
+        .divider {
+            width: 50px;
+            height: 3px;
+            background: var(--teal);
+            margin: 0.8rem auto 1rem;
+            border-radius: 2px;
+        }
+
+        /* === STATS BAR === */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+        .stat-card .num {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--teal);
+        }
+        .stat-card .label {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+        }
+
+        /* === ABOUT === */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .about-text h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--teal);
+        }
+        .about-text p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+            line-height: 1.7;
+        }
+
+        /* === TECHNOLOGY === */
+        .tech-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
         }
-
-        .stat {
+        .tech-card {
             padding: 1.5rem;
-            border-left: 3px solid #D4AF77;
-            background: rgba(212, 175, 119, 0.05);
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            border-left: 4px solid var(--teal);
         }
-
-        .stat-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            color: #D4AF77;
+        .tech-card h4 {
+            font-size: 1rem;
             font-weight: 600;
+            color: var(--teal);
+            margin-bottom: 0.4rem;
+        }
+        .tech-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
         }
 
-        .stat-label {
-            font-size: 0.9rem;
-            color: #999;
-            margin-top: 0.5rem;
-        }
-
-        /* TECHNOLOGY SECTION */
-        .technology { background: #111111; }
-
-        .tech-content {
+        /* === PRODUCTS === */
+        .products-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .tech-text h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #D4AF77;
-        }
-
-        .tech-benefits {
-            display: flex;
-            flex-direction: column;
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
         }
-
-        .benefit {
-            padding: 1.5rem;
-            border: 1px solid #D4AF77;
-            border-left: 3px solid #D4AF77;
-            background: rgba(212, 175, 119, 0.02);
-        }
-
-        .benefit h4 { color: #D4AF77; margin-bottom: 0.5rem; font-size: 1.1rem; }
-        .benefit p { color: #cccccc; font-size: 0.95rem; }
-
-        /* ====================== */
-        /* PRODUCT SEGMENT SECTIONS */
-        /* ====================== */
-
-        /* SEGMENT COMMON */
-        .segment-section {
-            padding: 6rem 5%;
-            position: relative;
+        .product-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
             overflow: hidden;
+            cursor: pointer;
+            transition: all 0.25s ease;
         }
-
-        .segment-section .segment-inner {
-            max-width: 1400px;
-            margin: 0 auto;
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            border-color: var(--teal);
         }
-
-        .segment-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .segment-layout.reverse { direction: rtl; }
-        .segment-layout.reverse > * { direction: ltr; }
-
-        .segment-image {
-            position: relative;
-            border-radius: 4px;
+        .product-card-img {
+            height: 200px;
             overflow: hidden;
+            background: var(--bg-light);
         }
-
-        .segment-image img {
+        .product-card-img img {
             width: 100%;
-            height: 450px;
+            height: 100%;
             object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
+            transition: transform 0.3s;
         }
-
-        .segment-image:hover img { transform: scale(1.03); }
-
-        .segment-text h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.8rem;
+        .product-card:hover .product-card-img img { transform: scale(1.05); }
+        .product-card-body {
+            padding: 1.2rem;
+        }
+        .product-card-body .type {
+            font-size: 0.75rem;
+            color: var(--teal);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+        .product-card-body h3 {
+            font-size: 1.15rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            text-align: left;
         }
-
-        .segment-subtitle {
-            font-size: 1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-            font-weight: 500;
-        }
-
-        .segment-text p {
-            font-size: 1.05rem;
-            line-height: 1.9;
-            margin-bottom: 1.5rem;
-        }
-
-        .segment-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-bottom: 2rem;
-        }
-
-        .segment-tag {
-            padding: 0.5rem 1.2rem;
-            border-radius: 2px;
+        .product-card-body p {
             font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
         }
-
-        .segment-price {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
+        .product-card-body .price {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--teal);
         }
-
-        .segment-cta {
+        .product-card-body .detail-link {
             display: inline-block;
-            padding: 0.9rem 2rem;
-            text-decoration: none;
+            margin-top: 0.5rem;
+            font-size: 0.82rem;
+            color: var(--teal);
             font-weight: 600;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid;
-            font-size: 0.9rem;
+            text-decoration: none;
         }
+        .product-card-body .detail-link:hover { text-decoration: underline; }
 
-        /* --- SENSITIVE CARE --- */
-        .segment-sensitive {
-            background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 50%, #0a0a0a 100%);
-        }
-
-        .segment-sensitive .segment-text h2 { color: #7EB8DA; }
-        .segment-sensitive .segment-subtitle { color: #5A9FCC; }
-        .segment-sensitive .segment-text p { color: #c8dce8; }
-        .segment-sensitive .segment-tag {
-            background: rgba(126, 184, 218, 0.15);
-            color: #7EB8DA;
-            border: 1px solid rgba(126, 184, 218, 0.3);
-        }
-        .segment-sensitive .segment-price { color: #7EB8DA; }
-        .segment-sensitive .segment-cta {
-            border-color: #7EB8DA;
-            color: #7EB8DA;
-            background: transparent;
-        }
-        .segment-sensitive .segment-cta:hover {
-            background: #7EB8DA;
-            color: #0a1628;
-        }
-        .segment-sensitive .segment-image {
-            border: 1px solid rgba(126, 184, 218, 0.3);
-            box-shadow: 0 0 40px rgba(126, 184, 218, 0.1);
-        }
-
-        /* --- GUM CARE --- */
-        .segment-gumcare {
-            background: linear-gradient(135deg, #0a1a14 0%, #0d2a1e 50%, #0a0a0a 100%);
-        }
-
-        .segment-gumcare .segment-text h2 { color: #6BBF8A; }
-        .segment-gumcare .segment-subtitle { color: #4FA96E; }
-        .segment-gumcare .segment-text p { color: #c0dcc9; }
-        .segment-gumcare .segment-tag {
-            background: rgba(107, 191, 138, 0.15);
-            color: #6BBF8A;
-            border: 1px solid rgba(107, 191, 138, 0.3);
-        }
-        .segment-gumcare .segment-price { color: #6BBF8A; }
-        .segment-gumcare .segment-cta {
-            border-color: #6BBF8A;
-            color: #6BBF8A;
-            background: transparent;
-        }
-        .segment-gumcare .segment-cta:hover {
-            background: #6BBF8A;
-            color: #0a1a14;
-        }
-        .segment-gumcare .segment-image {
-            border: 1px solid rgba(107, 191, 138, 0.3);
-            box-shadow: 0 0 40px rgba(107, 191, 138, 0.1);
-        }
-
-        /* --- WHITENING --- */
-        .segment-whitening {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #0a0a0a 100%);
-        }
-
-        .segment-whitening .segment-text h2 { color: #E8E0D4; }
-        .segment-whitening .segment-subtitle { color: #D4AF77; }
-        .segment-whitening .segment-text p { color: #d0ccc4; }
-        .segment-whitening .segment-tag {
-            background: rgba(212, 175, 119, 0.15);
-            color: #D4AF77;
-            border: 1px solid rgba(212, 175, 119, 0.3);
-        }
-        .segment-whitening .segment-price { color: #D4AF77; }
-        .segment-whitening .segment-cta {
-            border-color: #D4AF77;
-            color: #D4AF77;
-            background: transparent;
-        }
-        .segment-whitening .segment-cta:hover {
-            background: #D4AF77;
-            color: #1a1a1a;
-        }
-        .segment-whitening .segment-image {
-            border: 1px solid rgba(212, 175, 119, 0.3);
-            box-shadow: 0 0 40px rgba(212, 175, 119, 0.1);
-        }
-
-        /* ====================== */
-        /* KIDS ZONE - VIBRANT!!! */
-        /* ====================== */
+        /* === KIDS ZONE === */
         .kids-zone {
             background: linear-gradient(135deg, #FF6B9D 0%, #C44AFF 25%, #4FACFE 50%, #43E97B 75%, #FFD93D 100%);
             background-size: 400% 400%;
             animation: kidsGradient 12s ease infinite;
-            padding: 0;
-            max-width: 100%;
+            padding: 4rem 5%;
             position: relative;
             overflow: hidden;
         }
-
         @keyframes kidsGradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
-        .kids-zone-inner {
-            max-width: 1400px;
+        .kids-inner {
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 5rem 5%;
             position: relative;
             z-index: 2;
         }
-
-        /* Floating bubbles */
-        .kids-zone::before,
-        .kids-zone::after {
-            content: '';
-            position: absolute;
-            border-radius: 50%;
-            z-index: 1;
-            opacity: 0.3;
-        }
-
         .kids-zone::before {
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.2);
-            top: -50px;
-            right: -50px;
-            animation: floatBubble1 6s ease-in-out infinite;
-        }
-
-        .kids-zone::after {
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.15);
-            bottom: -30px;
-            left: 10%;
-            animation: floatBubble2 8s ease-in-out infinite;
-        }
-
-        @keyframes floatBubble1 {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-30px) scale(1.1); }
-        }
-
-        @keyframes floatBubble2 {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-        }
-
-        .kids-zone-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .kids-zone-title h2 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 3.5rem;
-            color: #ffffff;
-            text-shadow: 3px 3px 0 rgba(0,0,0,0.15);
-            margin-bottom: 0.5rem;
-            text-align: center;
-            animation: bounceTitle 2s ease-in-out infinite;
-        }
-
-        @keyframes bounceTitle {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
-        .kids-zone-title p {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.3rem;
-            color: rgba(255,255,255,0.9);
-            text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
-        }
-
-        .kids-divider {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin: 1rem auto 2rem;
-        }
-
-        .kids-divider span {
-            font-size: 1.8rem;
-            animation: starSpin 3s ease-in-out infinite;
-        }
-
-        .kids-divider span:nth-child(2) { animation-delay: 0.3s; }
-        .kids-divider span:nth-child(3) { animation-delay: 0.6s; }
-        .kids-divider span:nth-child(4) { animation-delay: 0.9s; }
-        .kids-divider span:nth-child(5) { animation-delay: 1.2s; }
-
-        @keyframes starSpin {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.3) rotate(20deg); }
-        }
-
-        .kids-products {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .kids-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 24px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-            position: relative;
-        }
-
-        .kids-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            border-radius: 24px 24px 0 0;
-        }
-
-        .kids-card.vanilla::before {
-            background: linear-gradient(90deg, #FFD93D, #FF9A3D, #FFD93D);
-        }
-
-        .kids-card.muscat::before {
-            background: linear-gradient(90deg, #A855F7, #6366F1, #A855F7);
-        }
-
-        .kids-card:hover {
-            transform: translateY(-10px) rotate(-1deg);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-        }
-
-        .kids-card-image {
-            width: 100%;
-            height: 320px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .kids-card.vanilla .kids-card-image {
-            background: linear-gradient(135deg, #FFF3CD, #FFE082);
-        }
-
-        .kids-card.muscat .kids-card-image {
-            background: linear-gradient(135deg, #E8D5F5, #CE93D8);
-        }
-
-        .kids-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .kids-card:hover .kids-card-image img {
-            transform: scale(1.08);
-        }
-
-        .kids-card-body {
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .kids-card-body .kids-flavor {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-
-        .kids-card.vanilla .kids-flavor { color: #F59E0B; }
-        .kids-card.muscat .kids-flavor { color: #8B5CF6; }
-
-        .kids-card-body h3 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.8rem;
-            color: #333;
-            margin-bottom: 1rem;
-        }
-
-        .kids-card-body p {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .kids-badges {
-            display: flex;
-            justify-content: center;
-            gap: 0.6rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .kids-badge {
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            font-family: 'Fredoka', sans-serif;
-        }
-
-        .kids-card.vanilla .kids-badge {
-            background: #FEF3C7;
-            color: #D97706;
-        }
-
-        .kids-card.muscat .kids-badge {
-            background: #EDE9FE;
-            color: #7C3AED;
-        }
-
-        .kids-price {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .kids-card.vanilla .kids-price { color: #F59E0B; }
-        .kids-card.muscat .kids-price { color: #8B5CF6; }
-
-        .kids-cta {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            color: #fff;
-            text-decoration: none;
-            font-family: 'Fredoka', sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
-            letter-spacing: 0.5px;
-        }
-
-        .kids-card.vanilla .kids-cta {
-            background: linear-gradient(135deg, #F59E0B, #FBBF24);
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
-        }
-
-        .kids-card.muscat .kids-cta {
-            background: linear-gradient(135deg, #8B5CF6, #A78BFA);
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
-        }
-
-        .kids-cta:hover {
-            transform: scale(1.05);
-        }
-
-        /* Kids safety banner */
-        .kids-safety {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .safety-item {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            color: #fff;
-            font-family: 'Fredoka', sans-serif;
-            font-weight: 500;
-            font-size: 0.95rem;
-            text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
-        }
-
-        .safety-icon {
-            font-size: 1.4rem;
-        }
-
-        /* Floating decorative elements for kids zone */
-        .kids-deco {
-            position: absolute;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            top: -40px; right: -30px;
+            animation: float1 6s ease-in-out infinite;
             z-index: 1;
-            opacity: 0.15;
-            font-size: 4rem;
-            pointer-events: none;
         }
-
-        .kids-deco:nth-child(1) { top: 10%; left: 5%; animation: floatDeco 7s ease-in-out infinite; }
-        .kids-deco:nth-child(2) { top: 60%; right: 8%; animation: floatDeco 9s ease-in-out infinite 1s; }
-        .kids-deco:nth-child(3) { bottom: 15%; left: 15%; animation: floatDeco 6s ease-in-out infinite 2s; }
-        .kids-deco:nth-child(4) { top: 25%; right: 20%; animation: floatDeco 8s ease-in-out infinite 0.5s; }
-
-        @keyframes floatDeco {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            33% { transform: translateY(-15px) rotate(10deg); }
-            66% { transform: translateY(10px) rotate(-5deg); }
+        .kids-zone::after {
+            content: '';
+            position: absolute;
+            width: 140px; height: 140px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            bottom: -20px; left: 10%;
+            animation: float1 8s ease-in-out infinite 1s;
+            z-index: 1;
         }
-
-        /* ====================== */
-        /* TOOTHBRUSH SECTION     */
-        /* ====================== */
-        .toothbrush-section {
-            background: #0a0a0a;
-            padding: 5rem 5%;
+        @keyframes float1 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
-
-        .toothbrush-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .toothbrush-image {
-            border: 1px solid rgba(212, 175, 119, 0.3);
-            overflow: hidden;
-        }
-
-        .toothbrush-image img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .toothbrush-text h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
-            color: #D4AF77;
-            margin-bottom: 1rem;
-        }
-
-        .toothbrush-text p {
-            color: #cccccc;
-            line-height: 1.9;
-            margin-bottom: 1.5rem;
-        }
-
-        .toothbrush-price {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            color: #D4AF77;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .toothbrush-cta {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            border: 2px solid #D4AF77;
-            color: #D4AF77;
-            text-decoration: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: transparent;
-        }
-
-        .toothbrush-cta:hover {
-            background: #D4AF77;
-            color: #0a0a0a;
-        }
-
-        /* CLINICAL EVIDENCE SECTION */
-        .clinical { background: #111111; }
-
-        .clinical-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .clinical-card {
-            background: #0a0a0a;
-            padding: 2rem;
-            border: 1px solid #333;
-            border-left: 3px solid #D4AF77;
-        }
-
-        .clinical-card h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            color: #D4AF77;
-            margin-bottom: 1rem;
-        }
-
-        .comparison { display: flex; justify-content: space-between; margin-bottom: 1.5rem; }
-        .comparison-item { text-align: center; }
-        .comparison-label { font-size: 0.85rem; color: #999; margin-bottom: 0.5rem; }
-        .comparison-value { font-size: 1.5rem; color: #D4AF77; font-weight: 600; }
-
-        .trial-info {
-            background: rgba(212, 175, 119, 0.05);
-            padding: 1.5rem;
-            border: 1px solid rgba(212, 175, 119, 0.2);
-            margin-top: 1.5rem;
-        }
-
-        .trial-info p { font-size: 0.9rem; color: #cccccc; line-height: 1.8; }
-
-        /* AWARDS SECTION */
-        .awards { background: #0a0a0a; }
-
-        .awards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+        .kids-title {
             text-align: center;
+            margin-bottom: 2rem;
         }
-
-        .award {
-            background: #1a1a1a;
-            padding: 2.5rem 2rem;
-            border: 1px solid #333;
-            border-top: 3px solid #D4AF77;
-            transition: all 0.3s ease;
+        .kids-title h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.12);
+            animation: bounce 2s ease-in-out infinite;
         }
-
-        .award:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(212, 175, 119, 0.1);
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
-
-        .award-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-
-        .award h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            color: #D4AF77;
-            margin-bottom: 0.5rem;
+        .kids-title p {
+            font-family: 'Fredoka', sans-serif;
+            color: rgba(255,255,255,0.9);
+            font-size: 1rem;
+            margin-top: 0.5rem;
         }
-
-        .award p { font-size: 0.9rem; color: #999; }
-
-        /* INGREDIENTS SECTION */
-        .ingredients { background: #111111; }
-
-        .ingredients-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .ingredient-list {
+        .kids-cards {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
         }
-
-        .ingredient-item {
-            padding: 1.5rem;
-            background: #0a0a0a;
-            border: 1px solid #333;
-            border-left: 3px solid #D4AF77;
-        }
-
-        .ingredient-name { color: #D4AF77; font-weight: 600; margin-bottom: 0.5rem; }
-        .ingredient-description { font-size: 0.85rem; color: #999; }
-
-        /* ABOUT ORION SECTION */
-        .about-orion { background: #0a0a0a; }
-
-        .orion-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .orion-text h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #D4AF77;
-        }
-
-        .orion-text p { font-size: 1rem; color: #cccccc; margin-bottom: 1.5rem; line-height: 1.9; }
-
-        .orion-highlights { display: flex; flex-direction: column; gap: 1rem; }
-
-        .highlight {
-            padding: 1rem 1.5rem;
-            background: rgba(212, 175, 119, 0.05);
-            border-left: 3px solid #D4AF77;
-        }
-
-        .highlight strong { color: #D4AF77; }
-
-        /* CONTACT SECTION */
-        .contact { background: #111111; text-align: center; }
-
-        .contact p {
-            font-size: 1.1rem;
-            color: #cccccc;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-buttons { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
-
-        .contact-button {
-            padding: 1rem 2rem;
-            border: 2px solid #D4AF77;
-            background: transparent;
-            color: #D4AF77;
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 1px;
+        .kids-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 18px;
+            overflow: hidden;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
         }
-
-        .contact-button:hover { background: #D4AF77; color: #0a0a0a; }
-
-        /* FOOTER */
-        footer {
-            background: #000000;
-            padding: 2rem 5%;
+        .kids-card:hover {
+            transform: translateY(-6px) rotate(-0.5deg);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+        }
+        .kids-card::before { content: ''; display: block; height: 4px; }
+        .kids-card.vanilla::before { background: linear-gradient(90deg, #FFD93D, #FF9A3D); }
+        .kids-card.muscat::before { background: linear-gradient(90deg, #A855F7, #6366F1); }
+        .kids-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        .kids-card.vanilla .kids-card-img { background: linear-gradient(135deg, #FFF3CD, #FFE082); }
+        .kids-card.muscat .kids-card-img { background: linear-gradient(135deg, #E8D5F5, #CE93D8); }
+        .kids-card-img img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .kids-card:hover .kids-card-img img { transform: scale(1.06); }
+        .kids-body {
+            padding: 1.3rem;
             text-align: center;
-            border-top: 1px solid #333;
+        }
+        .kids-flavor {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .kids-card.vanilla .kids-flavor { color: #F59E0B; }
+        .kids-card.muscat .kids-flavor { color: #8B5CF6; }
+        .kids-body h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.3rem;
+            color: #333;
+            margin: 0.3rem 0 0.5rem;
+        }
+        .kids-body p {
+            font-size: 0.85rem;
             color: #666;
-            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+        }
+        .kids-badges {
+            display: flex;
+            justify-content: center;
+            gap: 0.4rem;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .kids-badge {
+            padding: 0.25rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            font-family: 'Fredoka', sans-serif;
+        }
+        .kids-card.vanilla .kids-badge { background: #FEF3C7; color: #D97706; }
+        .kids-card.muscat .kids-badge { background: #EDE9FE; color: #7C3AED; }
+        .kids-price {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .kids-card.vanilla .kids-price { color: #F59E0B; }
+        .kids-card.muscat .kids-price { color: #8B5CF6; }
+        .kids-cta {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.5rem 1.4rem;
+            border-radius: 50px;
+            color: #fff;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .kids-card.vanilla .kids-cta { background: linear-gradient(135deg, #F59E0B, #FBBF24); }
+        .kids-card.muscat .kids-cta { background: linear-gradient(135deg, #8B5CF6, #A78BFA); }
+        .kids-cta:hover { transform: scale(1.05); }
+        .kids-safety {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .safety-pill {
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(8px);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            color: #fff;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 500;
+            font-size: 0.82rem;
         }
 
-        /* MODAL */
+        /* === CLINICAL === */
+        .clinical-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .clinical-card {
+            padding: 1.5rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            border-left: 4px solid var(--teal);
+        }
+        .clinical-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--teal);
+            margin-bottom: 1rem;
+        }
+        .bar-chart { margin-bottom: 1rem; }
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .bar-label { font-size: 0.82rem; color: var(--text-secondary); width: 60px; }
+        .bar-bg {
+            flex: 1;
+            height: 28px;
+            background: #f0f0f0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            padding-left: 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .bar-fill.teal { background: var(--teal); }
+        .bar-fill.grey { background: #bbb; }
+        .clinical-note {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            background: var(--teal-bg);
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            line-height: 1.5;
+        }
+
+        /* === AWARDS === */
+        .awards-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .award-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            transition: all 0.2s;
+        }
+        .award-card:hover {
+            border-color: var(--teal);
+            box-shadow: 0 4px 12px rgba(13,148,136,0.1);
+        }
+        .award-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .award-card h4 { font-size: 1rem; font-weight: 600; color: var(--teal); margin-bottom: 0.3rem; }
+        .award-card p { font-size: 0.82rem; color: var(--text-muted); }
+
+        /* === INGREDIENTS === */
+        .ing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .ing-card {
+            padding: 1.2rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            border-top: 3px solid var(--teal);
+        }
+        .ing-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--teal); margin-bottom: 0.3rem; }
+        .ing-card p { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* === ORION === */
+        .orion-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .orion-text h3 { font-size: 1.5rem; font-weight: 700; color: var(--teal); margin-bottom: 1rem; }
+        .orion-text p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.8rem; line-height: 1.7; }
+        .orion-facts {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .orion-fact {
+            padding: 0.7rem 1rem;
+            background: var(--teal-bg);
+            border-left: 3px solid var(--teal);
+            border-radius: 0 6px 6px 0;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+        .orion-fact strong { color: var(--teal); }
+        .orion-box {
+            background: var(--teal-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(13,148,136,0.15);
+            text-align: center;
+        }
+        .orion-box h3 { font-size: 1.8rem; color: var(--teal); margin-bottom: 0.5rem; }
+        .orion-box p { color: var(--text-secondary); font-size: 0.9rem; }
+
+        /* === CONTACT === */
+        .contact { text-align: center; }
+        .contact p { color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .contact-btns { display: flex; gap: 1rem; justify-content: center; }
+
+        /* === FOOTER === */
+        footer {
+            background: #1a1a1a;
+            color: #999;
+            padding: 1.5rem 5%;
+            text-align: center;
+            font-size: 0.82rem;
+        }
+
+        /* === MODAL === */
         .modal {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
             z-index: 2000;
-            overflow-y: auto;
-            animation: fadeIn 0.3s ease;
+            animation: fadeIn 0.2s;
         }
-
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
+        .modal.active { display: flex; align-items: center; justify-content: center; }
         .modal-content {
-            background: #1a1a1a;
+            background: #fff;
             width: 90%;
-            max-width: 900px;
-            border: 1px solid #333;
-            border-left: 3px solid #D4AF77;
+            max-width: 800px;
+            border-radius: 12px;
             max-height: 90vh;
             overflow-y: auto;
-            animation: slideIn 0.3s ease;
+            animation: slideUp 0.3s ease;
         }
-
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2rem;
-            border-bottom: 1px solid #333;
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
-            background: #1a1a1a;
+            background: #fff;
+            border-radius: 12px 12px 0 0;
         }
-
-        .modal-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            color: #D4AF77;
-        }
-
+        .modal-header h2 { font-size: 1.4rem; color: var(--teal); }
         .modal-close {
-            font-size: 2rem;
+            font-size: 1.5rem;
             cursor: pointer;
-            color: #D4AF77;
-            transition: color 0.3s ease;
+            color: var(--text-muted);
+            transition: color 0.2s;
+            background: none;
+            border: none;
         }
-
-        .modal-close:hover { color: #ffffff; }
-
+        .modal-close:hover { color: var(--text); }
         .modal-body {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            padding: 2rem;
-        }
-
-        .modal-image {
-            width: 100%;
-            height: 400px;
-            background: #111;
-            border: 1px solid #333;
-            overflow: hidden;
-        }
-
-        .modal-image img { width: 100%; height: 100%; object-fit: cover; }
-
-        .modal-details h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            color: #D4AF77;
-            margin-bottom: 1rem;
-        }
-
-        .modal-details p { font-size: 0.95rem; color: #cccccc; margin-bottom: 1.5rem; line-height: 1.8; }
-
-        .modal-specs {
-            background: rgba(212, 175, 119, 0.05);
+            gap: 1.5rem;
             padding: 1.5rem;
-            border: 1px solid rgba(212, 175, 119, 0.2);
-            margin-bottom: 1.5rem;
         }
-
-        .spec-item {
+        .modal-img {
+            height: 320px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--bg-light);
+        }
+        .modal-img img { width: 100%; height: 100%; object-fit: cover; }
+        .modal-info h3 { font-size: 1.3rem; color: var(--teal); margin-bottom: 0.6rem; }
+        .modal-info p { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.8rem; line-height: 1.6; }
+        .modal-specs {
+            background: var(--teal-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+        }
+        .spec-row {
             display: flex;
             justify-content: space-between;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(212, 175, 119, 0.1);
+            padding: 0.4rem 0;
+            border-bottom: 1px solid rgba(13,148,136,0.1);
+            font-size: 0.85rem;
         }
-
-        .spec-item:last-child { border-bottom: none; }
-        .spec-label { color: #D4AF77; font-weight: 500; }
-        .spec-value { color: #cccccc; }
-
-        .modal-price {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            color: #D4AF77;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Kids modal override */
-        .modal-kids .modal-content {
-            border-radius: 16px;
-            border: none;
-            border-left: none;
-            overflow: hidden;
-        }
+        .spec-row:last-child { border-bottom: none; }
+        .spec-row .label { color: var(--teal); font-weight: 500; }
+        .spec-row .value { color: var(--text-secondary); }
+        .modal-price { font-size: 1.2rem; font-weight: 700; color: var(--teal); }
 
         .modal-kids .modal-header {
             background: linear-gradient(135deg, #FF6B9D, #C44AFF);
             border-bottom: none;
         }
+        .modal-kids .modal-header h2 { font-family: 'Fredoka', sans-serif; color: #fff; }
+        .modal-kids .modal-close { color: #fff; }
 
-        .modal-kids .modal-title {
-            font-family: 'Fredoka', sans-serif;
-            color: #ffffff;
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-        .modal-kids .modal-close { color: #ffffff; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        /* SCROLL ANIMATIONS */
-        .animate-on-scroll {
+        /* === ANIMATE === */
+        .anim {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
         }
+        .anim.visible { opacity: 1; transform: translateY(0); }
 
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* RESPONSIVE */
+        /* === RESPONSIVE === */
         @media (max-width: 768px) {
             nav ul { gap: 1rem; }
-            nav a { font-size: 0.75rem; }
-
-            .hero {
-                padding: 0 3%;
-                text-align: center;
-                justify-content: center;
-            }
-
-            .hero-content { max-width: 100%; }
-            .hero-content h1 { font-size: 2.5rem; }
-            .hero::before { opacity: 0.3; }
-
-            section { padding: 4rem 3%; }
-            section h2 { font-size: 2rem; }
-
-            .about-content,
-            .tech-content,
-            .clinical-content,
-            .orion-content,
-            .ingredients-content {
-                grid-template-columns: 1fr;
-            }
-
-            .segment-layout,
-            .segment-layout.reverse {
-                grid-template-columns: 1fr;
-                direction: ltr;
-            }
-
-            .segment-text h2 { font-size: 2rem; text-align: center; }
-            .segment-subtitle { text-align: center; }
-            .segment-features { justify-content: center; }
-
-            .kids-zone-title h2 { font-size: 2.2rem; }
-            .kids-products { grid-template-columns: 1fr; }
-            .kids-safety { flex-direction: column; align-items: center; }
-
-            .toothbrush-inner { grid-template-columns: 1fr; }
-
+            nav a { font-size: 0.78rem; }
+            .hero { grid-template-columns: 1fr; padding-top: 6rem; text-align: center; }
+            .hero-text h1 { font-size: 2.2rem; }
+            section h2 { font-size: 1.6rem; }
+            .about-grid, .tech-grid, .clinical-grid, .orion-grid { grid-template-columns: 1fr; }
+            .products-grid { grid-template-columns: 1fr; }
+            .kids-cards { grid-template-columns: 1fr; }
+            .awards-row, .ing-grid { grid-template-columns: 1fr; }
+            .stats-bar { grid-template-columns: 1fr 1fr; }
             .modal-body { grid-template-columns: 1fr; }
-            .contact-buttons { flex-direction: column; }
+            .contact-btns { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
 <body>
-    <!-- HEADER & NAVIGATION -->
+
+    <!-- HEADER -->
     <header>
         <nav>
-            <div class="logo">I3IO</div>
+            <div class="logo">I3IO <span>by Orion Biologics</span></div>
             <ul>
                 <li><a href="#about">Giới Thiệu</a></li>
                 <li><a href="#technology">Công Nghệ</a></li>
@@ -1211,459 +743,303 @@
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>I3IO</h1>
-            <div class="tagline">The 3rd Generation of Healing</div>
-            <p class="description">The Medical Toothpaste for Daily Use — Peptide Selcopintide® from Orion Biologics Korea</p>
-            <p class="description">Heal, Don't Just Cover Up</p>
-            <a href="#sensitive" class="cta-button">Discover Our Products</a>
+        <div class="hero-text">
+            <div class="tagline">The Medical Toothpaste for Daily Use</div>
+            <h1>Chữa Lành,<br><em>Không Chỉ Che Lấp</em></h1>
+            <p>Công nghệ peptide Selcopintide® độc quyền từ Orion Biologics Korea — Kem đánh răng y tế thế hệ thứ 3 tái tạo dentin và nướu tự nhiên.</p>
+            <a href="#products" class="btn">Khám Phá Sản Phẩm</a>
+            <a href="#about" class="btn btn-outline">Tìm Hiểu Thêm</a>
+        </div>
+        <div class="hero-img">
+            <img src="images/hero_all.jpg" alt="I3IO Products">
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section class="about animate-on-scroll" id="about">
-        <h2>About I3IO</h2>
-        <div class="section-divider"></div>
-        <div class="about-content">
+    <!-- STATS -->
+    <div class="section-full section-teal anim">
+        <div style="max-width:1300px;margin:0 auto;">
+            <div class="stats-bar">
+                <div class="stat-card">
+                    <div class="num">24.6%</div>
+                    <div class="label">Cải thiện độ nhạy cảm<br>(vs 16.5% đối thủ)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">18.6%</div>
+                    <div class="label">Cải thiện sức khỏe nướu<br>(vs 15.5% đối thủ)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">K-HERO</div>
+                    <div class="label">Top Winner 2025<br>Hàn Quốc</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">ADA</div>
+                    <div class="label">Forsyth Dentech<br>Best Innovation</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="anim" id="about">
+        <h2>Về I3IO</h2>
+        <div class="divider"></div>
+        <p class="section-sub">K-Science cao cấp từ Seoul — Công nghệ sinh học hàng đầu Hàn Quốc</p>
+        <div class="about-grid">
             <div class="about-text">
-                <h3>K-Science Premium from Seoul</h3>
-                <p>I3IO is a premium medical toothpaste developed by <strong>Orion Biologics</strong>, a leading biotechnology company from South Korea. This K-Science brand originates from Seoul National University, bringing together modern science and natural formulations.</p>
-                <p>With proprietary Selcopintide® peptide technology, I3IO doesn't just treat dental problems — it naturally regenerates dentin from within.</p>
-                <p><strong>Made in:</strong> Thailand (functional range) & Korea (kids products)</p>
+                <h3>Khoa Học Hiện Đại, Công Thức Tự Nhiên</h3>
+                <p>I3IO là kem đánh răng y tế cao cấp được phát triển bởi <strong>Orion Biologics</strong>, công ty hàng đầu công nghệ sinh học Hàn Quốc. Bắt nguồn từ Seoul National University.</p>
+                <p>Với peptide Selcopintide® độc quyền, I3IO không chỉ điều trị mà còn <strong>tái tạo dentin một cách tự nhiên</strong> — chữa lành từ bên trong thay vì che lấp triệu chứng.</p>
+                <p><strong>Sản xuất tại:</strong> Thái Lan (dòng chức năng) & Hàn Quốc (dòng trẻ em)</p>
             </div>
-            <div class="about-stats">
-                <div class="stat">
-                    <div class="stat-number">24.6%</div>
-                    <div class="stat-label">Sensitivity improvement (vs 16.5% competitors)</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">18.6%</div>
-                    <div class="stat-label">Gum health improvement (vs 15.5% competitors)</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">K-HERO</div>
-                    <div class="stat-label">Top Winner 2025</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">ADA</div>
-                    <div class="stat-label">Forsyth Dentech Best Innovation</div>
+            <div style="background:var(--teal-bg);padding:2rem;border-radius:12px;border:1px solid rgba(13,148,136,0.15);">
+                <h3 style="font-size:1.5rem;color:var(--teal);margin-bottom:1rem;text-align:center;">Orion Group</h3>
+                <p style="text-align:center;color:var(--text-secondary);margin-bottom:1rem;">Tập đoàn toàn cầu hàng đầu Hàn Quốc</p>
+                <div style="font-size:0.88rem;color:var(--text-secondary);line-height:2;">
+                    <p>&#127758; Hiện diện ở 40+ quốc gia</p>
+                    <p>&#128300; Đầu tư mạnh vào R&D</p>
+                    <p>&#9989; Chứng nhận GMP quốc tế</p>
+                    <p>&#127942; Nổi tiếng với Choco Pie</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TECHNOLOGY SECTION -->
-    <section class="technology animate-on-scroll" id="technology">
-        <h2>Selcopintide® Technology</h2>
-        <div class="section-divider"></div>
-        <div class="tech-content">
-            <div class="tech-text">
-                <h3>Natural Regeneration</h3>
-                <p>Selcopintide® is a proprietary peptide developed exclusively by Orion Biologics. This is a breakthrough technology in treating dentin and gum problems.</p>
-                <p>Instead of masking symptoms, I3IO activates the body's natural regeneration process to heal damage from within.</p>
-                <div class="tech-benefits">
-                    <div class="benefit">
-                        <h4>Dentin Regeneration</h4>
-                        <p>Selcopintide® activates odontoblast growth, naturally regenerating dentin</p>
-                    </div>
-                    <div class="benefit">
-                        <h4>Sensitivity Relief</h4>
-                        <p>24.6% improvement vs 16.5% from competing products</p>
-                    </div>
-                    <div class="benefit">
-                        <h4>Gum Health Support</h4>
-                        <p>18.6% improvement vs 15.5% from competitors</p>
-                    </div>
-                    <div class="benefit">
-                        <h4>Clinically Proven</h4>
-                        <p>Tested at Hanoi National University (November 2025)</p>
-                    </div>
+    <!-- TECHNOLOGY -->
+    <section class="section-full section-grey anim" id="technology">
+        <div style="max-width:1300px;margin:0 auto;">
+            <h2>Công Nghệ Selcopintide®</h2>
+            <div class="divider"></div>
+            <p class="section-sub">Peptide độc quyền — Tái tạo tự nhiên thay vì che lấp triệu chứng</p>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>Tái Tạo Dentin</h4>
+                    <p>Kích hoạt sinh trưởng odontoblasts, tái tạo dentin tự nhiên từ bên trong.</p>
                 </div>
-            </div>
-            <div style="background: #111; padding: 2rem; border: 1px solid #333; text-align: center;">
-                <div style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: #D4AF77; margin-bottom: 1rem;">Selcopintide®</div>
-                <p style="color: #999; line-height: 2;">Proprietary Peptide</p>
-                <p style="color: #999; margin-top: 1rem; font-size: 0.9rem;">Dentin Regeneration • Gum Healing • Sensitivity Relief</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======================== -->
-    <!-- PRODUCT SEGMENTS START   -->
-    <!-- ======================== -->
-
-    <!-- SENSITIVE CARE SEGMENT -->
-    <div class="segment-section segment-sensitive animate-on-scroll" id="sensitive">
-        <div class="segment-inner">
-            <div class="segment-layout">
-                <div class="segment-image">
-                    <img src="images/sensitive.jpg" alt="I3IO Sensitive Care">
+                <div class="tech-card">
+                    <h4>Giảm Độ Nhạy Cảm</h4>
+                    <p>Hiệu quả 24.6% so với 16.5% của sản phẩm cạnh tranh trên thị trường.</p>
                 </div>
-                <div class="segment-text">
-                    <div class="segment-subtitle">Flagship Product</div>
-                    <h2>Sensitive Care</h2>
-                    <p>The flagship formula, engineered for those with sensitive teeth. Selcopintide® combined with Potassium Nitrate creates a powerful formula that reduces sensitivity while regenerating dentin naturally.</p>
-                    <p>Clinically proven at Hanoi National University — 24.6% sensitivity improvement versus 16.5% from market competitors.</p>
-                    <div class="segment-features">
-                        <span class="segment-tag">Selcopintide®</span>
-                        <span class="segment-tag">Potassium Nitrate</span>
-                        <span class="segment-tag">Dentin Regeneration</span>
-                        <span class="segment-tag">120g</span>
-                    </div>
-                    <div class="segment-price">139,000 - 169,000 VND</div>
-                    <span class="segment-cta" onclick="openModal('sensitive')">View Details →</span>
+                <div class="tech-card">
+                    <h4>Hỗ Trợ Sức Khỏe Nướu</h4>
+                    <p>Cải thiện 18.6% so với 15.5% của đối thủ, giảm viêm và chữa lành nướu.</p>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- GUM CARE SEGMENT -->
-    <div class="segment-section segment-gumcare animate-on-scroll" id="gumcare">
-        <div class="segment-inner">
-            <div class="segment-layout reverse">
-                <div class="segment-image">
-                    <img src="images/gumcare.jpg" alt="I3IO Gum Care">
-                </div>
-                <div class="segment-text">
-                    <div class="segment-subtitle">Specialized Formula</div>
-                    <h2>Gum Care</h2>
-                    <p>A specialized formula for those with gum inflammation and bleeding. Selcopintide® combined with CPC (Chlorhexidine) delivers powerful anti-inflammatory action.</p>
-                    <p>This formula doesn't just treat inflammation — it activates natural gum regeneration, improving overall gum health comprehensively.</p>
-                    <div class="segment-features">
-                        <span class="segment-tag">Selcopintide®</span>
-                        <span class="segment-tag">CPC (Chlorhexidine)</span>
-                        <span class="segment-tag">Anti-inflammatory</span>
-                        <span class="segment-tag">120g</span>
-                    </div>
-                    <div class="segment-price">139,000 - 169,000 VND</div>
-                    <span class="segment-cta" onclick="openModal('gumcare')">View Details →</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- WHITENING SEGMENT -->
-    <div class="segment-section segment-whitening animate-on-scroll" id="whitening">
-        <div class="segment-inner">
-            <div class="segment-layout">
-                <div class="segment-image">
-                    <img src="images/whitening.jpg" alt="I3IO Whitening">
-                </div>
-                <div class="segment-text">
-                    <div class="segment-subtitle">Premium Whitening</div>
-                    <h2>Whitening</h2>
-                    <p>Effective whitening that's still safe and protects sensitive dentin. Selcopintide® combined with Activated Charcoal for natural whitening without harsh chemicals.</p>
-                    <p>Removes surface stains with minimal sensitivity compared to traditional whitening products. No Hydrogen Peroxide, no harsh abrasives.</p>
-                    <div class="segment-features">
-                        <span class="segment-tag">Selcopintide®</span>
-                        <span class="segment-tag">Activated Charcoal</span>
-                        <span class="segment-tag">No Peroxide</span>
-                        <span class="segment-tag">120g</span>
-                    </div>
-                    <div class="segment-price">99,000 - 129,000 VND</div>
-                    <span class="segment-cta" onclick="openModal('whitening')">View Details →</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ======================== -->
-    <!-- KIDS ZONE               -->
-    <!-- ======================== -->
-    <div class="kids-zone" id="kids">
-        <!-- Floating decorations -->
-        <div class="kids-deco">&#127775;</div>
-        <div class="kids-deco">&#127776;</div>
-        <div class="kids-deco">&#128171;</div>
-        <div class="kids-deco">&#129412;</div>
-
-        <div class="kids-zone-inner">
-            <div class="kids-zone-title">
-                <h2>I3IO Kids Zone</h2>
-                <div class="kids-divider">
-                    <span>&#11088;</span>
-                    <span>&#127775;</span>
-                    <span>&#128568;</span>
-                    <span>&#127775;</span>
-                    <span>&#11088;</span>
-                </div>
-                <p>Safe & Fun Toothpaste for Little Smiles (Ages 4-9)</p>
-            </div>
-
-            <div class="kids-products">
-                <!-- Kids Vanilla -->
-                <div class="kids-card vanilla" onclick="openModal('kids-vanilla')">
-                    <div class="kids-card-image">
-                        <img src="images/kids_vanilla.jpg" alt="I3IO Kids Vanilla">
-                    </div>
-                    <div class="kids-card-body">
-                        <div class="kids-flavor">Vanilla Flavor</div>
-                        <h3>Kids Vanilla</h3>
-                        <p>Natural vanilla flavor that kids love! SLS-free formula, gentle on young gums. Made in Korea with the highest quality standards.</p>
-                        <div class="kids-badges">
-                            <span class="kids-badge">SLS-Free</span>
-                            <span class="kids-badge">500ppm F</span>
-                            <span class="kids-badge">Made in Korea</span>
-                        </div>
-                        <div class="kids-price">79,000 - 99,000 VND</div>
-                        <span class="kids-cta">Learn More &#127881;</span>
-                    </div>
-                </div>
-
-                <!-- Kids Muscat -->
-                <div class="kids-card muscat" onclick="openModal('kids-muscat')">
-                    <div class="kids-card-image">
-                        <img src="images/kids_muscat.jpg" alt="I3IO Kids Muscat">
-                    </div>
-                    <div class="kids-card-body">
-                        <div class="kids-flavor">Muscat Grape Flavor</div>
-                        <h3>Kids Muscat</h3>
-                        <p>Delicious Muscat grape flavor encourages kids to brush! Gentle yet effective formula, made in Korea for ultimate safety.</p>
-                        <div class="kids-badges">
-                            <span class="kids-badge">SLS-Free</span>
-                            <span class="kids-badge">500ppm F</span>
-                            <span class="kids-badge">Made in Korea</span>
-                        </div>
-                        <div class="kids-price">79,000 - 99,000 VND</div>
-                        <span class="kids-cta">Learn More &#127815;</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Safety badges -->
-            <div class="kids-safety">
-                <div class="safety-item">
-                    <span class="safety-icon">&#128737;&#65039;</span>
-                    SLS-Free Formula
-                </div>
-                <div class="safety-item">
-                    <span class="safety-icon">&#127472;&#127479;</span>
-                    Made in Korea
-                </div>
-                <div class="safety-item">
-                    <span class="safety-icon">&#128153;</span>
-                    Age 4-9 Tested
-                </div>
-                <div class="safety-item">
-                    <span class="safety-icon">&#9989;</span>
-                    500ppm Fluoride
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- TOOTHBRUSH SECTION -->
-    <div class="toothbrush-section animate-on-scroll" id="products">
-        <div class="toothbrush-inner">
-            <div class="toothbrush-image">
-                <img src="images/toothbrush.jpg" alt="I3IO Toothbrush">
-            </div>
-            <div class="toothbrush-text">
-                <h3>I3IO Toothbrush</h3>
-                <p>Ergonomic design with soft bristles, comfortable for sensitive gums. 3 variants for different care needs.</p>
-                <p>Pairs perfectly with I3IO toothpaste for a complete premium dental care set.</p>
-                <div class="toothbrush-price">69,000 - 89,000 VND</div>
-                <span class="toothbrush-cta" onclick="openModal('toothbrush')">View Details →</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- CLINICAL EVIDENCE SECTION -->
-    <section class="clinical animate-on-scroll" id="clinical">
-        <h2>Clinical Evidence</h2>
-        <div class="section-divider"></div>
-        <div class="clinical-content">
-            <div class="clinical-card">
-                <h4>Sensitivity Reduction</h4>
-                <div class="comparison">
-                    <div class="comparison-item">
-                        <div class="comparison-label">I3IO</div>
-                        <div class="comparison-value">24.6%</div>
-                    </div>
-                    <div class="comparison-item">
-                        <div class="comparison-label">Competitors</div>
-                        <div class="comparison-value">16.5%</div>
-                    </div>
-                </div>
-                <div class="trial-info">
-                    <p><strong>Clinical Trial</strong></p>
-                    <p>Conducted at <strong>Hanoi National University</strong>, November 2025</p>
-                    <p style="margin-top: 1rem;">Results demonstrate Selcopintide® formula's superior efficacy compared to current market competitors.</p>
-                </div>
-            </div>
-
-            <div class="clinical-card">
-                <h4>Gum Health Improvement</h4>
-                <div class="comparison">
-                    <div class="comparison-item">
-                        <div class="comparison-label">I3IO</div>
-                        <div class="comparison-value">18.6%</div>
-                    </div>
-                    <div class="comparison-item">
-                        <div class="comparison-label">Competitors</div>
-                        <div class="comparison-value">15.5%</div>
-                    </div>
-                </div>
-                <div class="trial-info">
-                    <p><strong>Clinical Trial</strong></p>
-                    <p>Conducted at <strong>Hanoi National University</strong>, November 2025</p>
-                    <p style="margin-top: 1rem;">I3IO shows superior gum health improvement, reducing inflammation and enhancing gum wound healing.</p>
+                <div class="tech-card">
+                    <h4>Chứng Nhận Lâm Sàng</h4>
+                    <p>Thử nghiệm tại Đại học Quốc gia Hà Nội, tháng 11/2025.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- AWARDS SECTION -->
-    <section class="awards animate-on-scroll">
-        <h2>Awards & Recognition</h2>
-        <div class="section-divider"></div>
-        <div class="awards-grid">
-            <div class="award">
-                <div class="award-icon">&#127942;</div>
-                <h4>K-HERO Top Winner</h4>
-                <p>Top medical innovation award in Korea 2025</p>
+    <!-- PRODUCTS -->
+    <section class="anim" id="products">
+        <h2>Dòng Sản Phẩm Chức Năng</h2>
+        <div class="divider"></div>
+        <p class="section-sub">Dành cho người lớn — Sản xuất tại Thái Lan</p>
+        <div class="products-grid">
+            <div class="product-card" onclick="openModal('sensitive')">
+                <div class="product-card-img"><img src="images/sensitive.jpg" alt="Sensitive Care"></div>
+                <div class="product-card-body">
+                    <div class="type">Sản phẩm chủ lực</div>
+                    <h3>Sensitive Care</h3>
+                    <p>Selcopintide® + Potassium Nitrate. Giảm nhạy cảm và tái tạo dentin tự nhiên.</p>
+                    <div class="price">139,000 - 169,000 VND</div>
+                    <span class="detail-link">Xem chi tiết →</span>
+                </div>
             </div>
-            <div class="award">
-                <div class="award-icon">&#11088;</div>
-                <h4>ADA Forsyth Dentech</h4>
-                <p>Best Innovation Award 2025 from American Dental Association</p>
+            <div class="product-card" onclick="openModal('gumcare')">
+                <div class="product-card-img"><img src="images/gumcare.jpg" alt="Gum Care"></div>
+                <div class="product-card-body">
+                    <div class="type">Công thức chuyên biệt</div>
+                    <h3>Gum Care</h3>
+                    <p>Selcopintide® + CPC. Chống viêm nướu mạnh mẽ, kích hoạt tái tạo nướu tự nhiên.</p>
+                    <div class="price">139,000 - 169,000 VND</div>
+                    <span class="detail-link">Xem chi tiết →</span>
+                </div>
             </div>
-            <div class="award">
-                <div class="award-icon">&#128300;</div>
-                <h4>Seoul National University</h4>
-                <p>Technology originated from Seoul National University, Korea</p>
+            <div class="product-card" onclick="openModal('whitening')">
+                <div class="product-card-img"><img src="images/whitening.jpg" alt="Whitening"></div>
+                <div class="product-card-body">
+                    <div class="type">Tẩy trắng cao cấp</div>
+                    <h3>Whitening</h3>
+                    <p>Selcopintide® + Activated Charcoal. Tẩy trắng tự nhiên, không Peroxide.</p>
+                    <div class="price">99,000 - 129,000 VND</div>
+                    <span class="detail-link">Xem chi tiết →</span>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- INGREDIENTS SECTION -->
-    <section class="ingredients animate-on-scroll">
-        <h2>Bio-Active Ingredients</h2>
-        <div class="section-divider"></div>
-        <div class="ingredients-content">
+        <!-- Toothbrush mini -->
+        <div style="margin-top:1.5rem;display:grid;grid-template-columns:160px 1fr;gap:1.5rem;align-items:center;padding:1.5rem;background:var(--bg-light);border-radius:12px;border:1px solid var(--border);cursor:pointer;" onclick="openModal('toothbrush')">
+            <div style="height:140px;overflow:hidden;border-radius:8px;background:#fff;"><img src="images/toothbrush.jpg" alt="Toothbrush" style="width:100%;height:100%;object-fit:cover;"></div>
             <div>
-                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #D4AF77; margin-bottom: 1.5rem;">Natural Ingredients</h3>
-                <p style="color: #cccccc; margin-bottom: 1.5rem; line-height: 1.9;">I3IO combines proprietary Selcopintide® peptide with carefully selected natural ingredients to enhance healing and protect oral health.</p>
+                <div style="font-size:0.75rem;color:var(--teal);font-weight:600;text-transform:uppercase;letter-spacing:1px;">Phụ kiện</div>
+                <h3 style="font-size:1.1rem;margin:0.3rem 0;">I3IO Toothbrush</h3>
+                <p style="font-size:0.85rem;color:var(--text-secondary);">Bàn chải ergonomic, lông mềm. 3 biến thể. <strong style="color:var(--teal);">69,000 - 89,000 VND</strong></p>
             </div>
-            <div class="ingredient-list">
-                <div class="ingredient-item">
-                    <div class="ingredient-name">Centella Asiatica</div>
-                    <div class="ingredient-description">Activates cell regeneration, reduces inflammation, enhances wound healing</div>
+        </div>
+    </section>
+
+    <!-- KIDS ZONE -->
+    <div class="kids-zone" id="kids">
+        <div class="kids-inner">
+            <div class="kids-title">
+                <h2>I3IO Kids Zone &#128568;</h2>
+                <p>Kem đánh răng an toàn & vui nhộn cho bé yêu (4-9 tuổi) — Sản xuất tại Hàn Quốc</p>
+            </div>
+            <div class="kids-cards">
+                <div class="kids-card vanilla" onclick="openModal('kids-vanilla')">
+                    <div class="kids-card-img"><img src="images/kids_vanilla.jpg" alt="Kids Vanilla"></div>
+                    <div class="kids-body">
+                        <div class="kids-flavor">Hương Vanilla</div>
+                        <h3>Kids Vanilla</h3>
+                        <p>Hương vanilla tự nhiên mà bé yêu thích! Không SLS, dịu nhẹ cho nướu non.</p>
+                        <div class="kids-badges">
+                            <span class="kids-badge">Không SLS</span>
+                            <span class="kids-badge">500ppm F</span>
+                            <span class="kids-badge">Made in Korea</span>
+                        </div>
+                        <div class="kids-price">79,000 - 99,000 VND</div>
+                        <span class="kids-cta">Xem Thêm &#127881;</span>
+                    </div>
                 </div>
-                <div class="ingredient-item">
-                    <div class="ingredient-name">Chamomile</div>
-                    <div class="ingredient-description">Anti-inflammatory properties, soothes and softens gums</div>
+                <div class="kids-card muscat" onclick="openModal('kids-muscat')">
+                    <div class="kids-card-img"><img src="images/kids_muscat.jpg" alt="Kids Muscat"></div>
+                    <div class="kids-body">
+                        <div class="kids-flavor">Hương Nho Muscat</div>
+                        <h3>Kids Muscat</h3>
+                        <p>Hương nho Muscat thơm ngon khuyến khích bé đánh răng mỗi ngày!</p>
+                        <div class="kids-badges">
+                            <span class="kids-badge">Không SLS</span>
+                            <span class="kids-badge">500ppm F</span>
+                            <span class="kids-badge">Made in Korea</span>
+                        </div>
+                        <div class="kids-price">79,000 - 99,000 VND</div>
+                        <span class="kids-cta">Xem Thêm &#127815;</span>
+                    </div>
                 </div>
-                <div class="ingredient-item">
-                    <div class="ingredient-name">Scutellaria Root</div>
-                    <div class="ingredient-description">Powerful antioxidant, supports gum immunity</div>
+            </div>
+            <div class="kids-safety">
+                <div class="safety-pill">&#128737;&#65039; Không chứa SLS</div>
+                <div class="safety-pill">&#127472;&#127479; Sản xuất tại Hàn Quốc</div>
+                <div class="safety-pill">&#128153; Phù hợp 4-9 tuổi</div>
+                <div class="safety-pill">&#9989; Fluoride 500ppm</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CLINICAL -->
+    <section class="anim" id="clinical">
+        <h2>Bằng Chứng Lâm Sàng</h2>
+        <div class="divider"></div>
+        <p class="section-sub">Thử nghiệm tại Đại học Quốc gia Hà Nội — Tháng 11/2025</p>
+        <div class="clinical-grid">
+            <div class="clinical-card">
+                <h4>Giảm Độ Nhạy Cảm</h4>
+                <div class="bar-chart">
+                    <div class="bar-row">
+                        <div class="bar-label">I3IO</div>
+                        <div class="bar-bg"><div class="bar-fill teal" style="width:82%;">24.6%</div></div>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar-label">Đối thủ</div>
+                        <div class="bar-bg"><div class="bar-fill grey" style="width:55%;">16.5%</div></div>
+                    </div>
                 </div>
-                <div class="ingredient-item">
-                    <div class="ingredient-name">Magnolia Bark</div>
-                    <div class="ingredient-description">Fresh breath, natural antibacterial</div>
+                <div class="clinical-note">Selcopintide® cho hiệu quả giảm nhạy cảm vượt trội so với sản phẩm cạnh tranh trên thị trường.</div>
+            </div>
+            <div class="clinical-card">
+                <h4>Cải Thiện Sức Khỏe Nướu</h4>
+                <div class="bar-chart">
+                    <div class="bar-row">
+                        <div class="bar-label">I3IO</div>
+                        <div class="bar-bg"><div class="bar-fill teal" style="width:75%;">18.6%</div></div>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar-label">Đối thủ</div>
+                        <div class="bar-bg"><div class="bar-fill grey" style="width:62%;">15.5%</div></div>
+                    </div>
                 </div>
-                <div class="ingredient-item">
-                    <div class="ingredient-name">Enoxolone</div>
-                    <div class="ingredient-description">Reduces chronic inflammation, supports gum healing</div>
+                <div class="clinical-note">I3IO giảm viêm và tăng cường lành vết thương nướu hiệu quả hơn đối thủ cạnh tranh.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section class="section-full section-grey anim">
+        <div style="max-width:1300px;margin:0 auto;">
+            <h2>Giải Thưởng & Công Nhận</h2>
+            <div class="divider"></div>
+            <div class="awards-row">
+                <div class="award-card">
+                    <div class="award-icon">&#127942;</div>
+                    <h4>K-HERO Top Winner</h4>
+                    <p>Giải thưởng sáng kiến y tế hàng đầu Hàn Quốc 2025</p>
                 </div>
-                <div class="ingredient-item">
-                    <div class="ingredient-name">Selcopintide®</div>
-                    <div class="ingredient-description">Proprietary peptide - natural dentin regeneration</div>
+                <div class="award-card">
+                    <div class="award-icon">&#11088;</div>
+                    <h4>ADA Forsyth Dentech</h4>
+                    <p>Best Innovation Award 2025 từ Hiệp hội Nha khoa Hoa Kỳ</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon">&#128300;</div>
+                    <h4>Seoul National University</h4>
+                    <p>Công nghệ gốc từ ĐH Quốc gia Seoul</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT ORION SECTION -->
-    <section class="about-orion animate-on-scroll">
-        <h2>About Orion Biologics</h2>
-        <div class="section-divider"></div>
-        <div class="orion-content">
-            <div class="orion-text">
-                <h3>Leading Biotechnology</h3>
-                <p><strong>Orion Biologics</strong> is a pioneering biotechnology company in South Korea, renowned for innovative healthcare products and science-based formulations.</p>
-                <p>The company is part of <strong>Orion Group</strong>, a globally recognized conglomerate known for products like <strong>Choco Pie</strong>.</p>
-                <p>With roots in <strong>Seoul National University</strong>, Orion Biologics applies cutting-edge scientific discoveries to healthcare, especially in dental medicine.</p>
-                <div class="orion-highlights">
-                    <div class="highlight">
-                        <strong>Manufacturing:</strong> Thailand (functional products) & Korea (kids products)
-                    </div>
-                    <div class="highlight">
-                        <strong>Quality Standards:</strong> International, GMP-certified
-                    </div>
-                    <div class="highlight">
-                        <strong>Foundation:</strong> K-Science from Seoul
-                    </div>
-                </div>
-            </div>
-            <div style="background: #1a1a1a; padding: 2.5rem; border: 1px solid #333; text-align: center; border-left: 3px solid #D4AF77;">
-                <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: #D4AF77; margin-bottom: 1rem;">Orion Group</div>
-                <p style="color: #cccccc; line-height: 2; margin-bottom: 2rem;">Global Leading Corporation</p>
-                <div style="text-align: left; color: #999; font-size: 0.9rem; line-height: 2;">
-                    <p>&#127758; Present in 40+ countries</p>
-                    <p>&#128300; Strong R&D investment</p>
-                    <p>&#9989; International GMP certified</p>
-                    <p>&#127942; Multiple innovation awards</p>
-                </div>
-            </div>
+    <!-- INGREDIENTS -->
+    <section class="anim">
+        <h2>Thành Phần Bio-Active</h2>
+        <div class="divider"></div>
+        <p class="section-sub">Selcopintide® kết hợp thành phần thiên nhiên được chọn lọc kỹ lưỡng</p>
+        <div class="ing-grid">
+            <div class="ing-card"><h4>Centella Asiatica</h4><p>Tái tạo tế bào, giảm viêm</p></div>
+            <div class="ing-card"><h4>Chamomile</h4><p>Kháng viêm, làm dịu nướu</p></div>
+            <div class="ing-card"><h4>Scutellaria Root</h4><p>Chống oxy hóa, hỗ trợ miễn dịch nướu</p></div>
+            <div class="ing-card"><h4>Magnolia Bark</h4><p>Hơi thở tươi, chống khuẩn tự nhiên</p></div>
+            <div class="ing-card"><h4>Enoxolone</h4><p>Giảm viêm mãn tính, chữa lành nướu</p></div>
+            <div class="ing-card"><h4>Selcopintide®</h4><p>Peptide độc quyền — tái tạo dentin</p></div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section class="contact animate-on-scroll" id="contact">
-        <h2>Contact & Shop</h2>
-        <div class="section-divider"></div>
-        <p>Discover I3IO - Premium Medical Toothpaste from Korea. Regenerate, Don't Just Cover Up.</p>
-        <div class="contact-buttons">
-            <button class="contact-button" onclick="alert('Contact feature coming soon')">Contact Us</button>
-            <button class="contact-button" onclick="alert('Online shopping coming soon')">Buy Now</button>
+    <!-- CONTACT -->
+    <section class="section-full section-teal anim" id="contact">
+        <div style="max-width:1300px;margin:0 auto;" class="contact">
+            <h2>Liên Hệ & Mua Sắm</h2>
+            <div class="divider"></div>
+            <p>Khám phá I3IO — Kem đánh răng y tế cao cấp từ Hàn Quốc. Chữa lành, không chỉ che lấp.</p>
+            <div class="contact-btns">
+                <button class="btn" onclick="alert('Tính năng liên hệ sẽ được cập nhật sớm')">Liên Hệ Chúng Tôi</button>
+                <button class="btn btn-outline" onclick="alert('Mua sắm trực tuyến sẽ được cập nhật sớm')">Mua Ngay</button>
+            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2025 I3IO by Orion Biologics. All rights reserved. | K-Science Premium Toothpaste from Korea</p>
-        <p style="margin-top: 1rem; font-size: 0.8rem;">Manufactured in Thailand (Functional Products) & Korea (Kids Products)</p>
+        <p>&copy; 2025 I3IO by Orion Biologics. All rights reserved.</p>
+        <p style="margin-top:0.3rem;">Sản xuất tại Thái Lan (Sản phẩm chức năng) & Hàn Quốc (Sản phẩm trẻ em)</p>
     </footer>
 
     <!-- MODALS -->
     <div class="modal" id="sensitiveModal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">I3IO Sensitive Care</h2>
-                <span class="modal-close" onclick="closeModal('sensitive')">&#10005;</span>
-            </div>
+            <div class="modal-header"><h2>I3IO Sensitive Care</h2><button class="modal-close" onclick="closeModal('sensitive')">&#10005;</button></div>
             <div class="modal-body">
-                <div class="modal-image">
-                    <img src="images/sensitive.jpg" alt="I3IO Sensitive Care">
-                </div>
-                <div class="modal-details">
-                    <h3>Sensitive Care</h3>
-                    <p>The flagship I3IO product, Sensitive Care is a medical-grade formula designed to reduce sensitivity and naturally regenerate dentin.</p>
-                    <p>The proprietary combination of Selcopintide® with Potassium Nitrate creates a powerful sensitivity-reducing formula while regenerating dentin.</p>
+                <div class="modal-img"><img src="images/sensitive.jpg" alt="Sensitive Care"></div>
+                <div class="modal-info">
+                    <h3>Chăm Sóc Độ Nhạy Cảm</h3>
+                    <p>Sản phẩm chủ lực — công thức y tế giảm nhạy cảm và tái tạo dentin tự nhiên. Kết hợp Selcopintide® với Potassium Nitrate.</p>
                     <div class="modal-specs">
-                        <div class="spec-item">
-                            <span class="spec-label">Active Ingredients:</span>
-                            <span class="spec-value">Selcopintide® + Potassium Nitrate</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Sensitivity Reduction:</span>
-                            <span class="spec-value">24.6% (vs 16.5% competitors)</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Size:</span>
-                            <span class="spec-value">120g tube</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Origin:</span>
-                            <span class="spec-value">Thailand</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Packaging:</span>
-                            <span class="spec-value">Aluminum metallic tube, Matte chrome cap</span>
-                        </div>
+                        <div class="spec-row"><span class="label">Hoạt Chất:</span><span class="value">Selcopintide® + Potassium Nitrate</span></div>
+                        <div class="spec-row"><span class="label">Hiệu Quả:</span><span class="value">24.6% (vs 16.5% đối thủ)</span></div>
+                        <div class="spec-row"><span class="label">Dung Tích:</span><span class="value">120g</span></div>
+                        <div class="spec-row"><span class="label">Xuất Xứ:</span><span class="value">Thái Lan</span></div>
+                        <div class="spec-row"><span class="label">Đóng Gói:</span><span class="value">Aluminum tube, Matte chrome cap</span></div>
                     </div>
                     <div class="modal-price">139,000 - 169,000 VND</div>
                 </div>
@@ -1673,39 +1049,18 @@
 
     <div class="modal" id="gumcareModal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">I3IO Gum Care</h2>
-                <span class="modal-close" onclick="closeModal('gumcare')">&#10005;</span>
-            </div>
+            <div class="modal-header"><h2>I3IO Gum Care</h2><button class="modal-close" onclick="closeModal('gumcare')">&#10005;</button></div>
             <div class="modal-body">
-                <div class="modal-image">
-                    <img src="images/gumcare.jpg" alt="I3IO Gum Care">
-                </div>
-                <div class="modal-details">
-                    <h3>Gum Care</h3>
-                    <p>Gum Care is a specialized formula for those with gum inflammation and bleeding. Combines Selcopintide® with CPC (Chlorhexidine) for powerful anti-inflammatory action.</p>
-                    <p>This formula not only treats inflammation but activates natural gum regeneration for comprehensive gum health improvement.</p>
+                <div class="modal-img"><img src="images/gumcare.jpg" alt="Gum Care"></div>
+                <div class="modal-info">
+                    <h3>Chăm Sóc Nướu</h3>
+                    <p>Công thức chuyên biệt cho viêm nướu, chảy máu nướu. Selcopintide® + CPC chống viêm mạnh mẽ, kích hoạt tái tạo nướu tự nhiên.</p>
                     <div class="modal-specs">
-                        <div class="spec-item">
-                            <span class="spec-label">Active Ingredients:</span>
-                            <span class="spec-value">Selcopintide® + CPC (Chlorhexidine)</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Gum Improvement:</span>
-                            <span class="spec-value">18.6% (vs 15.5% competitors)</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Size:</span>
-                            <span class="spec-value">120g tube</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Benefits:</span>
-                            <span class="spec-value">Anti-inflammatory, Gum healing, Reduces bleeding</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Packaging:</span>
-                            <span class="spec-value">Aluminum metallic tube, Matte chrome cap</span>
-                        </div>
+                        <div class="spec-row"><span class="label">Hoạt Chất:</span><span class="value">Selcopintide® + CPC</span></div>
+                        <div class="spec-row"><span class="label">Hiệu Quả:</span><span class="value">18.6% (vs 15.5% đối thủ)</span></div>
+                        <div class="spec-row"><span class="label">Dung Tích:</span><span class="value">120g</span></div>
+                        <div class="spec-row"><span class="label">Công Năng:</span><span class="value">Chống viêm, Chữa lành, Giảm chảy máu</span></div>
+                        <div class="spec-row"><span class="label">Đóng Gói:</span><span class="value">Aluminum tube, Matte chrome cap</span></div>
                     </div>
                     <div class="modal-price">139,000 - 169,000 VND</div>
                 </div>
@@ -1715,39 +1070,18 @@
 
     <div class="modal" id="whiteningModal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">I3IO Whitening</h2>
-                <span class="modal-close" onclick="closeModal('whitening')">&#10005;</span>
-            </div>
+            <div class="modal-header"><h2>I3IO Whitening</h2><button class="modal-close" onclick="closeModal('whitening')">&#10005;</button></div>
             <div class="modal-body">
-                <div class="modal-image">
-                    <img src="images/whitening.jpg" alt="I3IO Whitening">
-                </div>
-                <div class="modal-details">
-                    <h3>Premium Whitening</h3>
-                    <p>Effective whitening that's still safe and protects sensitive dentin. Combines Selcopintide® with Activated Charcoal for natural whitening.</p>
-                    <p>Removes surface stains with minimal sensitivity compared to traditional whitening products.</p>
+                <div class="modal-img"><img src="images/whitening.jpg" alt="Whitening"></div>
+                <div class="modal-info">
+                    <h3>Tẩy Trắng Cao Cấp</h3>
+                    <p>Tẩy trắng hiệu quả, an toàn cho dentin. Selcopintide® + Activated Charcoal — không Peroxide, không hạt mài mòn mạnh.</p>
                     <div class="modal-specs">
-                        <div class="spec-item">
-                            <span class="spec-label">Active Ingredients:</span>
-                            <span class="spec-value">Selcopintide® + Activated Charcoal</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Benefits:</span>
-                            <span class="spec-value">Whitening, Dentin protection</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Size:</span>
-                            <span class="spec-value">120g tube</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Free From:</span>
-                            <span class="spec-value">Hydrogen Peroxide, Harsh Abrasives</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Packaging:</span>
-                            <span class="spec-value">Aluminum metallic tube, Matte chrome cap</span>
-                        </div>
+                        <div class="spec-row"><span class="label">Hoạt Chất:</span><span class="value">Selcopintide® + Activated Charcoal</span></div>
+                        <div class="spec-row"><span class="label">Công Năng:</span><span class="value">Tẩy trắng, Bảo vệ dentin</span></div>
+                        <div class="spec-row"><span class="label">Dung Tích:</span><span class="value">120g</span></div>
+                        <div class="spec-row"><span class="label">Không Chứa:</span><span class="value">Hydrogen Peroxide</span></div>
+                        <div class="spec-row"><span class="label">Đóng Gói:</span><span class="value">Aluminum tube, Matte chrome cap</span></div>
                     </div>
                     <div class="modal-price">99,000 - 129,000 VND</div>
                 </div>
@@ -1757,39 +1091,18 @@
 
     <div class="modal modal-kids" id="kidsvanillaModal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">I3IO Kids Vanilla</h2>
-                <span class="modal-close" onclick="closeModal('kids-vanilla')">&#10005;</span>
-            </div>
+            <div class="modal-header"><h2>I3IO Kids Vanilla</h2><button class="modal-close" onclick="closeModal('kids-vanilla')">&#10005;</button></div>
             <div class="modal-body">
-                <div class="modal-image">
-                    <img src="images/kids_vanilla.jpg" alt="I3IO Kids Vanilla">
-                </div>
-                <div class="modal-details">
-                    <h3>Kids Vanilla Toothpaste</h3>
-                    <p>Specially designed for children ages 4-9. Completely SLS-free (Sodium Lauryl Sulfate) to protect young sensitive gums.</p>
-                    <p>Natural and delicious vanilla flavor helps children enjoy brushing. Made in Korea with the highest quality standards.</p>
+                <div class="modal-img"><img src="images/kids_vanilla.jpg" alt="Kids Vanilla"></div>
+                <div class="modal-info">
+                    <h3>Kem Đánh Răng Trẻ Em - Vanilla</h3>
+                    <p>Cho bé 4-9 tuổi. Không SLS, dịu nhẹ cho nướu non. Hương vanilla tự nhiên giúp bé yêu thích đánh răng. Sản xuất tại Hàn Quốc.</p>
                     <div class="modal-specs">
-                        <div class="spec-item">
-                            <span class="spec-label">Age:</span>
-                            <span class="spec-value">4-9 years</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Fluoride:</span>
-                            <span class="spec-value">500 ppm</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">SLS:</span>
-                            <span class="spec-value">SLS-free</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Flavor:</span>
-                            <span class="spec-value">Natural Vanilla</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Made in:</span>
-                            <span class="spec-value">Korea</span>
-                        </div>
+                        <div class="spec-row"><span class="label">Tuổi:</span><span class="value">4-9 tuổi</span></div>
+                        <div class="spec-row"><span class="label">Fluoride:</span><span class="value">500 ppm</span></div>
+                        <div class="spec-row"><span class="label">SLS:</span><span class="value">Không chứa</span></div>
+                        <div class="spec-row"><span class="label">Hương Vị:</span><span class="value">Vanilla tự nhiên</span></div>
+                        <div class="spec-row"><span class="label">Sản Xuất:</span><span class="value">Hàn Quốc</span></div>
                     </div>
                     <div class="modal-price">79,000 - 99,000 VND</div>
                 </div>
@@ -1799,39 +1112,18 @@
 
     <div class="modal modal-kids" id="kidsmuscatModal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">I3IO Kids Muscat</h2>
-                <span class="modal-close" onclick="closeModal('kids-muscat')">&#10005;</span>
-            </div>
+            <div class="modal-header"><h2>I3IO Kids Muscat</h2><button class="modal-close" onclick="closeModal('kids-muscat')">&#10005;</button></div>
             <div class="modal-body">
-                <div class="modal-image">
-                    <img src="images/kids_muscat.jpg" alt="I3IO Kids Muscat">
-                </div>
-                <div class="modal-details">
-                    <h3>Kids Muscat Grape Toothpaste</h3>
-                    <p>For children ages 4-9 with delicious and appealing Muscat grape flavor. Completely SLS-free for sensitive gum protection.</p>
-                    <p>Gentle yet effective formula, made in Korea. Encourages children to develop good oral hygiene habits early.</p>
+                <div class="modal-img"><img src="images/kids_muscat.jpg" alt="Kids Muscat"></div>
+                <div class="modal-info">
+                    <h3>Kem Đánh Răng Trẻ Em - Nho Muscat</h3>
+                    <p>Cho bé 4-9 tuổi. Hương nho Muscat thơm ngon. Không SLS, an toàn cho nướu nhạy cảm. Sản xuất tại Hàn Quốc.</p>
                     <div class="modal-specs">
-                        <div class="spec-item">
-                            <span class="spec-label">Age:</span>
-                            <span class="spec-value">4-9 years</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Fluoride:</span>
-                            <span class="spec-value">500 ppm</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">SLS:</span>
-                            <span class="spec-value">SLS-free</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Flavor:</span>
-                            <span class="spec-value">Natural Muscat Grape</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Made in:</span>
-                            <span class="spec-value">Korea</span>
-                        </div>
+                        <div class="spec-row"><span class="label">Tuổi:</span><span class="value">4-9 tuổi</span></div>
+                        <div class="spec-row"><span class="label">Fluoride:</span><span class="value">500 ppm</span></div>
+                        <div class="spec-row"><span class="label">SLS:</span><span class="value">Không chứa</span></div>
+                        <div class="spec-row"><span class="label">Hương Vị:</span><span class="value">Nho Muscat tự nhiên</span></div>
+                        <div class="spec-row"><span class="label">Sản Xuất:</span><span class="value">Hàn Quốc</span></div>
                     </div>
                     <div class="modal-price">79,000 - 99,000 VND</div>
                 </div>
@@ -1841,39 +1133,17 @@
 
     <div class="modal" id="toothbrushModal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">I3IO Toothbrush</h2>
-                <span class="modal-close" onclick="closeModal('toothbrush')">&#10005;</span>
-            </div>
+            <div class="modal-header"><h2>I3IO Toothbrush</h2><button class="modal-close" onclick="closeModal('toothbrush')">&#10005;</button></div>
             <div class="modal-body">
-                <div class="modal-image">
-                    <img src="images/toothbrush.jpg" alt="I3IO Toothbrush">
-                </div>
-                <div class="modal-details">
-                    <h3>Premium Toothbrush</h3>
-                    <p>Ergonomic design with soft bristles, comfortable for sensitive gums. Available in 3 variants for different care needs.</p>
-                    <p>Pairs perfectly with I3IO toothpaste for a complete premium dental care set.</p>
+                <div class="modal-img"><img src="images/toothbrush.jpg" alt="Toothbrush"></div>
+                <div class="modal-info">
+                    <h3>Bàn Chải Cao Cấp</h3>
+                    <p>Thiết kế ergonomic, lông mềm an toàn cho nướu nhạy cảm. 3 biến thể phù hợp mọi nhu cầu.</p>
                     <div class="modal-specs">
-                        <div class="spec-item">
-                            <span class="spec-label">Design:</span>
-                            <span class="spec-value">Ergonomic, Comfortable</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Bristles:</span>
-                            <span class="spec-value">Soft, Safe for sensitive gums</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Variants:</span>
-                            <span class="spec-value">3 options</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Material:</span>
-                            <span class="spec-value">Durable plastic, Premium nylon bristles</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Age:</span>
-                            <span class="spec-value">All ages</span>
-                        </div>
+                        <div class="spec-row"><span class="label">Thiết Kế:</span><span class="value">Ergonomic</span></div>
+                        <div class="spec-row"><span class="label">Lông:</span><span class="value">Mềm, an toàn</span></div>
+                        <div class="spec-row"><span class="label">Biến Thể:</span><span class="value">3 tùy chọn</span></div>
+                        <div class="spec-row"><span class="label">Phù Hợp:</span><span class="value">Mọi lứa tuổi</span></div>
                     </div>
                     <div class="modal-price">69,000 - 89,000 VND</div>
                 </div>
@@ -1882,77 +1152,34 @@
     </div>
 
     <script>
-        function openModal(type) {
-            const modalMap = {
-                'sensitive': 'sensitiveModal',
-                'gumcare': 'gumcareModal',
-                'whitening': 'whiteningModal',
-                'kids-vanilla': 'kidsvanillaModal',
-                'kids-muscat': 'kidsmuscatModal',
-                'toothbrush': 'toothbrushModal'
-            };
-
-            const modalId = modalMap[type];
-            if (modalId) {
-                document.getElementById(modalId).classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
+        const modalMap = {
+            'sensitive': 'sensitiveModal',
+            'gumcare': 'gumcareModal',
+            'whitening': 'whiteningModal',
+            'kids-vanilla': 'kidsvanillaModal',
+            'kids-muscat': 'kidsmuscatModal',
+            'toothbrush': 'toothbrushModal'
+        };
+        function openModal(t) {
+            if (modalMap[t]) { document.getElementById(modalMap[t]).classList.add('active'); document.body.style.overflow='hidden'; }
         }
-
-        function closeModal(type) {
-            const modalMap = {
-                'sensitive': 'sensitiveModal',
-                'gumcare': 'gumcareModal',
-                'whitening': 'whiteningModal',
-                'kids-vanilla': 'kidsvanillaModal',
-                'kids-muscat': 'kidsmuscatModal',
-                'toothbrush': 'toothbrushModal'
-            };
-
-            const modalId = modalMap[type];
-            if (modalId) {
-                document.getElementById(modalId).classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
+        function closeModal(t) {
+            if (modalMap[t]) { document.getElementById(modalMap[t]).classList.remove('active'); document.body.style.overflow='auto'; }
         }
-
-        // Close modal when clicking outside
-        document.addEventListener('click', function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
+        document.addEventListener('click', e => {
+            if (e.target.classList.contains('modal')) { e.target.classList.remove('active'); document.body.style.overflow='auto'; }
         });
-
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                const t = document.querySelector(a.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior:'smooth', block:'start' });
             });
         });
-
-        // Scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+        document.querySelectorAll('.anim').forEach(el => obs.observe(el));
     </script>
 </body>
 </html>
