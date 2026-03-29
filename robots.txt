@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://i3io-vietnam.github.io/sitemap.xml
+
+# I3IO Vietnam - Kem Dánh Rang Y Khoa Cao Cap Han Quoc
+# https://i3io-vietnam.github.io/
