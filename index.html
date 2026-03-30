@@ -25,6 +25,18 @@
     <meta name="twitter:description" content="Công nghệ Selcopintide® tái tạo ngà răng. Giải thưởng quốc tế. Mua ngay trên Shopee!">
     <meta name="twitter:image" content="https://i3io-vietnam.github.io/images/product_lineup.jpg">
 
+    <!-- Google Search Console Verification (thay YOUR_VERIFICATION_CODE bằng mã thật) -->
+    <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE">
+
+    <!-- Google Analytics 4 (thay G-XXXXXXXXXX bằng Measurement ID thật) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,6 +66,33 @@
         "availableLanguage": ["Vietnamese", "Korean", "English"]
       },
       "sameAs": []
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "I3IO Vietnam",
+      "url": "https://i3io-vietnam.github.io/",
+      "description": "Kem đánh răng y khoa cao cấp Hàn Quốc với công nghệ Selcopintide® tái tạo ngà răng",
+      "inLanguage": "vi",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://i3io-vietnam.github.io/blog/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Trang Chủ", "item": "https://i3io-vietnam.github.io/"},
+        {"@type": "ListItem", "position": 2, "name": "Sản Phẩm", "item": "https://i3io-vietnam.github.io/#products"},
+        {"@type": "ListItem", "position": 3, "name": "Công Nghệ", "item": "https://i3io-vietnam.github.io/#technology"},
+        {"@type": "ListItem", "position": 4, "name": "Blog", "item": "https://i3io-vietnam.github.io/blog/"}
+      ]
     }
     </script>
     <script type="application/ld+json">
@@ -1767,6 +1806,32 @@
                 </li>
                 <li class="nav-item">
                     <a href="#faq" onclick="navTo(event,'faq')">Hỏi Đáp</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog/" onclick="toggleDropdown(event, this)">Blog</a>
+                    <div class="dropdown">
+                        <a href="blog/selcopintide-la-gi.html">
+                            <div class="dd-icon">🧬</div>
+                            <div class="dd-text"><span class="dd-label">Selcopintide® Là Gì?</span><span class="dd-desc">Công nghệ peptide đột phá</span></div>
+                        </a>
+                        <a href="blog/e-buot-rang-nguyen-nhan-cach-dieu-tri.html">
+                            <div class="dd-icon">🦷</div>
+                            <div class="dd-text"><span class="dd-label">Ê Buốt Răng</span><span class="dd-desc">Nguyên nhân & cách điều trị</span></div>
+                        </a>
+                        <a href="blog/kem-danh-rang-han-quoc.html">
+                            <div class="dd-icon">🇰🇷</div>
+                            <div class="dd-text"><span class="dd-label">Kem Đánh Răng Hàn Quốc</span><span class="dd-desc">Top sản phẩm 2026</span></div>
+                        </a>
+                        <div class="dd-divider"></div>
+                        <a href="blog/kem-danh-rang-tre-em-an-toan.html">
+                            <div class="dd-icon">👶</div>
+                            <div class="dd-text"><span class="dd-label">Kem Đánh Răng Trẻ Em</span><span class="dd-desc">Hướng dẫn chọn an toàn</span></div>
+                        </a>
+                        <a href="blog/so-sanh-i3io-vs-sensodyne.html">
+                            <div class="dd-icon">⚖️</div>
+                            <div class="dd-text"><span class="dd-label">I3IO vs Sensodyne</span><span class="dd-desc">So sánh chi tiết</span></div>
+                        </a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a href="#contact" onclick="navTo(event,'contact')">Liên Hệ</a>
